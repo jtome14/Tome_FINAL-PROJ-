@@ -22,7 +22,7 @@ You can see a flashlight here.
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="20">NO</temporary>
+    <temporary score="28">NO</temporary>
     <children>
       <child nodeId="node-0x1b76170" />
       <child nodeId="node-0x1bba9d0" />
@@ -423,12 +423,12 @@ living room
     <command xml:space="preserve">inside</command>
     <result xml:space="preserve">
 conservatory
-You can see a telescope (in which is a fingerscope) here.
+You can see a telescope (in which are a finderscope, a screw and a base) here.
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="19">YES</temporary>
+    <temporary score="28">YES</temporary>
     <children>
       <child nodeId="node-0xbf60680" />
     </children>
@@ -439,8 +439,8 @@ You can see a telescope (in which is a fingerscope) here.
 
 &gt;</result>
     <played>YES</played>
-    <changed>YES</changed>
-    <temporary score="19">YES</temporary>
+    <changed>NO</changed>
+    <temporary score="28">YES</temporary>
     <children>
       <child nodeId="node-0xbf25420" />
     </children>
@@ -449,12 +449,16 @@ You can see a telescope (in which is a fingerscope) here.
     <command xml:space="preserve">i</command>
     <result xml:space="preserve">You are carrying:
   a telescope
+    a finderscope
+    a screw
+    a base
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="19">YES</temporary>
+    <temporary score="28">YES</temporary>
     <children>
+      <child nodeId="node-0x1b0ce50" />
       <child nodeId="node-0xbf34550" />
     </children>
   </item>
@@ -466,6 +470,67 @@ You can see a telescope (in which is a fingerscope) here.
     <played>YES</played>
     <changed>YES</changed>
     <temporary score="18">YES</temporary>
+  </item>
+  <item nodeId="node-0x1b0ce50">
+    <command xml:space="preserve">combine finderscope with base</command>
+    <result xml:space="preserve">(first taking the finderscope)
+(first taking the base)
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="28">YES</temporary>
+    <children>
+      <child nodeId="node-0x10a24a10" />
+    </children>
+  </item>
+  <item nodeId="node-0x10a24a10">
+    <command xml:space="preserve">combine</command>
+    <result xml:space="preserve">(the finderscope with the base)
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="28">YES</temporary>
+    <children>
+      <child nodeId="node-0xbf96180" />
+    </children>
+  </item>
+  <item nodeId="node-0xbf96180">
+    <command xml:space="preserve">yes</command>
+    <result xml:space="preserve">That was a rhetorical question.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="28">YES</temporary>
+    <children>
+      <child nodeId="node-0x10a1f510" />
+    </children>
+  </item>
+  <item nodeId="node-0x10a1f510">
+    <command xml:space="preserve">scope base</command>
+    <result xml:space="preserve">(the base)
+1: yourself (41)
+2: a base (48)
+3: a finderscope (46)
+4: a telescope (45)
+5: a screw (47)
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="28">YES</temporary>
+    <children>
+      <child nodeId="node-0xd4fb100" />
+    </children>
+  </item>
+  <item nodeId="node-0xd4fb100">
+    <command xml:space="preserve">x scope base</command>
+    <result xml:space="preserve">You can&apos;t see any such thing.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="27">YES</temporary>
   </item>
   <item nodeId="node-0x1bba9d0">
     <command xml:space="preserve">x boat</command>

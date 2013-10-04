@@ -9946,6 +9946,9 @@ Array tab_0_4 table $0068 4  TABLE_NOVALUE TABLE_NOVALUE (V26_amusing_a_victorio
 Array T1_locale_priorities table  tab_1_0 tab_1_1;
 Array tab_1_0 table $0869 NULL  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
 Array tab_1_1 table $446a 5  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
+Array T2_arm_parts table  tab_2_0 tab_2_1;
+Array tab_2_0 table $066b 6  (LIST_CONST_489) ;
+Array tab_2_1 table $086c NULL  (I102_scope_base) ;
 Array TB_Blanks -> 
   ! For table T0_final_question_options
   $00  ! Column 0
@@ -9956,6 +9959,9 @@ Array TB_Blanks ->
   
   ! For table T1_locale_priorities
   $ff  ! Column 1
+  
+  ! For table T2_arm_parts
+  $00  ! Column 0
   
   ! End of table
   NULL NULL;
@@ -9968,11 +9974,13 @@ Array TB_Blanks ->
         104: return KD2_activity; ! final response activity: activity
         105: return OBJECT_TY; ! notable-object: object
         106: return NUMBER_TY; ! locale description priority: number
+        107: return KD3_list_of_things; ! parts list: list of things
+        108: return 9; ! results: thing
     }
     return UNKNOWN_TY;
 ];
 
-Array TableOfTables --> TheEmptyTable T0_final_question_options  T1_locale_priorities  0 0;
+Array TableOfTables --> TheEmptyTable T0_final_question_options  T1_locale_priorities  T2_arm_parts  0 0;
 
 
 
@@ -10063,7 +10071,7 @@ Array ActionData table
   ##NotifyOff  $$00100000  OBJECT_TY OBJECT_TY  0 20078
   ##Pronouns  $$00100000  OBJECT_TY OBJECT_TY  0 20079
   ##A80_turning_on  $$00001001  OBJECT_TY OBJECT_TY  0 20080
-  ##A81_combining_it_with  $$11011011  OBJECT_TY OBJECT_TY  0 20081
+  ##A81_combining_it_with  $$00011011  OBJECT_TY OBJECT_TY  ANSTVC_81 20081
 ;
 Constant AD_RECORDS = 82;
 [ ANSTVC_7 pos state;
@@ -10107,6 +10115,14 @@ Constant AD_RECORDS = 82;
 [ ANSTVC_12 pos state;
     if (state == 1) {
         MStack-->pos = false; pos++;
+    } else {
+        pos++;
+    }
+    return 1;
+];
+[ ANSTVC_81 pos state;
+    if (state == 1) {
+        MStack-->pos = nothing; pos++;
     } else {
         pos++;
     }
@@ -10597,12 +10613,79 @@ Array ActionHappened --> 0 0 0 0 0 0;
 ! ----------------------------------------------------------------------------------------------------
 ! Rules in rulebook: Setting action variables (B11_setting_action_variables)
 ! ----------------------------------------------------------------------------------------------------
-! Rule 1/3 ! Rule for setting action variables for going ( this is the standard set going variables rule ):
+! Rule 1/4 ! Setting action variables for combining something with something:
+!   >>> I - Number of aspects constrained >>>
+! Rule 2/4 ! Rule for setting action variables for going ( this is the standard set going variables rule ):
 !   === which is equally specific with ===
-! Rule 2/3 ! Setting action variables for looking ( this is the determine visibility ceiling rule ):
+! Rule 3/4 ! Setting action variables for looking ( this is the determine visibility ceiling rule ):
 !   === which is equally specific with ===
-! Rule 3/3 ! Setting action variables for exiting:
+! Rule 4/4 ! Setting action variables for exiting:
 ! ----------------------------------------------------------------------------------------------------
+! No specific request
+! Setting action variables for combining something with something:
+[ R_742 ;blockv_stack-->(blockv_sp+1) = BlkValueCreate(LIST_OF_TY,0,KD3_list_of_things);
+    blockv_stack-->(blockv_sp+0) = BlkValueCreate(LIST_OF_TY,0,KD4_list_of_objects);
+    blockv_sp = blockv_sp + 2;
+    blockv_stack-->(blockv_sp++) = R_SHELL_0(blockv_sp-2);
+    blockv_sp = blockv_sp - 3;
+    BlkFree(blockv_stack-->(blockv_sp+1));
+    BlkFree(blockv_stack-->(blockv_sp+0));
+    return blockv_stack-->(blockv_sp+2);
+];
+[ R_SHELL_0 I7BASPL 
+    t_0 ! Local variable e.g. 'X' = list of objects
+    t_1 ! Local variable e.g. '?-1,-1?' = number
+    t_2 ! Local variable e.g. '?-1,-1?' = number
+    t_3 ! Local variable e.g. '?-1,-1?' = list of things
+    ct_0 ct_1 ! Used for table searches
+    ;
+   if ((action ==##A81_combining_it_with) && ((noun ofclass K2_thing)) && ((second ofclass K2_thing))) { ! Runs only when pattern matches
+self = noun;
+   if (debug_rules) DB_Rule(R_742, 742);
+      ! phrase 1
+      ! [1: let x be a list of objects]
+       t_0 = (blockv_stack-->(I7BASPL+0)); 
+      ! phrase 2
+      ! [2: add the noun to x]
+       LIST_OF_TY_InsertItem(t_0, noun, 0, 0, 0); 
+      ! phrase 3
+      ! [3: add the second noun to x]
+       LIST_OF_TY_InsertItem(t_0, second, 0, 0, 0); 
+      ! phrase 4
+      ! [4: sort x]
+       LIST_OF_TY_Sort(t_0, 1); 
+      ! phrase 5
+      ! [5: repeat through the table of arm parts begin]
+       @push ct_0; @push ct_1;
+		for (t_1=T2_arm_parts,t_2=1,ct_0=t_1,ct_1=t_2:
+			t_2<=TableRows(t_1):t_2++,ct_0=t_1,ct_1=t_2)
+			if (TableRowIsBlank(ct_0,ct_1)==false)  {
+           if (debug_rules>1) print "  [repetition with ?-1,-1? set to ", (DecimalNumber) t_1, "]^";
+         ! phrase 6
+         ! [6: let y be the parts list entry]
+          t_3 = (blockv_stack-->(I7BASPL+1)); BlkValueCopy(t_3, TableLookUpEntry(ct_0,107,ct_1)); 
+         ! phrase 7
+         ! [7: sort y]
+          LIST_OF_TY_Sort(t_3, 1); 
+         ! phrase 8
+         ! [8: if x is y begin]
+          if (((BlkValueCompare(t_0, t_3)==0)))  {
+            ! phrase 9
+            ! [9: now the contraption is the results entry]
+             (MStack-->MstVO(20081,0)) = TableLookUpEntry(ct_0,108,ct_1); 
+            ! phrase 10
+            ! [10: end if]
+            }
+
+         ! phrase 11
+         ! [11: end repeat]
+         }
+@pull ct_1; @pull ct_0;
+        if (debug_rules>1) print "  [11: end repeat]^";
+   } ! Runs only when pattern matches
+   else if (debug_rules > 1) DB_Rule(R_742, 742, true);
+   rfalse;
+];
 ! No specific request
 ! From the Standard Rules
 ! Rule for setting action variables for going ( this is the standard set going variables rule ):
@@ -17157,6 +17240,82 @@ self = noun;
    rfalse;
 ];
 ! ----------------------------------------------------------------------------------------------------
+
+! ----------------------------------------------------------------------------------------------------
+! Rules in rulebook: check Combining it with (B368_check_combining_it_with)
+! ----------------------------------------------------------------------------------------------------
+! Rule 1/1 ! Check combining it with:
+! ----------------------------------------------------------------------------------------------------
+! No specific request
+! Check combining it with:
+[ R_743 ;
+   if (actor == player) {
+   if (debug_rules) DB_Rule(R_743, 743);
+      ! phrase 1
+      ! [1: if contraption is nothing begin]
+       if ((((MStack-->MstVO(20081,0)) == nothing)))  {
+         ! phrase 2
+         ! [2: say ~You can't combine [the noun] and [the second noun] into anything useful.[line break]Try another combination of things.~]
+         say__p=1;ParaContent();  print (PrintText) SC_34; ParaContent();  print (the) noun; ParaContent();  print (PrintText) SC_35; ParaContent();  print (the) second; ParaContent();  print (PrintText) SC_36; ParaContent();  new_line; ParaContent();  print (PrintText) SC_37;  new_line; .L_Say43; .L_SayX43;
+         ! phrase 3
+         ! [3: stop the action]
+          rtrue; 
+         ! phrase 4
+         ! [4: end if]
+         }
+
+   } ! Runs only when actor is the player
+   else if (debug_rules > 1) DB_Rule(R_743, 743, true);
+   rfalse;
+];
+! ----------------------------------------------------------------------------------------------------
+
+! ----------------------------------------------------------------------------------------------------
+! Rules in rulebook: carry out Combining it with (B369_carry_out_combining_it_)
+! ----------------------------------------------------------------------------------------------------
+! Rule 1/1 ! Carry out combining it with:
+! ----------------------------------------------------------------------------------------------------
+! No specific request
+! Carry out combining it with:
+[ R_744 ;
+   if (actor == player) {
+   if (debug_rules) DB_Rule(R_744, 744);
+      ! phrase 1
+      ! [1: say ~You fuse together [the noun] and [the second noun].~]
+      say__p=1;ParaContent();  print (PrintText) SC_38; ParaContent();  print (the) noun; ParaContent();  print (PrintText) SC_35; ParaContent();  print (the) second; ParaContent();  print (PrintText) SC_32;  new_line; .L_Say44; .L_SayX44;
+      ! phrase 2
+      ! [2: remove the noun from play]
+       RemoveFromPlay(noun); 
+      ! phrase 3
+      ! [3: remove the second noun from play]
+       RemoveFromPlay(second); 
+      ! phrase 4
+      ! [4: move the contraption to the player]
+       MoveObject((MStack-->MstVO(20081,0)), player, 0, false); 
+   } ! Runs only when actor is the player
+   else if (debug_rules > 1) DB_Rule(R_744, 744, true);
+   rfalse;
+];
+! ----------------------------------------------------------------------------------------------------
+
+! ----------------------------------------------------------------------------------------------------
+! Rules in rulebook: report Combining it with (B370_report_combining_it_wit)
+! ----------------------------------------------------------------------------------------------------
+! Rule 1/1 ! Report combining it with:
+! ----------------------------------------------------------------------------------------------------
+! No specific request
+! Report combining it with:
+[ R_745 ;
+   if (actor == player) {
+   if (debug_rules) DB_Rule(R_745, 745);
+      ! phrase 1
+      ! [1: say ~You now have a [a Contraption].~]
+      say__p=1;ParaContent();  print (PrintText) SC_39; ParaContent();  print (a) (MStack-->MstVO(20081,0)); ParaContent();  print (PrintText) SC_32;  new_line; .L_Say45; .L_SayX45;
+   } ! Runs only when actor is the player
+   else if (debug_rules > 1) DB_Rule(R_745, 745, true);
+   rfalse;
+];
+! ----------------------------------------------------------------------------------------------------
 ! Definitions of displaced and unbooked rules
 
 ! Definitions of adjectives
@@ -19022,7 +19181,7 @@ Array B7_when_scene_begins --> R_57 NULL; ! 1 rule(s)
 Constant B8_when_scene_ends = EMPTY_RULEBOOK;
 Constant B9_every_turn = EMPTY_RULEBOOK;
 Array B10_action_processing --> R_20 R_19 R_21 BASIC_VISIBILITY_R BASIC_ACCESSIBILITY_R CARRYING_REQUIREMENTS_R R_22 REQUESTED_ACTIONS_REQUIRE_R CARRY_OUT_REQUESTED_ACTIONS_R DESCEND_TO_SPECIFIC_ACTION_R R_23 NULL; ! 11 rule(s)
-Array B11_setting_action_variables --> R_137 R_171 R_159 NULL; ! 3 rule(s)
+Array B11_setting_action_variables --> R_742 R_137 R_171 R_159 NULL; ! 4 rule(s)
 Array B12_specific_action_processi --> WORK_OUT_DETAILS_OF_SPECIFIC_R R_24 R_25 R_26 R_27 R_28 R_29 R_30 NULL; ! 8 rule(s)
 Array B13_player_s_action_awarenes --> R_31 R_32 R_33 R_34 NULL; ! 4 rule(s)
 Array B14_accessibility --> ACCESS_THROUGH_BARRIERS_R NULL; ! 1 rule(s)
@@ -19379,9 +19538,9 @@ Constant B364_report_requesting_the_p = EMPTY_RULEBOOK;
 Constant B365_check_turning_on = EMPTY_RULEBOOK;
 Constant B366_carry_out_turning_on = EMPTY_RULEBOOK;
 Constant B367_report_turning_on = EMPTY_RULEBOOK;
-Constant B368_check_combining_it_with = EMPTY_RULEBOOK;
-Constant B369_carry_out_combining_it_ = EMPTY_RULEBOOK;
-Constant B370_report_combining_it_wit = EMPTY_RULEBOOK;
+Array B368_check_combining_it_with --> R_743 NULL; ! 1 rule(s)
+Array B369_carry_out_combining_it_ --> R_744 NULL; ! 1 rule(s)
+Array B370_report_combining_it_wit --> R_745 NULL; ! 1 rule(s)
 
 Constant BR_0 = R_8;
 Constant BR_1 = R_9;
@@ -19648,28 +19807,28 @@ Constant BR_261 = R_296;
 Constant BR_262 = R_297;
 Constant BR_263 = R_298;
 Constant BR_264 = R_299;
-Constant BR_699 = R_8;
-Constant BR_705 = R_9;
-Constant BR_706 = R_10;
-Constant BR_707 = R_11;
-Constant BR_708 = R_12;
-Constant BR_716 = R_16;
-Constant BR_717 = R_17;
-Constant BR_719 = R_18;
-Constant BR_722 = R_21;
-Constant BR_723 = R_19;
-Constant BR_724 = R_20;
-Constant BR_728 = R_22;
-Constant BR_732 = R_23;
-Constant BR_738 = R_35;
-Constant BR_740 = R_59;
-Constant BR_741 = R_60;
-Constant BR_743 = R_61;
-Constant BR_748 = R_69;
-Constant BR_749 = R_68;
-Constant BR_751 = R_70;
-Constant BR_752 = R_91;
-Constant BR_753 = R_148;
+Constant BR_703 = R_8;
+Constant BR_709 = R_9;
+Constant BR_710 = R_10;
+Constant BR_711 = R_11;
+Constant BR_712 = R_12;
+Constant BR_720 = R_16;
+Constant BR_721 = R_17;
+Constant BR_723 = R_18;
+Constant BR_726 = R_21;
+Constant BR_727 = R_19;
+Constant BR_728 = R_20;
+Constant BR_732 = R_22;
+Constant BR_736 = R_23;
+Constant BR_742 = R_35;
+Constant BR_744 = R_59;
+Constant BR_745 = R_60;
+Constant BR_747 = R_61;
+Constant BR_752 = R_69;
+Constant BR_753 = R_68;
+Constant BR_755 = R_70;
+Constant BR_756 = R_91;
+Constant BR_757 = R_148;
 
 
 
@@ -23577,81 +23736,85 @@ Array RulebookNames -->
 		if (R == R_159) { print "Setting action variables for exiting"; return; } ! 696, case 2
 		if (R == R_740) { print "When play begins"; return; } ! 697, case 2
 		if (R == R_741) { print "After switching on the flashlight in the attic"; return; } ! 698, case 2
-		if (R == R_8) { print "start in the correct scenes rule"; return; } ! 699, case 1
-		if (R == POSITION_PLAYER_IN_MODEL_R) { print "position player in model world rule"; return; } ! 700, case 1
-		if (R == UPDATE_CHRONOLOGICAL_RECORDS_R) { print "update chronological records rule"; return; } ! 701, case 1
-		if (R == SEED_RANDOM_NUMBER_GENERATOR_R) { print "seed random number generator rule"; return; } ! 702, case 1
-		if (R == VIRTUAL_MACHINE_STARTUP_R) { print "virtual machine startup rule"; return; } ! 703, case 1
-		if (R == INITIALISE_MEMORY_R) { print "initialise memory rule"; return; } ! 704, case 1
-		if (R == R_9) { print "when play begins stage rule"; return; } ! 705, case 1
-		if (R == R_10) { print "fix baseline scoring rule"; return; } ! 706, case 1
-		if (R == R_11) { print "display banner rule"; return; } ! 707, case 1
-		if (R == R_12) { print "initial room description rule"; return; } ! 708, case 1
-		if (R == GENERATE_ACTION_R) { print "generate action rule"; return; } ! 709, case 1
-		if (R == PARSE_COMMAND_R) { print "parse command rule"; return; } ! 710, case 1
-		if (R == TIMED_EVENTS_R) { print "timed events rule"; return; } ! 711, case 1
-		if (R == ADVANCE_TIME_R) { print "advance time rule"; return; } ! 712, case 1
-		if (R == UPDATE_CHRONOLOGICAL_RECORDS_R) { print "update chronological records rule"; return; } ! 713, case 1
-		if (R == ADJUST_LIGHT_R) { print "adjust light rule"; return; } ! 714, case 1
-		if (R == NOTE_OBJECT_ACQUISITIONS_R) { print "note object acquisitions rule"; return; } ! 715, case 1
-		if (R == R_16) { print "notify score changes rule"; return; } ! 716, case 1
-		if (R == R_17) { print "when play ends stage rule"; return; } ! 717, case 1
-		if (R == RESURRECT_PLAYER_IF_ASKED_R) { print "resurrect player if asked rule"; return; } ! 718, case 1
-		if (R == R_18) { print "print player's obituary rule"; return; } ! 719, case 1
-		if (R == ASK_FINAL_QUESTION_R) { print "ask the final question rule"; return; } ! 720, case 1
-		if (R == DetectSceneChange) { print "scene change machinery rule"; return; } ! 721, case 1
-		if (R == R_21) { print "before stage rule"; return; } ! 722, case 1
-		if (R == R_19) { print "set pronouns from items from multiple object lists rule"; return; } ! 723, case 1
-		if (R == R_20) { print "announce items from multiple object lists rule"; return; } ! 724, case 1
-		if (R == BASIC_VISIBILITY_R) { print "basic visibility rule"; return; } ! 725, case 1
-		if (R == BASIC_ACCESSIBILITY_R) { print "basic accessibility rule"; return; } ! 726, case 1
-		if (R == CARRYING_REQUIREMENTS_R) { print "carrying requirements rule"; return; } ! 727, case 1
-		if (R == R_22) { print "instead stage rule"; return; } ! 728, case 1
-		if (R == REQUESTED_ACTIONS_REQUIRE_R) { print "requested actions require persuasion rule"; return; } ! 729, case 1
-		if (R == CARRY_OUT_REQUESTED_ACTIONS_R) { print "carry out requested actions rule"; return; } ! 730, case 1
-		if (R == DESCEND_TO_SPECIFIC_ACTION_R) { print "descend to specific action-processing rule"; return; } ! 731, case 1
-		if (R == R_23) { print "end action-processing in success rule"; return; } ! 732, case 1
-		if (R == WORK_OUT_DETAILS_OF_SPECIFIC_R) { print "work out details of specific action rule"; return; } ! 733, case 1
-		if (R == ACCESS_THROUGH_BARRIERS_R) { print "access through barriers rule"; return; } ! 734, case 1
-		if (R == CANT_REACH_INSIDE_ROOMS_R) { print "can't reach inside rooms rule"; return; } ! 735, case 1
-		if (R == CANT_REACH_INSIDE_CLOSED_R) { print "can't reach inside closed containers rule"; return; } ! 736, case 1
-		if (R == CANT_REACH_OUTSIDE_CLOSED_R) { print "can't reach outside closed containers rule"; return; } ! 737, case 1
-		if (R == R_35) { print "can't act in the dark rule"; return; } ! 738, case 1
-		if (R == STANDARD_NAME_PRINTING_R) { print "standard name printing rule"; return; } ! 739, case 1
-		if (R == R_59) { print "standard printing the plural name rule"; return; } ! 740, case 1
-		if (R == R_60) { print "standard printing a number of something rule"; return; } ! 741, case 1
-		if (R == STANDARD_CONTENTS_LISTING_R) { print "standard contents listing rule"; return; } ! 742, case 1
-		if (R == R_61) { print "look around once light available rule"; return; } ! 743, case 1
-		if (R == ENABLE_GLULX_ACCEL_R) { print "enable Glulx acceleration rule"; return; } ! 744, case 1
-		if (R == PRINT_OBITUARY_HEADLINE_R) { print "print obituary headline rule"; return; } ! 745, case 1
-		if (R == PRINT_FINAL_SCORE_R) { print "print final score rule"; return; } ! 746, case 1
-		if (R == DISPLAY_FINAL_STATUS_LINE_R) { print "display final status line rule"; return; } ! 747, case 1
-		if (R == R_69) { print "print the final question rule"; return; } ! 748, case 1
-		if (R == R_68) { print "print the final prompt rule"; return; } ! 749, case 1
-		if (R == READ_FINAL_ANSWER_R) { print "read the final answer rule"; return; } ! 750, case 1
-		if (R == R_70) { print "standard respond to final question rule"; return; } ! 751, case 1
-		if (R == R_91) { print "can't take component parts rule"; return; } ! 752, case 1
-		if (R == R_148) { print "find what to enter rule"; return; } ! 753, case 1
-		if (R == QUIT_THE_GAME_R) { print "quit the game rule"; return; } ! 754, case 1
-		if (R == SAVE_THE_GAME_R) { print "save the game rule"; return; } ! 755, case 1
-		if (R == RESTORE_THE_GAME_R) { print "restore the game rule"; return; } ! 756, case 1
-		if (R == RESTART_THE_GAME_R) { print "restart the game rule"; return; } ! 757, case 1
-		if (R == VERIFY_THE_STORY_FILE_R) { print "verify the story file rule"; return; } ! 758, case 1
-		if (R == SWITCH_TRANSCRIPT_ON_R) { print "switch the story transcript on rule"; return; } ! 759, case 1
-		if (R == SWITCH_TRANSCRIPT_OFF_R) { print "switch the story transcript off rule"; return; } ! 760, case 1
-		if (R == ANNOUNCE_STORY_FILE_VERSION_R) { print "announce the story file version rule"; return; } ! 761, case 1
-		if (R == ANNOUNCE_SCORE_R) { print "announce the score rule"; return; } ! 762, case 1
-		if (R == PREFER_ABBREVIATED_R) { print "prefer abbreviated room descriptions rule"; return; } ! 763, case 1
-		if (R == REP_PREFER_ABBREVIATED_R) { print "standard report preferring abbreviated room descriptions rule"; return; } ! 764, case 1
-		if (R == PREFER_UNABBREVIATED_R) { print "prefer unabbreviated room descriptions rule"; return; } ! 765, case 1
-		if (R == REP_PREFER_UNABBREVIATED_R) { print "standard report preferring unabbreviated room descriptions rule"; return; } ! 766, case 1
-		if (R == PREFER_SOMETIMES_ABBREVIATED_R) { print "prefer sometimes abbreviated room descriptions rule"; return; } ! 767, case 1
-		if (R == REP_PREFER_SOMETIMES_ABBR_R) { print "standard report preferring sometimes abbreviated room descriptions rule"; return; } ! 768, case 1
-		if (R == SWITCH_SCORE_NOTIFY_ON_R) { print "switch score notification on rule"; return; } ! 769, case 1
-		if (R == REP_SWITCH_NOTIFY_ON_R) { print "standard report switching score notification on rule"; return; } ! 770, case 1
-		if (R == SWITCH_SCORE_NOTIFY_OFF_R) { print "switch score notification off rule"; return; } ! 771, case 1
-		if (R == REP_SWITCH_NOTIFY_OFF_R) { print "standard report switching score notification off rule"; return; } ! 772, case 1
-		if (R == ANNOUNCE_PRONOUN_MEANINGS_R) { print "announce the pronoun meanings rule"; return; } ! 773, case 1
+		if (R == R_742) { print "Setting action variables for combining something with something"; return; } ! 699, case 2
+		if (R == R_743) { print "Check combining it with"; return; } ! 700, case 2
+		if (R == R_744) { print "Carry out combining it with"; return; } ! 701, case 2
+		if (R == R_745) { print "Report combining it with"; return; } ! 702, case 2
+		if (R == R_8) { print "start in the correct scenes rule"; return; } ! 703, case 1
+		if (R == POSITION_PLAYER_IN_MODEL_R) { print "position player in model world rule"; return; } ! 704, case 1
+		if (R == UPDATE_CHRONOLOGICAL_RECORDS_R) { print "update chronological records rule"; return; } ! 705, case 1
+		if (R == SEED_RANDOM_NUMBER_GENERATOR_R) { print "seed random number generator rule"; return; } ! 706, case 1
+		if (R == VIRTUAL_MACHINE_STARTUP_R) { print "virtual machine startup rule"; return; } ! 707, case 1
+		if (R == INITIALISE_MEMORY_R) { print "initialise memory rule"; return; } ! 708, case 1
+		if (R == R_9) { print "when play begins stage rule"; return; } ! 709, case 1
+		if (R == R_10) { print "fix baseline scoring rule"; return; } ! 710, case 1
+		if (R == R_11) { print "display banner rule"; return; } ! 711, case 1
+		if (R == R_12) { print "initial room description rule"; return; } ! 712, case 1
+		if (R == GENERATE_ACTION_R) { print "generate action rule"; return; } ! 713, case 1
+		if (R == PARSE_COMMAND_R) { print "parse command rule"; return; } ! 714, case 1
+		if (R == TIMED_EVENTS_R) { print "timed events rule"; return; } ! 715, case 1
+		if (R == ADVANCE_TIME_R) { print "advance time rule"; return; } ! 716, case 1
+		if (R == UPDATE_CHRONOLOGICAL_RECORDS_R) { print "update chronological records rule"; return; } ! 717, case 1
+		if (R == ADJUST_LIGHT_R) { print "adjust light rule"; return; } ! 718, case 1
+		if (R == NOTE_OBJECT_ACQUISITIONS_R) { print "note object acquisitions rule"; return; } ! 719, case 1
+		if (R == R_16) { print "notify score changes rule"; return; } ! 720, case 1
+		if (R == R_17) { print "when play ends stage rule"; return; } ! 721, case 1
+		if (R == RESURRECT_PLAYER_IF_ASKED_R) { print "resurrect player if asked rule"; return; } ! 722, case 1
+		if (R == R_18) { print "print player's obituary rule"; return; } ! 723, case 1
+		if (R == ASK_FINAL_QUESTION_R) { print "ask the final question rule"; return; } ! 724, case 1
+		if (R == DetectSceneChange) { print "scene change machinery rule"; return; } ! 725, case 1
+		if (R == R_21) { print "before stage rule"; return; } ! 726, case 1
+		if (R == R_19) { print "set pronouns from items from multiple object lists rule"; return; } ! 727, case 1
+		if (R == R_20) { print "announce items from multiple object lists rule"; return; } ! 728, case 1
+		if (R == BASIC_VISIBILITY_R) { print "basic visibility rule"; return; } ! 729, case 1
+		if (R == BASIC_ACCESSIBILITY_R) { print "basic accessibility rule"; return; } ! 730, case 1
+		if (R == CARRYING_REQUIREMENTS_R) { print "carrying requirements rule"; return; } ! 731, case 1
+		if (R == R_22) { print "instead stage rule"; return; } ! 732, case 1
+		if (R == REQUESTED_ACTIONS_REQUIRE_R) { print "requested actions require persuasion rule"; return; } ! 733, case 1
+		if (R == CARRY_OUT_REQUESTED_ACTIONS_R) { print "carry out requested actions rule"; return; } ! 734, case 1
+		if (R == DESCEND_TO_SPECIFIC_ACTION_R) { print "descend to specific action-processing rule"; return; } ! 735, case 1
+		if (R == R_23) { print "end action-processing in success rule"; return; } ! 736, case 1
+		if (R == WORK_OUT_DETAILS_OF_SPECIFIC_R) { print "work out details of specific action rule"; return; } ! 737, case 1
+		if (R == ACCESS_THROUGH_BARRIERS_R) { print "access through barriers rule"; return; } ! 738, case 1
+		if (R == CANT_REACH_INSIDE_ROOMS_R) { print "can't reach inside rooms rule"; return; } ! 739, case 1
+		if (R == CANT_REACH_INSIDE_CLOSED_R) { print "can't reach inside closed containers rule"; return; } ! 740, case 1
+		if (R == CANT_REACH_OUTSIDE_CLOSED_R) { print "can't reach outside closed containers rule"; return; } ! 741, case 1
+		if (R == R_35) { print "can't act in the dark rule"; return; } ! 742, case 1
+		if (R == STANDARD_NAME_PRINTING_R) { print "standard name printing rule"; return; } ! 743, case 1
+		if (R == R_59) { print "standard printing the plural name rule"; return; } ! 744, case 1
+		if (R == R_60) { print "standard printing a number of something rule"; return; } ! 745, case 1
+		if (R == STANDARD_CONTENTS_LISTING_R) { print "standard contents listing rule"; return; } ! 746, case 1
+		if (R == R_61) { print "look around once light available rule"; return; } ! 747, case 1
+		if (R == ENABLE_GLULX_ACCEL_R) { print "enable Glulx acceleration rule"; return; } ! 748, case 1
+		if (R == PRINT_OBITUARY_HEADLINE_R) { print "print obituary headline rule"; return; } ! 749, case 1
+		if (R == PRINT_FINAL_SCORE_R) { print "print final score rule"; return; } ! 750, case 1
+		if (R == DISPLAY_FINAL_STATUS_LINE_R) { print "display final status line rule"; return; } ! 751, case 1
+		if (R == R_69) { print "print the final question rule"; return; } ! 752, case 1
+		if (R == R_68) { print "print the final prompt rule"; return; } ! 753, case 1
+		if (R == READ_FINAL_ANSWER_R) { print "read the final answer rule"; return; } ! 754, case 1
+		if (R == R_70) { print "standard respond to final question rule"; return; } ! 755, case 1
+		if (R == R_91) { print "can't take component parts rule"; return; } ! 756, case 1
+		if (R == R_148) { print "find what to enter rule"; return; } ! 757, case 1
+		if (R == QUIT_THE_GAME_R) { print "quit the game rule"; return; } ! 758, case 1
+		if (R == SAVE_THE_GAME_R) { print "save the game rule"; return; } ! 759, case 1
+		if (R == RESTORE_THE_GAME_R) { print "restore the game rule"; return; } ! 760, case 1
+		if (R == RESTART_THE_GAME_R) { print "restart the game rule"; return; } ! 761, case 1
+		if (R == VERIFY_THE_STORY_FILE_R) { print "verify the story file rule"; return; } ! 762, case 1
+		if (R == SWITCH_TRANSCRIPT_ON_R) { print "switch the story transcript on rule"; return; } ! 763, case 1
+		if (R == SWITCH_TRANSCRIPT_OFF_R) { print "switch the story transcript off rule"; return; } ! 764, case 1
+		if (R == ANNOUNCE_STORY_FILE_VERSION_R) { print "announce the story file version rule"; return; } ! 765, case 1
+		if (R == ANNOUNCE_SCORE_R) { print "announce the score rule"; return; } ! 766, case 1
+		if (R == PREFER_ABBREVIATED_R) { print "prefer abbreviated room descriptions rule"; return; } ! 767, case 1
+		if (R == REP_PREFER_ABBREVIATED_R) { print "standard report preferring abbreviated room descriptions rule"; return; } ! 768, case 1
+		if (R == PREFER_UNABBREVIATED_R) { print "prefer unabbreviated room descriptions rule"; return; } ! 769, case 1
+		if (R == REP_PREFER_UNABBREVIATED_R) { print "standard report preferring unabbreviated room descriptions rule"; return; } ! 770, case 1
+		if (R == PREFER_SOMETIMES_ABBREVIATED_R) { print "prefer sometimes abbreviated room descriptions rule"; return; } ! 771, case 1
+		if (R == REP_PREFER_SOMETIMES_ABBR_R) { print "standard report preferring sometimes abbreviated room descriptions rule"; return; } ! 772, case 1
+		if (R == SWITCH_SCORE_NOTIFY_ON_R) { print "switch score notification on rule"; return; } ! 773, case 1
+		if (R == REP_SWITCH_NOTIFY_ON_R) { print "standard report switching score notification on rule"; return; } ! 774, case 1
+		if (R == SWITCH_SCORE_NOTIFY_OFF_R) { print "switch score notification off rule"; return; } ! 775, case 1
+		if (R == REP_SWITCH_NOTIFY_OFF_R) { print "standard report switching score notification off rule"; return; } ! 776, case 1
+		if (R == ANNOUNCE_PRONOUN_MEANINGS_R) { print "announce the pronoun meanings rule"; return; } ! 777, case 1
 
 		print "(nameless rule at address ", R, ")";
 	}
@@ -24358,6 +24521,7 @@ Array CheckTableEntryIsNonBlank_LU
   TheEmptyTable: print "(the empty table)"; return;
   T0_final_question_options: print "Table of Final Question Options"; return;
   T1_locale_priorities: print "Table of Locale Priorities"; return;
+  T2_arm_parts: print "Table of Arm Parts"; return;
 
 		default: print "** No such table **";
 	}
@@ -25202,22 +25366,6 @@ Array CheckTableEntryIsNonBlank_LU
     x=noun;
     return ((noun ofclass K2_thing) && ((Adj_70_t1_v9(noun))));
 ];
-[ Noun_Filter_4 x;
-    x=noun;
-    return ((noun == I99_finderscope));
-];
-[ Noun_Filter_5 x;
-    x=noun;
-    return ((noun == I101_base));
-];
-[ Noun_Filter_6 x;
-    x=noun;
-    return ((noun == I101_base));
-];
-[ Noun_Filter_7 x;
-    x=noun;
-    return ((noun == I99_finderscope));
-];
 
 
 #IFDEF DEBUG;
@@ -25754,6 +25902,7 @@ Verb meta 'tree'
 
 [ LITTLE_USED_DO_NOTHING_R; rfalse; ];
 
+Array LIST_CONST_489 --> 0 9 2 (I101_base) (I99_finderscope) ;
 
 
 
@@ -26295,9 +26444,8 @@ Verb 'notify'
 Verb 'use'
     * noun  -> A80_turning_on
 ;
-Verb 'combine' 'mix'
-    * noun=Noun_Filter_4 'with' noun=Noun_Filter_5  -> A81_combining_it_with
-    * noun=Noun_Filter_6 'with' noun=Noun_Filter_7  -> A81_combining_it_with
+Verb 'combine'
+    * noun 'with' noun  -> A81_combining_it_with
 ;
 [ Parse_Name_GV1
     original_wn  ! first word of text parsed
@@ -26993,7 +27141,7 @@ Array Rel_Record_63 -->
     NULL NULL
     "leading-through relation"
      RELS_TEST+RELS_LOOKUP_ANY+RELS_LOOKUP_ALL_X+RELS_LOOKUP_ALL_Y+RELS_LIST+RELS_X_UNIQUE+RELS_ASSERT_TRUE+RELS_ASSERT_FALSE+RELS_SHOW+RELS_ROUTE_FIND
-     door_to KD3_relation_of_rooms_to_doors Rel_Handler_63 "Leading-through relates one room (called the other side) to various doors";
+     door_to KD5_relation_of_rooms_to_doors Rel_Handler_63 "Leading-through relates one room (called the other side) to various doors";
 [ Rel_Handler_63 rr task X Y Z1 Z2 Z3 Z4;
     switch (task) {
         RELS_TEST: if (X == (Y.door_to)) rtrue; rfalse;
@@ -27064,7 +27212,7 @@ Array Rel_Record_65 -->
     NULL NULL
     "lock-fitting relation"
      RELS_TEST+RELS_LOOKUP_ANY+RELS_LOOKUP_ALL_X+RELS_LOOKUP_ALL_Y+RELS_LIST+RELS_X_UNIQUE+RELS_ASSERT_TRUE+RELS_ASSERT_FALSE+RELS_SHOW+RELS_ROUTE_FIND
-     with_key KD4_relation_of_things_to_thin Rel_Handler_65 "Lock-fitting relates one thing (called the matching key) to various things";
+     with_key KD6_relation_of_things_to_thin Rel_Handler_65 "Lock-fitting relates one thing (called the matching key) to various things";
 [ Rel_Handler_65 rr task X Y Z1 Z2 Z3 Z4;
     switch (task) {
         RELS_TEST: if (X == (Y.with_key)) rtrue; rfalse;
@@ -27566,10 +27714,12 @@ ArgumentTypeFailed(filename, line);
 
 
 Array ConstantListPointers --> 
- 0 0;
+LIST_CONST_489  0 0;
 
 Constant SC_17 = " ";
+Constant SC_35 = " and ";
 Constant SC_31 = " here";
+Constant SC_36 = " into anything useful.";
 Constant SC_21 = " or ";
 Constant SC_26 = " you ";
 Constant SC_22 = ", ";
@@ -27589,10 +27739,14 @@ Constant SC_12 = "QUIT";
 Constant SC_9 = "RESTART";
 Constant SC_10 = "RESTORE a saved game";
 Constant SC_14 = "There has been a murder in the mansion on Royal boulevard. You are one of Hawaii's most famous detectives. Find out who killed Rich, the mansion owner.^^You find your way to the Boat to begin the search.";
+Constant SC_37 = "Try another combination of things.";
 Constant SC_13 = "UNDO the last command";
 Constant SC_18 = "Would you like to ";
 Constant SC_16 = "Yay! you can finally see something in this dark dark room.";
 Constant SC_24 = "You ";
+Constant SC_34 = "You can't combine ";
+Constant SC_38 = "You fuse together ";
+Constant SC_39 = "You now have a ";
 Constant SC_6 = "a telescope that has been smashed, but some parts are still intact, may be used for something else.";
 Constant SC_29 = "also ";
 Constant SC_5 = "an object that can be used for liting places up.";
@@ -27694,9 +27848,15 @@ Constant cap_short_name = short_name;
 Array Runtime_Quotations_Displayed --> 1;
 
 [ InitialHeapAllocation obj pv;
+    for (obj=1:obj<=TableRows(T2_arm_parts):obj++) { if (ExistsTableLookUpEntry(T2_arm_parts, 1, obj)==false) continue; pv = TableLookUpEntry(T2_arm_parts, 1, obj); TableLookUpEntry(T2_arm_parts, 1, obj, true, BlkValueCreate(LIST_OF_TY,pv,KD3_list_of_things)); }
 ];
 [ DistributeBlockConstants obj pv;
 ];
+#ifdef TARGET_ZCODE;
+Constant MEMORY_HEAP_SIZE = 8192;
+#ifnot;
+Constant MEMORY_HEAP_SIZE = 32768;
+#endif;
 
 
 Array KD0_phrase_nothing_to_nothing --> ! phrase nothing -> nothing
@@ -27710,9 +27870,13 @@ Array KD1_values_based_rule_producin --> ! values based rule producing values
     RULE_TY 2 VALUE_TY VALUE_TY;
 Array KD2_activity --> ! activity
     ACTIVITY_TY 1 NIL_TY;
-Array KD3_relation_of_rooms_to_doors --> ! relation of rooms to doors
+Array KD3_list_of_things --> ! list of things
+    LIST_OF_TY 1 9;
+Array KD4_list_of_objects --> ! list of objects
+    LIST_OF_TY 1 OBJECT_TY;
+Array KD5_relation_of_rooms_to_doors --> ! relation of rooms to doors
     RELATION_TY 2 9 9;
-Array KD4_relation_of_things_to_thin --> ! relation of things to things
+Array KD6_relation_of_things_to_thin --> ! relation of things to things
     RELATION_TY 2 9 9;
 [ DefaultValueFinder K;
     if (K == KD0_phrase_nothing_to_nothing) return Default_Value_0;

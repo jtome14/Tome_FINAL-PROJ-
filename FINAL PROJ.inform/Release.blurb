@@ -1,18 +1,18 @@
 ! Blurb file created by Inform build 6G60
 
-status "/Applications/Inform.app/Contents/Resources/Inform7/Extensions/Reserved/CblorbModel.html" "/Users/jtome14/Desktop/FINAL PROJ.inform/Build/StatusCblorb.html"
+status "/Applications/Inform.app/Contents/Resources/Inform7/Extensions/Reserved/CblorbModel.html" "/Users/jtome14/Desktop/Tome_FINAL PROJ /FINAL PROJ.inform/Build/StatusCblorb.html"
 
 
 ! Identification
 
-project folder "/Users/jtome14/Desktop/FINAL PROJ.inform"
-release to "/Users/jtome14/Desktop/FINAL PROJ Materials/Release"
+project folder "/Users/jtome14/Desktop/Tome_FINAL PROJ /FINAL PROJ.inform"
+release to "/Users/jtome14/Desktop/Tome_FINAL PROJ /FINAL PROJ Materials/Release"
 
 ! Blorb instructions
 
 storyfile leafname "FINAL PROJ.zblorb"
-storyfile "/Users/jtome14/Desktop/FINAL PROJ.inform/Build/output.z8" include
-ifiction "/Users/jtome14/Desktop/FINAL PROJ.inform/Metadata.iFiction" include
+storyfile "/Users/jtome14/Desktop/Tome_FINAL PROJ /FINAL PROJ.inform/Build/output.z8" include
+ifiction "/Users/jtome14/Desktop/Tome_FINAL PROJ /FINAL PROJ.inform/Metadata.iFiction" include
 cover "/Applications/Inform.app/Contents/Resources/Inform7/Extensions/Reserved/DefaultCover.jpg"
 picture 1 "/Applications/Inform.app/Contents/Resources/Inform7/Extensions/Reserved/DefaultCover.jpg"
 
