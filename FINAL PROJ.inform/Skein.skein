@@ -1,0 +1,569 @@
+<?xml version="1.0"?>
+<Skein rootNode="node-0x18eec20" xmlns="http://www.logicalshift.org.uk/IF/Skein">
+  <generator>Zoom</generator>
+  <activeNode nodeId="node-0x18eec20" />
+  <item nodeId="node-0x18eec20">
+    <command xml:space="preserve">- start -</command>
+    <result xml:space="preserve">
+
+
+
+There has been a murder in the mansion on Royal boulevard. You are one of Hawaii&apos;s most famous detectives. Find out who killed Rich, the mansion owner.
+
+You find your way to the Boat to begin the search.
+
+FINAL PROJ
+An Interactive Fiction by Jordan Tome
+Release 1 / Serial number 131003 / Inform 7 build 6G60 (I6/v6.32 lib 6/12N) SD
+
+Boat
+You can see a flashlight here.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="20">NO</temporary>
+    <children>
+      <child nodeId="node-0x1b76170" />
+      <child nodeId="node-0x1bba9d0" />
+      <child nodeId="node-0x1b74c10" />
+      <child nodeId="node-0x18eeef0" />
+      <child nodeId="node-0x18eec70" />
+      <child nodeId="node-0x18ef220" />
+      <child nodeId="node-0x18ef0f0" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef0f0">
+    <command xml:space="preserve">take flashlight</command>
+    <result xml:space="preserve">Taken.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="44">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef290" />
+      <child nodeId="node-0x18ef160" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef160">
+    <command xml:space="preserve">turn on flashlight</command>
+    <result xml:space="preserve">You switch the flashlight on.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="33">YES</temporary>
+  </item>
+  <item nodeId="node-0x18ef290">
+    <command xml:space="preserve">go inside</command>
+    <result xml:space="preserve">
+conservatory
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="44">YES</temporary>
+    <children>
+      <child nodeId="node-0x18eef80" />
+    </children>
+  </item>
+  <item nodeId="node-0x18eef80">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="44">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef300" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef300">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">You can&apos;t go that way.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="44">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef370" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef370">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">
+living room
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="44">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef3e0" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef3e0">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">
+Bathroom
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="44">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef450" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef450">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">You can&apos;t go that way.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="44">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef4c0" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef4c0">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">
+Darkness
+It is pitch dark, and you can&apos;t see a thing.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="44">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef530" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef530">
+    <command xml:space="preserve">use flashlight</command>
+    <result xml:space="preserve">That&apos;s not a verb I recognise.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="44">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef1d0" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef1d0">
+    <command xml:space="preserve">turn on flashlight</command>
+    <result xml:space="preserve">Yay! you can finally see something in this dark dark room.
+
+Attic
+a room where the light swtich doesnt work, you may need some sort of lighting device.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="43">YES</temporary>
+  </item>
+  <item nodeId="node-0x18ef220">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You can&apos;t go that way.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="15">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef720" />
+      <child nodeId="node-0xbf90ee0" />
+    </children>
+  </item>
+  <item nodeId="node-0xbf90ee0">
+    <command xml:space="preserve">inside</command>
+    <result xml:space="preserve">
+conservatory
+You can see a telescope (empty) here.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="15">YES</temporary>
+    <children>
+      <child nodeId="node-0xd404190" />
+    </children>
+  </item>
+  <item nodeId="node-0xd404190">
+    <command xml:space="preserve">take telescope</command>
+    <result xml:space="preserve">Taken.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="15">YES</temporary>
+    <children>
+      <child nodeId="node-0xbf4d0d0" />
+    </children>
+  </item>
+  <item nodeId="node-0xbf4d0d0">
+    <command xml:space="preserve">use telescope</command>
+    <result xml:space="preserve">&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="15">YES</temporary>
+    <children>
+      <child nodeId="node-0xbf52340" />
+    </children>
+  </item>
+  <item nodeId="node-0xbf52340">
+    <command xml:space="preserve">turn on telescope</command>
+    <result xml:space="preserve">That&apos;s not something you can switch.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="14">YES</temporary>
+  </item>
+  <item nodeId="node-0x18ef720">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">You can&apos;t go that way.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="32">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef790" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef790">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">You can&apos;t go that way.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="32">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef800" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef800">
+    <command xml:space="preserve">go inside</command>
+    <result xml:space="preserve">
+conservatory
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="32">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef870" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef870">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">You can&apos;t go that way.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="32">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef8e0" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef8e0">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">
+living room
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="32">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef950" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef950">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">
+Man cave
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="32">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef9c0" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef9c0">
+    <command xml:space="preserve">down</command>
+    <result xml:space="preserve">
+Garage
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="31">YES</temporary>
+  </item>
+  <item nodeId="node-0x18eec70">
+    <command xml:space="preserve">go inside</command>
+    <result xml:space="preserve">
+conservatory
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="24">YES</temporary>
+    <children>
+      <child nodeId="node-0x18eecc0" />
+    </children>
+  </item>
+  <item nodeId="node-0x18eecc0">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">
+living room
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="24">YES</temporary>
+    <children>
+      <child nodeId="node-0x18eede0" />
+    </children>
+  </item>
+  <item nodeId="node-0x18eede0">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">
+Bathroom
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="24">YES</temporary>
+    <children>
+      <child nodeId="node-0x18eee30" />
+    </children>
+  </item>
+  <item nodeId="node-0x18eee30">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">You can&apos;t go that way.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="24">YES</temporary>
+    <children>
+      <child nodeId="node-0x18eee80" />
+    </children>
+  </item>
+  <item nodeId="node-0x18eee80">
+    <command xml:space="preserve">up</command>
+    <result xml:space="preserve">
+Attic
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="23">YES</temporary>
+  </item>
+  <item nodeId="node-0x18eeef0">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">You can&apos;t go that way.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="19">YES</temporary>
+    <children>
+      <child nodeId="node-0x18eefe0" />
+    </children>
+  </item>
+  <item nodeId="node-0x18eefe0">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You can&apos;t go that way.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="19">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef030" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef030">
+    <command xml:space="preserve">go inside</command>
+    <result xml:space="preserve">
+conservatory
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="19">YES</temporary>
+    <children>
+      <child nodeId="node-0x18ef080" />
+    </children>
+  </item>
+  <item nodeId="node-0x18ef080">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">
+living room
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="18">YES</temporary>
+  </item>
+  <item nodeId="node-0x1b74c10">
+    <command xml:space="preserve">inside</command>
+    <result xml:space="preserve">
+conservatory
+You can see a telescope (in which is a fingerscope) here.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="19">YES</temporary>
+    <children>
+      <child nodeId="node-0xbf60680" />
+    </children>
+  </item>
+  <item nodeId="node-0xbf60680">
+    <command xml:space="preserve">take telescope</command>
+    <result xml:space="preserve">Taken.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="19">YES</temporary>
+    <children>
+      <child nodeId="node-0xbf25420" />
+    </children>
+  </item>
+  <item nodeId="node-0xbf25420">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">You are carrying:
+  a telescope
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="19">YES</temporary>
+    <children>
+      <child nodeId="node-0xbf34550" />
+    </children>
+  </item>
+  <item nodeId="node-0xbf34550">
+    <command xml:space="preserve">x fingerscope</command>
+    <result xml:space="preserve">You can&apos;t see any such thing.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="18">YES</temporary>
+  </item>
+  <item nodeId="node-0x1bba9d0">
+    <command xml:space="preserve">x boat</command>
+    <result xml:space="preserve">You can&apos;t see any such thing.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="4">YES</temporary>
+    <children>
+      <child nodeId="node-0x1be2540" />
+    </children>
+  </item>
+  <item nodeId="node-0x1be2540">
+    <command xml:space="preserve">x flashlight</command>
+    <result xml:space="preserve">an object that can be used for liting places up.
+
+The flashlight is currently switched off.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="4">YES</temporary>
+    <children>
+      <child nodeId="node-0x1b18b80" />
+    </children>
+  </item>
+  <item nodeId="node-0x1b18b80">
+    <command xml:space="preserve">turn on flashlight</command>
+    <result xml:space="preserve">Yay! you can finally see something in this dark dark room.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="3">YES</temporary>
+  </item>
+  <item nodeId="node-0x1b76170">
+    <command xml:space="preserve">use flashlight</command>
+    <result xml:space="preserve">&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="10">YES</temporary>
+    <children>
+      <child nodeId="node-0xbf90f30" />
+    </children>
+  </item>
+  <item nodeId="node-0xbf90f30">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="10">YES</temporary>
+    <children>
+      <child nodeId="node-0xcb21110" />
+    </children>
+  </item>
+  <item nodeId="node-0xcb21110">
+    <command xml:space="preserve">take flashlight</command>
+    <result xml:space="preserve">Taken.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="10">YES</temporary>
+    <children>
+      <child nodeId="node-0x1bbdcd0" />
+    </children>
+  </item>
+  <item nodeId="node-0x1bbdcd0">
+    <command xml:space="preserve">use flashlight</command>
+    <result xml:space="preserve">&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="10">YES</temporary>
+    <children>
+      <child nodeId="node-0x1bd3330" />
+    </children>
+  </item>
+  <item nodeId="node-0x1bd3330">
+    <command xml:space="preserve">turn on</command>
+    <result xml:space="preserve">(the flashlight)
+You switch the flashlight on.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="10">YES</temporary>
+    <children>
+      <child nodeId="node-0x1041df60" />
+    </children>
+  </item>
+  <item nodeId="node-0x1041df60">
+    <command xml:space="preserve">use flashlight</command>
+    <result xml:space="preserve">&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="9">YES</temporary>
+  </item>
+</Skein>
