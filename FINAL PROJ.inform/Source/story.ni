@@ -85,7 +85,10 @@ Report combining it with:
 
 Table of Arm Parts
 Parts List	Results
-{base, finderscope}	scope base
+{base, finderscope}	Scope Base
+{scope base, screw}  	Screw Key 
 
-scope base is a thing.
+scope base is an object. The description of the scope base is "you combined the finderscope with the base to get scope base. It seems that you might be able to add one more part."
+
+screw key is an object. The description of the screw key is "you combined the Scope Base with the screw to get screw key."
 
