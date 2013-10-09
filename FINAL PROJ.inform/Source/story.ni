@@ -3,19 +3,24 @@
 The target score is a number variable. The target score is 8.
 The maximum score is 16 
 
-When play begins: say "There has been a murder in the mansion on Royal boulevard. You are one of Hawaii's most famous detectives. Find out who killed Rich, the mansion owner.
+When play begins: say "There has been a murder in the mansion on Royal boulevard. You are one of Hawaii's most famous detectives. Find out who killed Rich, the mansion owner. This case, if solved, could get you the promotion to chief. 
 
 You find your way to the Boat to begin the search."
 
-The Boat is a room. It is outside of the conservatory. 
+The Boat is a room. It is outside of the conservatory. The description of the boat is "a magnificant yacht called the USS Shayna in honor of Mr. Rich's late wife."
 
 The flashlight is a thing. It is inside the boat. The description of the flashlight is "an object that can be used for liting places up." 
 
-The Conservatory is a room. It is west of the living room. 
+The Conservatory is a room. It is west of the living room. The description of the conservatory is "greenhouse with plants and a broken telescope. Something about the telescope might help you."
 
 The Living room is a room. The description of the living room is "a place where the family came to eat. There is a dining table, a vase with flowers, and a butler named bob."
 
-The Bathroom is a room. It is north of the living room.
+The Bathroom is a room. It is north of the living room. The description of the bathroom is "a place to do your business. There is a toothbrush and a toilet." 
+
+The toothbrush is a thing. It is in the bathroom. The description of the toothbrush is "a device to clean your teeth." 
+
+The toilet is scenery. It is in the bathroom. The description of the toilet is "a porcelain seat with water inside. It is clogged and unusable." 
+
 
 The Attic is a dark room. It is above the bathroom. The description of the attic is "Many paintings, books, and something gold."
 
@@ -29,13 +34,13 @@ Turning on is an action applying to one thing.
 
 Understand "use [something]" as turning on.
  
-The kitchen is a room. It is east of the living room. 
+The kitchen is a room. It is east of the living room. The description of the kitchen is "a place for cooking with a knife, TV, and a spatula." 
 
-The Bedroom is a room. It is east of the kitchen.
+The Bedroom is a room. It is east of the kitchen. The description of the bedroom is "a place for sleeping. There is a bed, a clock, drawer, and a safe."
 
 The Man cave is a room. It is south of the living room. The description of the man cave is "there is a bar, couches, pool table, 100' tv, and Wilfred, Mr. Rich's best friend." 
 
-The Garage is a room. It is below the man cave.
+The Garage is a room. It is below the man cave. The description of the garage is "There is a car, a workbench, and many tools."
 
 The flashlight is a device. It is in the boat. The flashlight is unlit.
 
@@ -110,3 +115,8 @@ Instead of talking to Bob for the first time:
 
 Instead of talking to Wilfred for the first time:
 	say "Sup Officer, I didn't do anything. I've been in this Man Cave ever since I got here and I am also Mr. Rich's best friend. There is no way I would have committed a murder. Please tell me who killed my best friend when you find out. Thank you." 
+	
+
+
+
+
