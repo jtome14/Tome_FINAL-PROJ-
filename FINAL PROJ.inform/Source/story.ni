@@ -7,13 +7,28 @@ When play begins: say "There has been a murder in the mansion on Royal boulevard
 
 You find your way to the Boat to begin the search."
 
-The Boat is a room. It is outside of the conservatory. The description of the boat is "a magnificant yacht called the USS Shayna in honor of Mr. Rich's late wife."
+The Boat is a room. It is outside of the conservatory. The description of the boat is "a magnificant yacht called the USS Shayna in honor of Mr. Rich's late wife. There is a fire extinguisher and a flare gun as well."
+
+The fire extinguisher is a thing. It is inside the boat. The description of the fire extinguisher is "a red tank that suppresses fires." 
+
+
+The flare gun is a thing. The description of the flare gun is "a gun shaped item. It looks like there are fingerprints." 
+
 
 The flashlight is a thing. It is inside the boat. The description of the flashlight is "an object that can be used for liting places up." 
 
 The Conservatory is a room. It is west of the living room. The description of the conservatory is "greenhouse with plants and a broken telescope. Something about the telescope might help you."
 
+
 The Living room is a room. The description of the living room is "a place where the family came to eat. There is a dining table, a vase with flowers, and a butler named bob."
+
+The dining table is scenery. It is inside the living room. The description is "a long table that has nice furnishings. Not many things on this table." 
+
+
+The vase is scenery. It is inside the living room. The description is "a circular object that holds flowers. There are many colorful flowers in this vase. There is also a circular fingerprint." 
+
+
+
 
 The Bathroom is a room. It is north of the living room. The description of the bathroom is "a place to do your business. There is a toothbrush and a toilet." 
 
@@ -22,7 +37,23 @@ The toothbrush is a thing. It is in the bathroom. The description of the toothbr
 The toilet is scenery. It is in the bathroom. The description of the toilet is "a porcelain seat with water inside. It is clogged and unusable." 
 
 
-The Attic is a dark room. It is above the bathroom. The description of the attic is "Many paintings, books, and something gold."
+The Attic is a dark room. It is above the bathroom. The description of the attic is "Many paintings and books."
+
+The paintings is a thing. It is in the attic. 
+
+The books is a thing. It is in the attic.
+
+Hiding it under is an action applying to one carried thing and one thing. Understand "put [something preferably held] under [something]" as hiding it under. Understand "hide [something preferably held] under [something]" as hiding it under.
+
+The gold key is a thing.
+
+Instead of taking paintings:
+	move gold key to attic;
+	move paintings to player;
+	say "a gold key appears from underneath the paintings."
+	
+
+The gold key unlocks the gold door. 
 
 
 The telescope is a thing. It is in the conservatory. 
@@ -36,7 +67,21 @@ Understand "use [something]" as turning on.
  
 The kitchen is a room. It is east of the living room. The description of the kitchen is "a place for cooking with a knife, TV, and a spatula." 
 
-The Bedroom is a room. It is east of the kitchen. The description of the bedroom is "a place for sleeping. There is a bed, a clock, drawer, and a safe."
+The Bedroom is a room. It is east of the door. The description of the bedroom is "a place for sleeping. There is a bed, a clock, drawer, and a safe." 
+
+
+
+After opening the door:
+	move player to the bedroom;
+	say "you are in the bedroom."
+
+
+The gold door is a door. It is west of the bedroom and east of the kitchen. It is closed and openable door. It is locked and lockable. 
+
+
+The safe is a container. It is closed and openable container. It is locked and lockable. 
+The screw key unlocks the safe.
+
 
 The Man cave is a room. It is south of the living room. The description of the man cave is "there is a bar, couches, pool table, 100' tv, and Wilfred, Mr. Rich's best friend." 
 
