@@ -29,7 +29,7 @@ Array UUID_ARRAY string "UUID://CE578BBB-1961-44CC-816D-664111BE98D8//";
 Constant Story "FINAL PROJ";
 Constant Headline "An Interactive Fiction";
 Constant Story_Author SC_2;
-Serial "131009";
+Serial "131010";
 
 Default Story 0;
 Default Headline 0;
@@ -4293,7 +4293,7 @@ Global lightflag = false;
 ];
 
 
-Constant REQUISITION_STACK_SIZE = 3*42;
+Constant REQUISITION_STACK_SIZE = 3*44;
 Array requisition_stack --> REQUISITION_STACK_SIZE;
 Global requisition_stack_pointer = 0;
 
@@ -9291,16 +9291,16 @@ Array KindHierarchy --> K0_kind (0) K1_room (0) K2_thing (0) K3_direction (0) K4
 Constant IK1_First = I88_boat;
 Constant IK2_First = selfobj;
 Constant IK3_First = I46_north;
-Constant IK4_First = I103_gold_door;
-Constant IK5_First = I104_telescope;
-Constant IK6_First = nothing;
+Constant IK4_First = I105_gold_door;
+Constant IK5_First = I106_telescope;
+Constant IK6_First = I91_flare_gun;
 Constant IK7_First = nothing;
 Constant IK8_First = selfobj;
 Constant IK9_First = nothing;
-Constant IK10_First = I115_bob;
+Constant IK10_First = I117_bob;
 Constant IK11_First = nothing;
 Constant IK12_First = nothing;
-Constant IK13_First = I92_flashlight;
+Constant IK13_First = I93_flashlight;
 Constant IK14_First = nothing;
 Constant IK15_First = nothing;
 Constant No_Directions = 12;
@@ -9319,14 +9319,14 @@ Constant DirectionObject_10 = in_obj;
 Constant DirectionObject_11 = out_obj;
 Array Map_Storage -->
  0 0 0 0 0 0 0 0 0 0 I89_conservatory 0 ! Exits from: I88_boat
- 0 0 0 0 0 0 I93_living_room 0 0 0 0 I88_boat ! Exits from: I89_conservatory
- I96_bathroom 0 0 I110_man_cave 0 0 I105_kitchen I89_conservatory 0 0 0 0 ! Exits from: I93_living_room
- 0 0 0 I93_living_room 0 0 0 0 I99_attic 0 0 0 ! Exits from: I96_bathroom
- 0 0 0 0 0 0 0 0 0 I96_bathroom 0 0 ! Exits from: I99_attic
- 0 0 0 0 0 0 I103_gold_door I93_living_room 0 0 0 0 ! Exits from: I105_kitchen
- 0 0 0 0 0 0 0 I103_gold_door 0 0 0 0 ! Exits from: I106_bedroom
- I93_living_room 0 0 0 0 0 0 0 0 I111_garage 0 0 ! Exits from: I110_man_cave
- 0 0 0 0 0 0 0 0 I110_man_cave 0 0 0 ! Exits from: I111_garage
+ 0 0 0 0 0 0 I94_living_room 0 0 0 0 I88_boat ! Exits from: I89_conservatory
+ I98_bathroom 0 0 I112_man_cave 0 0 I107_kitchen I89_conservatory 0 0 0 0 ! Exits from: I94_living_room
+ 0 0 0 I94_living_room 0 0 0 0 I101_attic 0 0 0 ! Exits from: I98_bathroom
+ 0 0 0 0 0 0 0 0 0 I98_bathroom 0 0 ! Exits from: I101_attic
+ 0 0 0 0 0 0 I105_gold_door I94_living_room 0 0 0 0 ! Exits from: I107_kitchen
+ 0 0 0 0 0 0 0 I105_gold_door 0 0 0 0 ! Exits from: I108_bedroom
+ I94_living_room 0 0 0 0 0 0 0 0 I113_garage 0 0 ! Exits from: I112_man_cave
+ 0 0 0 0 0 0 0 0 I112_man_cave 0 0 0 ! Exits from: I113_garage
 ;
 
 Class VPH_Class;
@@ -9691,7 +9691,7 @@ Object selfobj ""
     with IK2_Count 0
     with IK2_Link I90_fire_extinguisher
     with IK8_Count 0
-    with IK8_Link I115_bob
+    with IK8_Link I117_bob
     with KD_Count 8
     with name 'yourself' 
     with action_bitmap 0 0 0 0 0 0 
@@ -9719,23 +9719,53 @@ Object -> I90_fire_extinguisher ""
     with list_together 0
     has mark_as_thing
     with IK2_Count 1
-    with IK2_Link I92_flashlight
+    with IK2_Link I91_flare_gun
     with KD_Count 2
     with name 'fire' 'extinguisher' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I92_flashlight ""
+Object -> I91_flare_gun ""
+    class K6_supporter
+    with short_name "flare gun"
+    with description SC_7
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 2
+    with IK2_Link I92_squarish_fingerprint
+    with IK6_Count 0
+    with IK6_Link I96_vase
+    with KD_Count 6
+    with name 'flare' 'gun' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object -> -> I92_squarish_fingerprint ""
+    class K2_thing
+    with short_name "squarish fingerprint"
+    with description SC_8
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 3
+    with IK2_Link I93_flashlight
+    with KD_Count 2
+    with name 'squarish' 'fingerprint' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object -> I93_flashlight ""
     class K13_device
     with short_name "flashlight"
-    with description SC_7
+    with description SC_9
     has ~light
     has ~on
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 3
-    with IK2_Link I104_telescope
+    with IK2_Count 4
+    with IK2_Link I106_telescope
     with IK13_Count 0
     with IK13_Link nothing
     with KD_Count 13
@@ -9746,120 +9776,90 @@ Object -> I92_flashlight ""
 Object I89_conservatory ""
     class K1_room
     with short_name "conservatory"
-    with description SC_8
+    with description SC_10
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 1
-    with IK1_Link I93_living_room
+    with IK1_Link I94_living_room
     with KD_Count 1
     with name 'conservatory' 
 ;
 
-Object -> I104_telescope ""
+Object -> I106_telescope ""
     class K5_container
     with short_name "telescope"
-    with description SC_9
+    with description SC_11
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 12
-    with IK2_Link I109_screw_key
+    with IK2_Count 14
+    with IK2_Link I111_screw_key
     with IK5_Count 0
-    with IK5_Link I108_safe
+    with IK5_Link I110_safe
     with KD_Count 5
     with name 'telescope' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> -> I109_screw_key ""
+Object -> -> I111_screw_key ""
     class K2_thing
     with short_name "screw key"
-    with description SC_10
+    with description SC_12
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 15
-    with IK2_Link I112_finderscope
+    with IK2_Count 17
+    with IK2_Link I114_finderscope
     with KD_Count 2
     with name 'screw' 'key' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> -> I112_finderscope ""
+Object -> -> I114_finderscope ""
     class K2_thing
     with short_name "finderscope"
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 16
-    with IK2_Link I113_base
+    with IK2_Count 18
+    with IK2_Link I115_base
     with KD_Count 2
     with name 'finderscope' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> -> I113_base ""
+Object -> -> I115_base ""
     class K2_thing
     with short_name "base"
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 17
-    with IK2_Link I91_flare_gun
+    with IK2_Count 19
+    with IK2_Link I95_dining_table
     with KD_Count 2
     with name 'base' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I91_flare_gun ""
-    class K2_thing
-    with short_name "flare gun"
-    with description SC_11
-    with vector 0
-    with list_together 0
-    has mark_as_thing
-    with IK2_Count 2
-    with IK2_Link I94_dining_table
-    with KD_Count 2
-    with name 'flare' 'gun' 
-    with action_bitmap 0 0 0 0 0 0 
-;
-
-Object I93_living_room ""
+Object I94_living_room ""
     class K1_room
     with short_name "living room"
-    with description SC_12
+    with description SC_13
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 2
-    with IK1_Link I96_bathroom
+    with IK1_Link I98_bathroom
     with KD_Count 1
     with name 'living' 'room' 
 ;
 
-Object -> I94_dining_table ""
+Object -> I95_dining_table ""
     class K2_thing
     with short_name "dining table"
-    with description SC_13
-    has static
-    has scenery
-    with vector 0
-    with list_together 0
-    has mark_as_thing
-    with IK2_Count 4
-    with IK2_Link I95_vase
-    with KD_Count 2
-    with name 'dining' 'table' 
-    with action_bitmap 0 0 0 0 0 0 
-;
-
-Object -> I95_vase ""
-    class K2_thing
-    with short_name "vase"
     with description SC_14
     has static
     has scenery
@@ -9867,135 +9867,167 @@ Object -> I95_vase ""
     with list_together 0
     has mark_as_thing
     with IK2_Count 5
-    with IK2_Link I115_bob
+    with IK2_Link I96_vase
     with KD_Count 2
+    with name 'dining' 'table' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object -> I96_vase ""
+    class K6_supporter
+    with short_name "vase"
+    with description SC_15
+    has static
+    has scenery
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 6
+    with IK2_Link I97_circular_fingerprint
+    with IK6_Count 1
+    with IK6_Link nothing
+    with KD_Count 6
     with name 'vase' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I115_bob ""
+Object -> -> I97_circular_fingerprint ""
+    class K2_thing
+    with short_name "circular fingerprint"
+    with description SC_16
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 7
+    with IK2_Link I117_bob
+    with KD_Count 2
+    with name 'circular' 'fingerprint' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object -> I117_bob ""
     class K10_man
     with short_name "Bob"
-    with description SC_15
+    with description SC_17
     has proper
     has concealed
     with vector 0
     with list_together 0
     with cap_short_name "Bob"
     has mark_as_thing
-    with IK2_Count 19
-    with IK2_Link I97_toothbrush
+    with IK2_Count 21
+    with IK2_Link I99_toothbrush
     with IK8_Count 1
-    with IK8_Link I116_wilfred
+    with IK8_Link I118_wilfred
     with IK10_Count 0
-    with IK10_Link I116_wilfred
+    with IK10_Link I118_wilfred
     with KD_Count 10
     with name 'bob' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I96_bathroom ""
+Object I98_bathroom ""
     class K1_room
     with short_name "Bathroom"
-    with description SC_16
+    with description SC_18
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 3
-    with IK1_Link I99_attic
+    with IK1_Link I101_attic
     with KD_Count 1
     with name 'bathroom' 
 ;
 
-Object -> I97_toothbrush ""
+Object -> I99_toothbrush ""
     class K2_thing
     with short_name "toothbrush"
-    with description SC_17
+    with description SC_19
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 6
-    with IK2_Link I98_toilet
+    with IK2_Count 8
+    with IK2_Link I100_toilet
     with KD_Count 2
     with name 'toothbrush' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I98_toilet ""
+Object -> I100_toilet ""
     class K2_thing
     with short_name "toilet"
-    with description SC_18
+    with description SC_20
     has static
     has scenery
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 7
-    with IK2_Link I100_paintings
+    with IK2_Count 9
+    with IK2_Link I102_paintings
     with KD_Count 2
     with name 'toilet' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I99_attic ""
+Object I101_attic ""
     class K1_room
     with short_name "Attic"
-    with description SC_19
+    with description SC_21
     has ~light
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 4
-    with IK1_Link I105_kitchen
+    with IK1_Link I107_kitchen
     with KD_Count 1
     with name 'attic' 
 ;
 
-Object -> I100_paintings ""
+Object -> I102_paintings ""
     class K2_thing
     with short_name "paintings"
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 8
-    with IK2_Link I101_books
+    with IK2_Count 10
+    with IK2_Link I103_books
     with KD_Count 2
     with name 'paintings' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I101_books ""
+Object -> I103_books ""
     class K2_thing
     with short_name "books"
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 9
-    with IK2_Link I102_gold_key
+    with IK2_Count 11
+    with IK2_Link I104_gold_key
     with KD_Count 2
     with name 'books' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I102_gold_key ""
+Object I104_gold_key ""
     class K2_thing
     with short_name "gold key"
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 10
-    with IK2_Link I103_gold_door
+    with IK2_Count 12
+    with IK2_Link I105_gold_door
     with KD_Count 2
     with name 'gold' 'key' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I103_gold_door ""
+Object I105_gold_door ""
     class K4_door
     with short_name "gold door"
-    with with_key I102_gold_key
+    with with_key I104_gold_key
     has ~open
     has openable
     has lockable
@@ -10003,59 +10035,59 @@ Object I103_gold_door ""
     with vector 0
     with door_dir [ loc; loc = location;
             if (loc == thedark) loc = real_location;
-            if (loc == I106_bedroom) return I53_west; return I52_east; ],
+            if (loc == I108_bedroom) return I53_west; return I52_east; ],
     with door_to [ loc; loc = location;
             if (loc == thedark) loc = real_location;
-            if (loc == I106_bedroom) return I105_kitchen; return I106_bedroom; ],
-    with found_in I106_bedroom I105_kitchen
+            if (loc == I108_bedroom) return I107_kitchen; return I108_bedroom; ],
+    with found_in I108_bedroom I107_kitchen
     with list_together 0
     has mark_as_thing
-    with IK2_Count 11
-    with IK2_Link X107
+    with IK2_Count 13
+    with IK2_Link X109
     with IK4_Count 0
-    with IK4_Link X107
+    with IK4_Link X109
     with KD_Count 4
     with name 'gold' 'door' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I105_kitchen ""
+Object I107_kitchen ""
     class K1_room
     with short_name "kitchen"
-    with description SC_20
+    with description SC_22
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 5
-    with IK1_Link I106_bedroom
+    with IK1_Link I108_bedroom
     with KD_Count 1
     with name 'kitchen' 
 ;
 
-Object I106_bedroom ""
+Object I108_bedroom ""
     class K1_room
     with short_name "Bedroom"
-    with description SC_21
+    with description SC_23
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 6
-    with IK1_Link I110_man_cave
+    with IK1_Link I112_man_cave
     with KD_Count 1
     with name 'bedroom' 
 ;
 
-Object -> X107 ""
+Object -> X109 ""
     class K4_door
     with short_name "door"
     with vector 0
     with door_dir I53_west
     with list_together 0
     has mark_as_thing
-    with IK2_Count 13
-    with IK2_Link I108_safe
+    with IK2_Count 15
+    with IK2_Link I110_safe
     with IK4_Count 1
     with IK4_Link nothing
     with KD_Count 4
@@ -10063,10 +10095,10 @@ Object -> X107 ""
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I108_safe ""
+Object I110_safe ""
     class K5_container
     with short_name "safe"
-    with with_key I109_screw_key
+    with with_key I111_screw_key
     has ~open
     has openable
     has lockable
@@ -10074,8 +10106,8 @@ Object I108_safe ""
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 14
-    with IK2_Link I116_wilfred
+    with IK2_Count 16
+    with IK2_Link I118_wilfred
     with IK5_Count 1
     with IK5_Link nothing
     with KD_Count 5
@@ -10083,32 +10115,32 @@ Object I108_safe ""
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I110_man_cave ""
+Object I112_man_cave ""
     class K1_room
     with short_name "Man cave"
-    with description SC_22
+    with description SC_24
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 7
-    with IK1_Link I111_garage
+    with IK1_Link I113_garage
     with KD_Count 1
     with name 'man' 'cave' 
 ;
 
-Object -> I116_wilfred ""
+Object -> I118_wilfred ""
     class K10_man
     with short_name "Wilfred"
-    with description SC_23
+    with description SC_25
     has proper
     has concealed
     with vector 0
     with list_together 0
     with cap_short_name "Wilfred"
     has mark_as_thing
-    with IK2_Count 20
-    with IK2_Link I114_scope_base
+    with IK2_Count 22
+    with IK2_Link I116_scope_base
     with IK8_Count 2
     with IK8_Link nothing
     with IK10_Count 1
@@ -10118,10 +10150,10 @@ Object -> I116_wilfred ""
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I111_garage ""
+Object I113_garage ""
     class K1_room
     with short_name "Garage"
-    with description SC_24
+    with description SC_26
     with vector 0
     with room_index -1
     with list_together 0
@@ -10132,16 +10164,16 @@ Object I111_garage ""
     with name 'garage' 
 ;
 
-Object I114_scope_base ""
+Object I116_scope_base ""
     class K2_thing
     with short_name "scope base"
-    with description SC_25
+    with description SC_27
     has proper
     with vector 0
     with list_together 0
     with cap_short_name "Scope base"
     has mark_as_thing
-    with IK2_Count 18
+    with IK2_Count 20
     with IK2_Link nothing
     with KD_Count 2
     with name 'scope' 'base' 
@@ -10172,7 +10204,7 @@ Constant I86_referred_to_a_determinat = 19;
 Constant I87_i_beg_your_pardon_error = 20;
 Array Global_Vars -->
   (false) ! 7
-  (SC_26) ! 24
+  (SC_28) ! 24
   (SC_2) ! 29
   (EMPTY_TEXT_VALUE) ! 30
   (EMPTY_TEXT_VALUE) ! 31
@@ -10186,17 +10218,17 @@ Array Global_Vars -->
 
 
 Array T0_final_question_options table  tab_0_0 tab_0_1 tab_0_2 tab_0_3 tab_0_4;
-Array tab_0_0 table $0064 0  (SC_27)  (SC_28)  (SC_29)  (SC_30)  (SC_31) ;
+Array tab_0_0 table $0064 0  (SC_29)  (SC_30)  (SC_31)  (SC_32)  (SC_33) ;
 Array tab_0_1 table $0465 1  (0)  (0)  (1)  (0)  (0) ;
 Array tab_0_2 table $2066 2  (Consult_Grammar_100)  (Consult_Grammar_101)  (Consult_Grammar_102)  (Consult_Grammar_103)  (Consult_Grammar_104) ;
 Array tab_0_3 table $0067 3  (IMMEDIATELY_RESTART_VM_R)  (IMMEDIATELY_RESTORE_SAVED_R)  TABLE_NOVALUE (IMMEDIATELY_QUIT_R)  (IMMEDIATELY_UNDO_R) ;
 Array tab_0_4 table $0068 4  TABLE_NOVALUE TABLE_NOVALUE (V26_amusing_a_victorious_pla)  TABLE_NOVALUE TABLE_NOVALUE;
 Array T1_locale_priorities table  tab_1_0 tab_1_1;
-Array tab_1_0 table $0869 NULL  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
-Array tab_1_1 table $446a 5  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
+Array tab_1_0 table $0869 NULL  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
+Array tab_1_1 table $446a 5  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
 Array T2_arm_parts table  tab_2_0 tab_2_1;
-Array tab_2_0 table $066b 8  (LIST_CONST_840)  (LIST_CONST_847) ;
-Array tab_2_1 table $086c NULL  (I114_scope_base)  (I109_screw_key) ;
+Array tab_2_0 table $066b 8  (LIST_CONST_881)  (LIST_CONST_888) ;
+Array tab_2_1 table $086c NULL  (I116_scope_base)  (I111_screw_key) ;
 Array TB_Blanks -> 
   ! For table T0_final_question_options
   $00  ! Column 0
@@ -10206,7 +10238,7 @@ Array TB_Blanks ->
   $1b  ! Column 4
   
   ! For table T1_locale_priorities
-  $ff $ff $3f  ! Column 1
+  $ff $ff $ff  ! Column 1
   
   ! For table T2_arm_parts
   $00  ! Column 0
@@ -10765,7 +10797,7 @@ Array ActionHappened --> 0 0 0 0 0 0;
 [ R_740 ;
       ! phrase 1
       ! [1: say ~There has been a murder in the mansion on Royal boulevard. You are one of Hawaii's most famous detectives. Find out who killed Rich, the mansion owner. This case, if solved, could get you the promotion to chief.^^You find your way to the Boat to begin the search.~]
-      say__p=1;ParaContent();  print (PrintText) SC_32;  new_line; .L_Say1; .L_SayX1;
+      say__p=1;ParaContent();  print (PrintText) SC_34;  new_line; .L_Say1; .L_SayX1;
    rfalse;
 ];
 ! ----------------------------------------------------------------------------------------------------
@@ -10823,7 +10855,7 @@ Array ActionHappened --> 0 0 0 0 0 0;
 [ R_20 ;
       ! phrase 1
       ! [1: if the current item from the multiple object list is not nothing , say ~[current item from the multiple object list]: [run paragraph on]~]
-       if (((~~((multiple_object_item == nothing))))) { say__p=1;ParaContent();  print (PrintShortName) multiple_object_item; ParaContent();  print (PrintText) SC_33; ParaContent();  RunParagraphOn();  .L_Say3; .L_SayX3;  }
+       if (((~~((multiple_object_item == nothing))))) { say__p=1;ParaContent();  print (PrintShortName) multiple_object_item; ParaContent();  print (PrintText) SC_35; ParaContent();  RunParagraphOn();  .L_Say3; .L_SayX3;  }
    rfalse;
 ];
 ! No specific request
@@ -11228,7 +11260,7 @@ self = noun;
    if (debug_rules) DB_Rule(R_748, 748);
       ! phrase 1
       ! [1: say ~Hello Officer, I may be able to assist you. Before Mr. Rich got murdered, he gave me a box and said to never let this out of sight, but I could never find the key for it. So, if you can find the key, we can open it and see what is inside. The only clue he gave me was that the key is somewhere up high.~]
-      say__p=1;ParaContent();  print (PrintText) SC_34;  new_line; .L_Say4; .L_SayX4;
+      say__p=1;ParaContent();  print (PrintText) SC_36;  new_line; .L_Say4; .L_SayX4;
       RulebookFails(); rtrue;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_748, 748, true);
@@ -11242,7 +11274,7 @@ self = noun;
    if (debug_rules) DB_Rule(R_749, 749);
       ! phrase 1
       ! [1: say ~Sup Officer, I didn't do anything. I've been in this Man Cave ever since I got here and I am also Mr. Rich's best friend. There is no way I would have committed a murder. Please tell me who killed my best friend when you find out. Thank you.~]
-      say__p=1;ParaContent();  print (PrintText) SC_35;  new_line; .L_Say5; .L_SayX5;
+      say__p=1;ParaContent();  print (PrintText) SC_37;  new_line; .L_Say5; .L_SayX5;
       RulebookFails(); rtrue;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_749, 749, true);
@@ -11251,18 +11283,18 @@ self = noun;
 ! No specific request
 ! Instead of taking paintings:
 [ R_741 ;
-   if ((action ==##Take) &&  (actor==player) && ((noun == I100_paintings) && (true))) { ! Runs only when pattern matches
+   if ((action ==##Take) &&  (actor==player) && ((noun == I102_paintings) && (true))) { ! Runs only when pattern matches
 self = noun;
    if (debug_rules) DB_Rule(R_741, 741);
       ! phrase 1
       ! [1: move gold key to attic]
-       MoveObject(I102_gold_key, I99_attic, 0, false); 
+       MoveObject(I104_gold_key, I101_attic, 0, false); 
       ! phrase 2
       ! [2: move paintings to player]
-       MoveObject(I100_paintings, player, 0, false); 
+       MoveObject(I102_paintings, player, 0, false); 
       ! phrase 3
       ! [3: say ~a gold key appears from underneath the paintings.~]
-      say__p=1;ParaContent();  print (PrintText) SC_36;  new_line; .L_Say6; .L_SayX6;
+      say__p=1;ParaContent();  print (PrintText) SC_38;  new_line; .L_Say6; .L_SayX6;
       RulebookFails(); rtrue;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_741, 741, true);
@@ -11280,15 +11312,15 @@ self = noun;
 ! No specific request
 ! After switching on the flashlight in the attic:
 [ R_743 ;
-   if ((action ==##SwitchOn) &&  (actor==player) && ((noun == I92_flashlight) && (true)) && ((real_location == I99_attic) && (true))) { ! Runs only when pattern matches
+   if ((action ==##SwitchOn) &&  (actor==player) && ((noun == I93_flashlight) && (true)) && ((real_location == I101_attic) && (true))) { ! Runs only when pattern matches
 self = noun;
    if (debug_rules) DB_Rule(R_743, 743);
       ! phrase 1
       ! [1: say ~Yay! you can finally see something in this dark dark room.~]
-      say__p=1;ParaContent();  print (PrintText) SC_37;  new_line; .L_Say7; .L_SayX7;
+      say__p=1;ParaContent();  print (PrintText) SC_39;  new_line; .L_Say7; .L_SayX7;
       ! phrase 2
       ! [2: now the flashlight is lit]
-       (Adj_41_t2_v9(I92_flashlight)); 
+       (Adj_41_t2_v9(I93_flashlight)); 
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_743, 743, true);
@@ -11302,10 +11334,10 @@ self = noun;
    if (debug_rules) DB_Rule(R_742, 742);
       ! phrase 1
       ! [1: move player to the bedroom]
-       MoveObject(player, I106_bedroom, 0, false); 
+       MoveObject(player, I108_bedroom, 0, false); 
       ! phrase 2
       ! [2: say ~you are in the bedroom.~]
-      say__p=1;ParaContent();  print (PrintText) SC_38;  new_line; .L_Say8; .L_SayX8;
+      say__p=1;ParaContent();  print (PrintText) SC_40;  new_line; .L_Say8; .L_SayX8;
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_742, 742, true);
@@ -11395,7 +11427,7 @@ self = noun;
    if (debug_rules) DB_Rule(R_60, 60);
       ! phrase 1
       ! [1: say ~[listing group size in words] ~]
-      say__p=1;ParaContent();  print (number) say__n=(listing_size); ParaContent();  print (PrintText) SC_39;  .L_Say10; .L_SayX10;
+      say__p=1;ParaContent();  print (number) say__n=(listing_size); ParaContent();  print (PrintText) SC_41;  .L_Say10; .L_SayX10;
       ! phrase 2
       ! [2: carry out the printing the plural name activity with the item]
        CarryOutActivity(V1_printing_the_plural_name_, t_0); 
@@ -11608,7 +11640,7 @@ self = noun;
        if (((t_0 < 1))) {  if (ProcessRulebook(IMMEDIATELY_QUIT_R)) rtrue;   }
       ! phrase 10
       ! [10: say ~Would you like to ~]
-      say__p=1;ParaContent();  print (PrintText) SC_40;  .L_Say11; .L_SayX11;
+      say__p=1;ParaContent();  print (PrintText) SC_42;  .L_Say11; .L_SayX11;
       ! phrase 11
       ! [11: repeat through the table of final question options begin]
        @push ct_0; @push ct_1;
@@ -11635,23 +11667,23 @@ self = noun;
                    if (((t_0 == 0)))  {
                      ! phrase 18
                      ! [18: say ~?[line break]~]
-                     say__p=1;ParaContent();  print (PrintText) SC_41; ParaContent();  new_line;  .L_Say13; .L_SayX13;
+                     say__p=1;ParaContent();  print (PrintText) SC_43; ParaContent();  new_line;  .L_Say13; .L_SayX13;
                      ! phrase 19
                      ! [19: otherwise if the named options count is 1]
                       } else if (((t_0 == 1))) { 
                      ! phrase 20
                      ! [20: if the serial comma option is active , say ~,~]
-                      if ((((Adj_22_t1_v15(5))))) { say__p=1;ParaContent();  print (PrintText) SC_42;  .L_Say14; .L_SayX14;  }
+                      if ((((Adj_22_t1_v15(5))))) { say__p=1;ParaContent();  print (PrintText) SC_44;  .L_Say14; .L_SayX14;  }
                      ! phrase 21
                      ! [21: say ~ or ~]
-                     say__p=1;ParaContent();  print (PrintText) SC_43;  .L_Say15; .L_SayX15;
+                     say__p=1;ParaContent();  print (PrintText) SC_45;  .L_Say15; .L_SayX15;
                      ! phrase 22
                      ! [22: otherwise]
                      } else {
 
                      ! phrase 23
                      ! [23: say ~, ~]
-                     say__p=1;ParaContent();  print (PrintText) SC_44;  .L_Say16; .L_SayX16;
+                     say__p=1;ParaContent();  print (PrintText) SC_46;  .L_Say16; .L_SayX16;
                      ! phrase 24
                      ! [24: end if]
                      }
@@ -11680,7 +11712,7 @@ self = noun;
 [ R_68 ;
       ! phrase 1
       ! [1: say ~> [run paragraph on]~]
-      say__p=1;ParaContent();  print (PrintText) SC_45; ParaContent();  RunParagraphOn();  .L_Say17; .L_SayX17;
+      say__p=1;ParaContent();  print (PrintText) SC_47; ParaContent();  RunParagraphOn();  .L_Say17; .L_SayX17;
    rfalse;
 ];
 ! ----------------------------------------------------------------------------------------------------
@@ -11933,40 +11965,40 @@ self = noun;
                 if (((t_0 ofclass K1_room)))  {
                   ! phrase 22
                   ! [22: if the domain is the location , say ~You ~]
-                   if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_46;  .L_Say18; .L_SayX18;  }
+                   if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_48;  .L_Say18; .L_SayX18;  }
                   ! phrase 23
                   ! [23: otherwise say ~In [the domain] you ~]
-                   else { say__p=1;ParaContent();  print (PrintText) SC_47; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_48;  .L_Say19; .L_SayX19;  }
+                   else { say__p=1;ParaContent();  print (PrintText) SC_49; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_50;  .L_Say19; .L_SayX19;  }
                   ! phrase 24
                   ! [24: otherwise if the domain is a supporter]
                    } else if (((t_0 ofclass K6_supporter))) { 
                   ! phrase 25
                   ! [25: say ~On [the domain] you ~]
-                  say__p=1;ParaContent();  print (PrintText) SC_49; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_48;  .L_Say20; .L_SayX20;
+                  say__p=1;ParaContent();  print (PrintText) SC_51; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_50;  .L_Say20; .L_SayX20;
                   ! phrase 26
                   ! [26: otherwise if the domain is an animal]
                    } else if (((t_0 ofclass K12_animal))) { 
                   ! phrase 27
                   ! [27: say ~On [the domain] you ~]
-                  say__p=1;ParaContent();  print (PrintText) SC_49; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_48;  .L_Say21; .L_SayX21;
+                  say__p=1;ParaContent();  print (PrintText) SC_51; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_50;  .L_Say21; .L_SayX21;
                   ! phrase 28
                   ! [28: otherwise]
                   } else {
 
                   ! phrase 29
                   ! [29: say ~In [the domain] you ~]
-                  say__p=1;ParaContent();  print (PrintText) SC_47; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_48;  .L_Say22; .L_SayX22;
+                  say__p=1;ParaContent();  print (PrintText) SC_49; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_50;  .L_Say22; .L_SayX22;
                   ! phrase 30
                   ! [30: end if]
                   }
 
                ! phrase 31
                ! [31: say ~can [if the locale paragraph count is greater than 0]also [end if]see ~]
-               say__p=1;ParaContent();  print (PrintText) SC_50; 
+               say__p=1;ParaContent();  print (PrintText) SC_52; 
 	if (~~(((((Global_Vars-->8) > 0))))) jump L_Say23;
-		ParaContent();  print (PrintText) SC_51; 
+		ParaContent();  print (PrintText) SC_53; 
 	.L_Say23; .L_SayX23;
-		ParaContent();  print (PrintText) SC_52;  .L_Say24; .L_SayX24;
+		ParaContent();  print (PrintText) SC_54;  .L_Say24; .L_SayX24;
                ! phrase 32
                ! [32: let the common holder be nothing]
                 t_2 = nothing; 
@@ -12012,10 +12044,10 @@ self = noun;
 		@pull subst__v;  .L_Say25; .L_SayX25;  }
                ! phrase 44
                ! [44: if the domain is the location , say ~ here~]
-                if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_53;  .L_Say26; .L_SayX26;  }
+                if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_55;  .L_Say26; .L_SayX26;  }
                ! phrase 45
                ! [45: say ~.[paragraph break]~]
-               say__p=1;ParaContent();  print (PrintText) SC_54; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say27; .L_SayX27;
+               say__p=1;ParaContent();  print (PrintText) SC_56; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say27; .L_SayX27;
                ! phrase 46
                ! [46: unfilter list recursion]
                 list_filter_routine = 0; 
@@ -12276,13 +12308,13 @@ self = noun;
 
                ! phrase 13
                ! [13: say ~On [the item] ~]
-               say__p=1;ParaContent();  print (PrintText) SC_49; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_39;  .L_Say32; .L_SayX32;
+               say__p=1;ParaContent();  print (PrintText) SC_51; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_41;  .L_Say32; .L_SayX32;
                ! phrase 14
                ! [14: list the contents of the item , as a sentence , including contents , giving brief inventory information , tersely , not listing concealed items , prefacing with is/are , listing marked items only]
                 WriteListFrom(child(t_0), 3800); 
                ! phrase 15
                ! [15: say ~.[paragraph break]~]
-               say__p=1;ParaContent();  print (PrintText) SC_54; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say33; .L_SayX33;
+               say__p=1;ParaContent();  print (PrintText) SC_56; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say33; .L_SayX33;
                ! phrase 16
                ! [16: end if]
                }
@@ -12350,13 +12382,13 @@ self = noun;
              (Global_Vars-->8) = (Global_Vars-->8) + 1; 
             ! phrase 11
             ! [11: say ~On [the item] ~]
-            say__p=1;ParaContent();  print (PrintText) SC_49; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_39;  .L_Say34; .L_SayX34;
+            say__p=1;ParaContent();  print (PrintText) SC_51; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_41;  .L_Say34; .L_SayX34;
             ! phrase 12
             ! [12: list the contents of the item , as a sentence , including contents , giving brief inventory information , tersely , not listing concealed items , prefacing with is/are , listing marked items only]
              WriteListFrom(child(t_0), 3800); 
             ! phrase 13
             ! [13: say ~.[paragraph break]~]
-            say__p=1;ParaContent();  print (PrintText) SC_54; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say35; .L_SayX35;
+            say__p=1;ParaContent();  print (PrintText) SC_56; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say35; .L_SayX35;
             ! phrase 14
             ! [14: end if]
             }
@@ -12406,7 +12438,7 @@ self = noun;
        GL__M(##Inv,2,noun); 
       ! phrase 2
       ! [2: say ~:[line break]~]
-      say__p=1;ParaContent();  print (PrintText) SC_55; ParaContent();  new_line;  .L_Say36; .L_SayX36;
+      say__p=1;ParaContent();  print (PrintText) SC_57; ParaContent();  new_line;  .L_Say36; .L_SayX36;
       ! phrase 3
       ! [3: list the contents of the player , with newlines , indented , including contents , giving inventory information , with extra indentation]
        WriteListFrom(child(player), 8215); 
@@ -14002,7 +14034,7 @@ self = noun;
           if (((~~(((MStack-->MstVO(20007,3)) == nothing)))))  {
             ! phrase 49
             ! [49: say ~ ~]
-            say__p=1;ParaContent();  print (PrintText) SC_39;  .L_Say37; .L_SayX37;
+            say__p=1;ParaContent();  print (PrintText) SC_41;  .L_Say37; .L_SayX37;
             ! phrase 50
             ! [50: if the vehicle gone by is a supporter , issue actor-based library message going action number 20 for the vehicle gone by]
              if ((((MStack-->MstVO(20007,3)) ofclass K6_supporter))) {  AGL__M(##Go,20,(MStack-->MstVO(20007,3)));   }
@@ -14057,7 +14089,7 @@ self = noun;
              AGL__M(##Go,26,noun); 
             ! phrase 66
             ! [66: say ~.~]
-            say__p=1;ParaContent();  print (PrintText) SC_54;  new_line; .L_Say38; .L_SayX38;
+            say__p=1;ParaContent();  print (PrintText) SC_56;  new_line; .L_Say38; .L_SayX38;
             ! phrase 67
             ! [67: try looking]
              TryAction(0, player, ##Look, 0, 0);; 
@@ -14070,7 +14102,7 @@ self = noun;
 
          ! phrase 70
          ! [70: say ~.~]
-         say__p=1;ParaContent();  print (PrintText) SC_54;  new_line; .L_Say39; .L_SayX39;
+         say__p=1;ParaContent();  print (PrintText) SC_56;  new_line; .L_Say39; .L_SayX39;
          ! phrase 71
          ! [71: end if]
          }
@@ -17588,7 +17620,7 @@ self = noun;
        if ((((MStack-->MstVO(20082,0)) == nothing)))  {
          ! phrase 2
          ! [2: say ~You can't combine [the noun] and [the second noun] into anything useful.[line break]Try another combination of things.~]
-         say__p=1;ParaContent();  print (PrintText) SC_56; ParaContent();  print (the) noun; ParaContent();  print (PrintText) SC_57; ParaContent();  print (the) second; ParaContent();  print (PrintText) SC_58; ParaContent();  new_line; ParaContent();  print (PrintText) SC_59;  new_line; .L_Say47; .L_SayX47;
+         say__p=1;ParaContent();  print (PrintText) SC_58; ParaContent();  print (the) noun; ParaContent();  print (PrintText) SC_59; ParaContent();  print (the) second; ParaContent();  print (PrintText) SC_60; ParaContent();  new_line; ParaContent();  print (PrintText) SC_61;  new_line; .L_Say47; .L_SayX47;
          ! phrase 3
          ! [3: stop the action]
           rtrue; 
@@ -17614,7 +17646,7 @@ self = noun;
    if (debug_rules) DB_Rule(R_746, 746);
       ! phrase 1
       ! [1: say ~You fuse together [the noun] and [the second noun].~]
-      say__p=1;ParaContent();  print (PrintText) SC_60; ParaContent();  print (the) noun; ParaContent();  print (PrintText) SC_57; ParaContent();  print (the) second; ParaContent();  print (PrintText) SC_54;  new_line; .L_Say48; .L_SayX48;
+      say__p=1;ParaContent();  print (PrintText) SC_62; ParaContent();  print (the) noun; ParaContent();  print (PrintText) SC_59; ParaContent();  print (the) second; ParaContent();  print (PrintText) SC_56;  new_line; .L_Say48; .L_SayX48;
       ! phrase 2
       ! [2: remove the noun from play]
        RemoveFromPlay(noun); 
@@ -17642,7 +17674,7 @@ self = noun;
    if (debug_rules) DB_Rule(R_747, 747);
       ! phrase 1
       ! [1: say ~You now have a [a Contraption].~]
-      say__p=1;ParaContent();  print (PrintText) SC_61; ParaContent();  print (a) (MStack-->MstVO(20082,0)); ParaContent();  print (PrintText) SC_54;  new_line; .L_Say49; .L_SayX49;
+      say__p=1;ParaContent();  print (PrintText) SC_63; ParaContent();  print (a) (MStack-->MstVO(20082,0)); ParaContent();  print (PrintText) SC_56;  new_line; .L_Say49; .L_SayX49;
    } ! Runs only when actor is the player
    else if (debug_rules > 1) DB_Rule(R_747, 747, true);
    rfalse;
@@ -22589,7 +22621,7 @@ Array FWMatrix --> NUM_ROOMS*NUM_ROOMS;
 ];
 #ENDIF;
 
-Constant MAX_ROUTE_LENGTH = 42 + 32;
+Constant MAX_ROUTE_LENGTH = 44 + 32;
 
 [ RelationRouteTo relation from to count  handler;
 	if (count) {
@@ -26250,8 +26282,8 @@ Verb meta 'tree'
 
 [ LITTLE_USED_DO_NOTHING_R; rfalse; ];
 
-Array LIST_CONST_840 --> 0 9 2 (I113_base) (I112_finderscope) ;
-Array LIST_CONST_847 --> 0 9 2 (I114_scope_base) (I109_screw_key) ;
+Array LIST_CONST_881 --> 0 9 2 (I115_base) (I114_finderscope) ;
+Array LIST_CONST_888 --> 0 9 2 (I116_scope_base) (I111_screw_key) ;
 
 
 
@@ -26400,11 +26432,11 @@ Array LIST_CONST_847 --> 0 9 2 (I114_scope_base) (I109_screw_key) ;
 ];
 
 [ PAPR_0 ;
-if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I115_bob) && (true))) rtrue;
+if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I117_bob) && (true))) rtrue;
     rfalse;
 ];
 [ PAPR_1 ;
-if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I116_wilfred) && (true))) rtrue;
+if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I118_wilfred) && (true))) rtrue;
     rfalse;
 ];
 Array PastActionsI6Routines --> PAPR_0 PAPR_1 0 0;
@@ -28081,68 +28113,70 @@ ArgumentTypeFailed(filename, line);
 
 
 Array ConstantListPointers --> 
-LIST_CONST_840 LIST_CONST_847  0 0;
+LIST_CONST_881 LIST_CONST_888  0 0;
 
-Constant SC_39 = " ";
-Constant SC_57 = " and ";
-Constant SC_53 = " here";
-Constant SC_58 = " into anything useful.";
-Constant SC_43 = " or ";
-Constant SC_48 = " you ";
-Constant SC_44 = ", ";
-Constant SC_42 = ",";
-Constant SC_54 = ".";
-Constant SC_33 = ": ";
-Constant SC_55 = ":";
-Constant SC_45 = "> ";
-Constant SC_26 = ">";
-Constant SC_41 = "?";
+Constant SC_41 = " ";
+Constant SC_59 = " and ";
+Constant SC_55 = " here";
+Constant SC_60 = " into anything useful.";
+Constant SC_45 = " or ";
+Constant SC_50 = " you ";
+Constant SC_46 = ", ";
+Constant SC_44 = ",";
+Constant SC_56 = ".";
+Constant SC_35 = ": ";
+Constant SC_57 = ":";
+Constant SC_47 = "> ";
+Constant SC_28 = ">";
+Constant SC_43 = "?";
 Constant SC_4 = "As good-looking as ever.";
-Constant SC_15 = "Bob is the butler of Mr. Rich's mansion. He is here everyday and helps out in any way that he can.";
-Constant SC_34 = "Hello Officer, I may be able to assist you. Before Mr. Rich got murdered, he gave me a box and said to never let this out of sight, but I could never find the key for it. So, if you can find the key, we can open it and see what is inside. The only clue he gave me was that the key is somewhere up high.";
-Constant SC_47 = "In ";
+Constant SC_17 = "Bob is the butler of Mr. Rich's mansion. He is here everyday and helps out in any way that he can.";
+Constant SC_36 = "Hello Officer, I may be able to assist you. Before Mr. Rich got murdered, he gave me a box and said to never let this out of sight, but I could never find the key for it. So, if you can find the key, we can open it and see what is inside. The only clue he gave me was that the key is somewhere up high.";
+Constant SC_49 = "In ";
 Constant SC_2 = "Jordan Tome";
-Constant SC_19 = "Many paintings and books.";
-Constant SC_49 = "On ";
-Constant SC_30 = "QUIT";
-Constant SC_27 = "RESTART";
-Constant SC_28 = "RESTORE a saved game";
-Constant SC_35 = "Sup Officer, I didn't do anything. I've been in this Man Cave ever since I got here and I am also Mr. Rich's best friend. There is no way I would have committed a murder. Please tell me who killed my best friend when you find out. Thank you.";
-Constant SC_32 = "There has been a murder in the mansion on Royal boulevard. You are one of Hawaii's most famous detectives. Find out who killed Rich, the mansion owner. This case, if solved, could get you the promotion to chief.^^You find your way to the Boat to begin the search.";
-Constant SC_24 = "There is a car, a workbench, and many tools.";
-Constant SC_59 = "Try another combination of things.";
-Constant SC_31 = "UNDO the last command";
-Constant SC_23 = "Wilfred is Mr. Rich's best friend. He use to be homeless, but Mr. Rich decided to let him sleep and live in the Man cave. He is very sloppy, but respects Mr. Rich very much and does whatever he can to help around.";
-Constant SC_40 = "Would you like to ";
-Constant SC_37 = "Yay! you can finally see something in this dark dark room.";
-Constant SC_46 = "You ";
-Constant SC_56 = "You can't combine ";
-Constant SC_60 = "You fuse together ";
-Constant SC_61 = "You now have a ";
-Constant SC_14 = "a circular object that holds flowers. There are many colorful flowers in this vase. There is also a circular fingerprint.";
-Constant SC_17 = "a device to clean your teeth.";
-Constant SC_36 = "a gold key appears from underneath the paintings.";
-Constant SC_11 = "a gun shaped item. It looks like there are fingerprints.";
-Constant SC_13 = "a long table that has nice furnishings. Not many things on this table.";
+Constant SC_21 = "Many paintings and books.";
+Constant SC_51 = "On ";
+Constant SC_32 = "QUIT";
+Constant SC_29 = "RESTART";
+Constant SC_30 = "RESTORE a saved game";
+Constant SC_37 = "Sup Officer, I didn't do anything. I've been in this Man Cave ever since I got here and I am also Mr. Rich's best friend. There is no way I would have committed a murder. Please tell me who killed my best friend when you find out. Thank you.";
+Constant SC_34 = "There has been a murder in the mansion on Royal boulevard. You are one of Hawaii's most famous detectives. Find out who killed Rich, the mansion owner. This case, if solved, could get you the promotion to chief.^^You find your way to the Boat to begin the search.";
+Constant SC_26 = "There is a car, a workbench, and many tools.";
+Constant SC_61 = "Try another combination of things.";
+Constant SC_33 = "UNDO the last command";
+Constant SC_25 = "Wilfred is Mr. Rich's best friend. He use to be homeless, but Mr. Rich decided to let him sleep and live in the Man cave. He is very sloppy, but respects Mr. Rich very much and does whatever he can to help around.";
+Constant SC_42 = "Would you like to ";
+Constant SC_39 = "Yay! you can finally see something in this dark dark room.";
+Constant SC_48 = "You ";
+Constant SC_58 = "You can't combine ";
+Constant SC_62 = "You fuse together ";
+Constant SC_63 = "You now have a ";
+Constant SC_15 = "a circular object that holds flowers. There are many colorful flowers in this vase. There is also a circular fingerprint.";
+Constant SC_19 = "a device to clean your teeth.";
+Constant SC_16 = "a fingerprint with many loops and a significant arch.";
+Constant SC_38 = "a gold key appears from underneath the paintings.";
+Constant SC_7 = "a gun shaped item. It looks like there is a fingerprint.";
+Constant SC_8 = "a large square with a loop in the middle.";
+Constant SC_14 = "a long table that has nice furnishings. Not many things on this table.";
 Constant SC_5 = "a magnificant yacht called the USS Shayna in honor of Mr. Rich's late wife. There is a fire extinguisher and a flare gun as well.";
-Constant SC_20 = "a place for cooking with a knife, TV, and a spatula.";
-Constant SC_21 = "a place for sleeping. There is a bed, a clock, drawer, and a safe.";
-Constant SC_16 = "a place to do your business. There is a toothbrush and a toilet.";
-Constant SC_12 = "a place where the family came to eat. There is a dining table, a vase with flowers, and a butler named bob.";
-Constant SC_18 = "a porcelain seat with water inside. It is clogged and unusable.";
+Constant SC_22 = "a place for cooking with a knife, TV, and a spatula.";
+Constant SC_23 = "a place for sleeping. There is a bed, a clock, drawer, and a safe.";
+Constant SC_18 = "a place to do your business. There is a toothbrush and a toilet.";
+Constant SC_13 = "a place where the family came to eat. There is a dining table, a vase with flowers, and a butler named bob.";
+Constant SC_20 = "a porcelain seat with water inside. It is clogged and unusable.";
 Constant SC_6 = "a red tank that suppresses fires.";
-Constant SC_9 = "a telescope that has been smashed, but some parts are still intact, may be used for something else.";
-Constant SC_51 = "also ";
-Constant SC_7 = "an object that can be used for liting places up.";
-Constant SC_50 = "can ";
-Constant SC_8 = "greenhouse with plants and a broken telescope. Something about the telescope might help you.";
-Constant SC_52 = "see ";
-Constant SC_29 = "see some suggestions for AMUSING things to do";
+Constant SC_11 = "a telescope that has been smashed, but some parts are still intact, may be used for something else.";
+Constant SC_53 = "also ";
+Constant SC_9 = "an object that can be used for liting places up.";
+Constant SC_52 = "can ";
+Constant SC_10 = "greenhouse with plants and a broken telescope. Something about the telescope might help you.";
+Constant SC_54 = "see ";
+Constant SC_31 = "see some suggestions for AMUSING things to do";
 Constant SC_3 = "the";
-Constant SC_22 = "there is a bar, couches, pool table, 100~ tv, and Wilfred, Mr. Rich's best friend.";
-Constant SC_38 = "you are in the bedroom.";
-Constant SC_10 = "you combined the Scope Base with the screw to get screw key.";
-Constant SC_25 = "you combined the finderscope with the base to get scope base. It seems that you might be able to add one more part.";
+Constant SC_24 = "there is a bar, couches, pool table, 100~ tv, and Wilfred, Mr. Rich's best friend.";
+Constant SC_40 = "you are in the bedroom.";
+Constant SC_12 = "you combined the Scope Base with the screw to get screw key.";
+Constant SC_27 = "you combined the finderscope with the base to get scope base. It seems that you might be able to add one more part.";
 
 #ifndef p0_specification; Constant p0_specification = 0; #endif;
 #ifndef p1_indefinite_appearance_tex; Constant p1_indefinite_appearance_tex = 0; #endif;

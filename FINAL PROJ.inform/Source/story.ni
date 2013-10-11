@@ -12,7 +12,9 @@ The Boat is a room. It is outside of the conservatory. The description of the bo
 The fire extinguisher is a thing. It is inside the boat. The description of the fire extinguisher is "a red tank that suppresses fires." 
 
 
-The flare gun is a thing. The description of the flare gun is "a gun shaped item. It looks like there are fingerprints." 
+The flare gun is a thing. It is inside the boat. The description of the flare gun is "a gun shaped item. It looks like there is a fingerprint." 
+
+The squarish fingerprint is a thing. It is on the flare gun. The description is "a large square with a loop in the middle."
 
 
 The flashlight is a thing. It is inside the boat. The description of the flashlight is "an object that can be used for liting places up." 
@@ -27,7 +29,7 @@ The dining table is scenery. It is inside the living room. The description is "a
 
 The vase is scenery. It is inside the living room. The description is "a circular object that holds flowers. There are many colorful flowers in this vase. There is also a circular fingerprint." 
 
-
+The circular fingerprint is a thing. It is on the vase. The description is "a fingerprint with many loops and a significant arch."
 
 
 The Bathroom is a room. It is north of the living room. The description of the bathroom is "a place to do your business. There is a toothbrush and a toilet." 
@@ -158,9 +160,13 @@ Instead of talking to Bob for the first time:
 	say "Hello Officer, I may be able to assist you. Before Mr. Rich got murdered, he gave me a box and said to never let this out of sight, but I could never find the key for it. So, if you can find the key, we can open it and see what is inside. The only clue he gave me was that the key is somewhere up high."
 	
 
+	
+
 Instead of talking to Wilfred for the first time:
 	say "Sup Officer, I didn't do anything. I've been in this Man Cave ever since I got here and I am also Mr. Rich's best friend. There is no way I would have committed a murder. Please tell me who killed my best friend when you find out. Thank you." 
 	
+
+
 
 
 
