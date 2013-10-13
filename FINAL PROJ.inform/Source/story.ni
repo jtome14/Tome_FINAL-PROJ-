@@ -3,21 +3,23 @@
 The target score is a number variable. The target score is 8.
 The maximum score is 16 
 
-When play begins: say "There has been a murder in the mansion on Royal boulevard. You are one of Hawaii's most famous detectives. Find out who killed Rich, the mansion owner. This case, if solved, could get you the promotion to chief. 
+When play begins: say "There has been a murder in the mansion on Royal boulevard. You are one of Hawaii's most famous detectives. Find out the murder weapon that killed Rich, the mansion owner. This case, if solved, could get you the promotion to  assistant chief. You are successful once you can get the chief the weapon.
 
 You find your way to the Boat to begin the search."
 
-The Boat is a room. It is outside of the conservatory. The description of the boat is "a magnificant yacht called the USS Shayna in honor of Mr. Rich's late wife. There is a fire extinguisher and a flare gun as well."
-
-The fire extinguisher is a thing. It is inside the boat. The description of the fire extinguisher is "a red tank that suppresses fires." 
+The Boat is a room. It is outside of the conservatory. The description of the boat is "a magnificant yacht called the USS Shayna in honor of Mr. Rich's late wife. There is a fire extinguisher and a flare gun."
 
 
-The flare gun is a thing. It is inside the boat. The description of the flare gun is "a gun shaped item. It looks like there is a fingerprint." 
-
-The squarish fingerprint is a thing. It is on the flare gun. The description is "a large square with a loop in the middle."
+The fire extinguisher is scenery. It is inside the boat. The description of the fire extinguisher is "a red tank that suppresses fires." 
 
 
-The flashlight is a thing. It is inside the boat. The description of the flashlight is "an object that can be used for liting places up." 
+The flare gun is a thing. It is inside the boat. The description of the flare gun is "a gun shaped item. Someone mustve held this before, you may need to check for fingerprints." 
+	
+
+	
+
+The flashlight is a thing. It is inside the boat. The description of the flashlight is "an object that can be used for lighting places up." 
+
 
 The Conservatory is a room. It is west of the living room. The description of the conservatory is "greenhouse with plants and a broken telescope. Something about the telescope might help you."
 
@@ -27,9 +29,9 @@ The Living room is a room. The description of the living room is "a place where 
 The dining table is scenery. It is inside the living room. The description is "a long table that has nice furnishings. Not many things on this table." 
 
 
-The vase is scenery. It is inside the living room. The description is "a circular object that holds flowers. There are many colorful flowers in this vase. There is also a circular fingerprint." 
+The vase is scenery. It is inside the living room. The description is "a circular object that holds flowers. There are many colorful flowers in this vase."
 
-The circular fingerprint is a thing. It is on the vase. The description is "a fingerprint with many loops and a significant arch."
+
 
 
 The Bathroom is a room. It is north of the living room. The description of the bathroom is "a place to do your business. There is a toothbrush and a toilet." 
@@ -83,6 +85,13 @@ The gold door is a door. It is west of the bedroom and east of the kitchen. It i
 
 The safe is a container. It is closed and openable container. It is locked and lockable. 
 The screw key unlocks the safe.
+
+
+The broken glass is a thing. It is inside the safe. The description of broken glass is "couple pieces of glass with blood stains." 
+
+After examining glass:
+	say "after taking a closer look, you notice that this was the weapon the killer used based on Mr. Rich's wounds."
+	
 
 
 The Man cave is a room. It is south of the living room. The description of the man cave is "there is a bar, couches, pool table, 100' tv, and Wilfred, Mr. Rich's best friend." 
@@ -159,12 +168,29 @@ Wilfred is a man inside the Man cave. He is undescribed. The description is "Wil
 Instead of talking to Bob for the first time:
 	say "Hello Officer, I may be able to assist you. Before Mr. Rich got murdered, he gave me a box and said to never let this out of sight, but I could never find the key for it. So, if you can find the key, we can open it and see what is inside. The only clue he gave me was that the key is somewhere up high."
 	
-
+	
 	
 
 Instead of talking to Wilfred for the first time:
 	say "Sup Officer, I didn't do anything. I've been in this Man Cave ever since I got here and I am also Mr. Rich's best friend. There is no way I would have committed a murder. Please tell me who killed my best friend when you find out. Thank you." 
+
+
+
+
+The chief is a man. he is undescribed. 
+Instead of taking broken glass:
+	move chief to bedroom;
+	move broken glass to player.
 	
+
+Understand the command "give [thing] to [someone]" as something new.
+Giving it in is an action applying to two things.
+Understand "give [thing] to [someone]" as giving it.
+
+[Winning action]
+After giving the broken glass to chief:
+	say "You gave the murder weapon to the chief and he will now take it to forensics. The chief is grateful for your work and has promoted you to assistant chief.";
+	End the game in victory.
 
 
 

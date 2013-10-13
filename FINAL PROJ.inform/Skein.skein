@@ -14,21 +14,23 @@ You find your way to the Boat to begin the search.
 
 FINAL PROJ
 An Interactive Fiction by Jordan Tome
-Release 1 / Serial number 131010 / Inform 7 build 6G60 (I6/v6.32 lib 6/12N) SD
+Release 1 / Serial number 131012 / Inform 7 build 6G60 (I6/v6.32 lib 6/12N) SD
 
 Boat
-a magnificant yacht called the USS Shayna in honor of Mr. Rich&apos;s late wife. There is a fire extinguisher and a flare gun as well.
+a magnificant yacht called the USS Shayna in honor of Mr. Rich&apos;s late wife. There is a fire extinguisher and a flare gun.
 
-You can see a fire extinguisher, a flare gun (on which is a fingerprint) and a flashlight here.
+You can see a flare gun and a flashlight here.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="117">NO</temporary>
+    <temporary score="137">NO</temporary>
     <children>
-      <child nodeId="node-0x1be16a0" />
       <child nodeId="node-0x119a5c20" />
+      <child nodeId="node-0x11932280" />
+      <child nodeId="node-0xee1f8e0" />
       <child nodeId="node-0x1be09f0" />
+      <child nodeId="node-0x10b5aee0" />
       <child nodeId="node-0x1bdf9c0" />
       <child nodeId="node-0x1be0e50" />
     </children>
@@ -44,17 +46,7 @@ You can see a fire extinguisher, a flare gun (on which is a fingerprint) and a f
     <children>
       <child nodeId="node-0x1be0ec0" />
       <child nodeId="node-0x1be1240" />
-      <child nodeId="node-0x1be1630" />
     </children>
-  </item>
-  <item nodeId="node-0x1be1630">
-    <command xml:space="preserve">turn on flashlight</command>
-    <result xml:space="preserve">You switch the flashlight on.
-
-&gt;</result>
-    <played>YES</played>
-    <changed>YES</changed>
-    <temporary score="33">YES</temporary>
   </item>
   <item nodeId="node-0x1be1240">
     <command xml:space="preserve">go inside</command>
@@ -642,42 +634,7 @@ You can see a telescope (in which are a finderscope, a screw and a base) here.
     <children>
       <child nodeId="node-0x1bdfde0" />
       <child nodeId="node-0x1bdfc20" />
-      <child nodeId="node-0x1bdf660" />
     </children>
-  </item>
-  <item nodeId="node-0x1bdf660">
-    <command xml:space="preserve">enter</command>
-    <result xml:space="preserve">You must supply a noun.
-
-&gt;</result>
-    <played>YES</played>
-    <changed>YES</changed>
-    <temporary score="32">YES</temporary>
-    <children>
-      <child nodeId="node-0x1bdf6b0" />
-    </children>
-  </item>
-  <item nodeId="node-0x1bdf6b0">
-    <command xml:space="preserve">enter conservatory</command>
-    <result xml:space="preserve">You can&apos;t see any such thing.
-
-&gt;</result>
-    <played>YES</played>
-    <changed>YES</changed>
-    <temporary score="32">YES</temporary>
-    <children>
-      <child nodeId="node-0x1bdfbb0" />
-    </children>
-  </item>
-  <item nodeId="node-0x1bdfbb0">
-    <command xml:space="preserve">undo</command>
-    <result xml:space="preserve">conservatory
-[Previous turn undone.]
-
-&gt;</result>
-    <played>YES</played>
-    <changed>YES</changed>
-    <temporary score="31">YES</temporary>
   </item>
   <item nodeId="node-0x1bdfc20">
     <command xml:space="preserve">n</command>
@@ -734,7 +691,6 @@ living room
     <changed>YES</changed>
     <temporary score="46">YES</temporary>
     <children>
-      <child nodeId="node-0x1bdfa30" />
       <child nodeId="node-0x1bdff30" />
     </children>
   </item>
@@ -794,40 +750,132 @@ It is pitch dark, and you can&apos;t see a thing.
     <changed>YES</changed>
     <temporary score="45">YES</temporary>
   </item>
-  <item nodeId="node-0x1bdfa30">
-    <command xml:space="preserve">n</command>
-    <result xml:space="preserve">
-Bathroom
+  <item nodeId="node-0x10b5aee0">
+    <command xml:space="preserve">match</command>
+    <result xml:space="preserve">That&apos;s not a verb I recognise.
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="24">YES</temporary>
+    <temporary score="127">YES</temporary>
     <children>
-      <child nodeId="node-0x1bdfaa0" />
+      <child nodeId="node-0x11929cd0" />
     </children>
   </item>
-  <item nodeId="node-0x1bdfaa0">
-    <command xml:space="preserve">n</command>
-    <result xml:space="preserve">You can&apos;t go that way.
+  <item nodeId="node-0x11929cd0">
+    <command xml:space="preserve">fingerprint</command>
+    <result xml:space="preserve">You must supply a noun.
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="24">YES</temporary>
+    <temporary score="127">YES</temporary>
     <children>
-      <child nodeId="node-0x1bdfb10" />
+      <child nodeId="node-0x10b00b40" />
     </children>
   </item>
-  <item nodeId="node-0x1bdfb10">
-    <command xml:space="preserve">up</command>
+  <item nodeId="node-0x10b00b40">
+    <command xml:space="preserve">inside</command>
     <result xml:space="preserve">
-Attic
+conservatory
+greenhouse with plants and a broken telescope. Something about the telescope might help you.
+
+You can see a telescope (in which are a screw key, a finderscope and a base) here.
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="23">YES</temporary>
+    <temporary score="127">YES</temporary>
+    <children>
+      <child nodeId="node-0x119b6480" />
+    </children>
+  </item>
+  <item nodeId="node-0x119b6480">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">
+living room
+a place where the family came to eat. There is a dining table, a vase with flowers, and a butler named bob.
+
+On the vase is a circular fingerprint.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="127">YES</temporary>
+    <children>
+      <child nodeId="node-0x11982d00" />
+    </children>
+  </item>
+  <item nodeId="node-0x11982d00">
+    <command xml:space="preserve">x vase</command>
+    <result xml:space="preserve">a circular object that holds flowers. There are many colorful flowers in this vase. There is also a circular fingerprint.
+
+On the vase is a circular fingerprint.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="127">YES</temporary>
+    <children>
+      <child nodeId="node-0x11937910" />
+    </children>
+  </item>
+  <item nodeId="node-0x11937910">
+    <command xml:space="preserve">x fingerprint</command>
+    <result xml:space="preserve">a fingerprint with many loops and a significant arch.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="127">YES</temporary>
+    <children>
+      <child nodeId="node-0x119a1880" />
+    </children>
+  </item>
+  <item nodeId="node-0x119a1880">
+    <command xml:space="preserve">take fingerprint</command>
+    <result xml:space="preserve">Taken.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="127">YES</temporary>
+    <children>
+      <child nodeId="node-0xee5ae90" />
+    </children>
+  </item>
+  <item nodeId="node-0xee5ae90">
+    <command xml:space="preserve">x bob</command>
+    <result xml:space="preserve">Bob is the butler of Mr. Rich&apos;s mansion. He is here everyday and helps out in any way that he can.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="127">YES</temporary>
+    <children>
+      <child nodeId="node-0x1198a730" />
+    </children>
+  </item>
+  <item nodeId="node-0x1198a730">
+    <command xml:space="preserve">fingerprint circular fingerprint</command>
+    <result xml:space="preserve">I only understood you as far as wanting to fingerpri.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="127">YES</temporary>
+    <children>
+      <child nodeId="node-0xba21810" />
+    </children>
+  </item>
+  <item nodeId="node-0xba21810">
+    <command xml:space="preserve">x circular fingerprint</command>
+    <result xml:space="preserve">a fingerprint with many loops and a significant arch.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="126">YES</temporary>
   </item>
   <item nodeId="node-0x1be09f0">
     <command xml:space="preserve">inside</command>
@@ -842,7 +890,6 @@ You can see a telescope (in which are a screw key, a finderscope and a base) her
     <changed>NO</changed>
     <temporary score="79">YES</temporary>
     <children>
-      <child nodeId="node-0x1be0200" />
       <child nodeId="node-0x1be0a60" />
       <child nodeId="node-0xba50470" />
     </children>
@@ -989,18 +1036,6 @@ You can see a gold door here.
     <played>YES</played>
     <changed>YES</changed>
     <temporary score="35">YES</temporary>
-    <children>
-      <child nodeId="node-0xbaeca40" />
-    </children>
-  </item>
-  <item nodeId="node-0xbaeca40">
-    <command xml:space="preserve">x door</command>
-    <result xml:space="preserve">You see nothing special about the gold door.
-
-&gt;</result>
-    <played>YES</played>
-    <changed>YES</changed>
-    <temporary score="34">YES</temporary>
   </item>
   <item nodeId="node-0x1be0a60">
     <command xml:space="preserve">e</command>
@@ -1146,106 +1181,110 @@ It seems to be locked.
     <changed>YES</changed>
     <temporary score="68">YES</temporary>
   </item>
-  <item nodeId="node-0x1be0200">
-    <command xml:space="preserve">take telescope</command>
+  <item nodeId="node-0xee1f8e0">
+    <command xml:space="preserve">take dust</command>
     <result xml:space="preserve">Taken.
 
 &gt;</result>
     <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="28">YES</temporary>
+    <changed>YES</changed>
+    <temporary score="137">YES</temporary>
     <children>
-      <child nodeId="node-0x1be0270" />
+      <child nodeId="node-0x10bad2f0" />
     </children>
   </item>
-  <item nodeId="node-0x1be0270">
-    <command xml:space="preserve">i</command>
-    <result xml:space="preserve">You are carrying:
-  a telescope
-    a finderscope
-    a screw
-    a base
+  <item nodeId="node-0x10bad2f0">
+    <command xml:space="preserve">take gun</command>
+    <result xml:space="preserve">That&apos;s fixed in place.
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="28">YES</temporary>
+    <temporary score="137">YES</temporary>
     <children>
-      <child nodeId="node-0x1be02e0" />
+      <child nodeId="node-0x119be8e0" />
     </children>
   </item>
-  <item nodeId="node-0x1be02e0">
-    <command xml:space="preserve">combine finderscope with base</command>
-    <result xml:space="preserve">(first taking the finderscope)
-(first taking the base)
-&gt;</result>
-    <played>YES</played>
-    <changed>YES</changed>
-    <temporary score="28">YES</temporary>
-    <children>
-      <child nodeId="node-0x1be0ad0" />
-    </children>
-  </item>
-  <item nodeId="node-0x1be0ad0">
-    <command xml:space="preserve">combine</command>
-    <result xml:space="preserve">(the finderscope with the base)
-&gt;</result>
-    <played>YES</played>
-    <changed>YES</changed>
-    <temporary score="28">YES</temporary>
-    <children>
-      <child nodeId="node-0x1be0b40" />
-    </children>
-  </item>
-  <item nodeId="node-0x1be0b40">
-    <command xml:space="preserve">yes</command>
-    <result xml:space="preserve">That was a rhetorical question.
+  <item nodeId="node-0x119be8e0">
+    <command xml:space="preserve">x gun</command>
+    <result xml:space="preserve">a gun shaped item. Someone mustve held this before, you may need to check for fingerprints.
+
+On the flare gun is a squarish fingerprint.
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="28">YES</temporary>
+    <temporary score="137">YES</temporary>
     <children>
-      <child nodeId="node-0x1be0bb0" />
+      <child nodeId="node-0x10bd7f90" />
     </children>
   </item>
-  <item nodeId="node-0x1be0bb0">
-    <command xml:space="preserve">scope base</command>
-    <result xml:space="preserve">(the base)
-1: yourself (41)
-2: a base (48)
-3: a finderscope (46)
-4: a telescope (45)
-5: a screw (47)
+  <item nodeId="node-0x10bd7f90">
+    <command xml:space="preserve">dust gun</command>
+    <result xml:space="preserve">You achieve nothing by this.
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="28">YES</temporary>
-    <children>
-      <child nodeId="node-0x1be0c20" />
-    </children>
+    <temporary score="136">YES</temporary>
   </item>
-  <item nodeId="node-0x1be0c20">
-    <command xml:space="preserve">x scope base</command>
+  <item nodeId="node-0x11932280">
+    <command xml:space="preserve">dust fun</command>
     <result xml:space="preserve">You can&apos;t see any such thing.
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="27">YES</temporary>
+    <temporary score="133">YES</temporary>
+    <children>
+      <child nodeId="node-0x10b3e570" />
+    </children>
   </item>
-  <item nodeId="node-0x119a5c20">
-    <command xml:space="preserve">x flare gun</command>
-    <result xml:space="preserve">a gun shaped item. It looks like there is a fingerprint.
-
-On the flare gun is a fingerprint.
+  <item nodeId="node-0x10b3e570">
+    <command xml:space="preserve">dust gun</command>
+    <result xml:space="preserve">You achieve nothing by this.
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="117">YES</temporary>
+    <temporary score="133">YES</temporary>
     <children>
+      <child nodeId="node-0x119516c0" />
+    </children>
+  </item>
+  <item nodeId="node-0x119516c0">
+    <command xml:space="preserve">dust flare gun</command>
+    <result xml:space="preserve">You achieve nothing by this.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="133">YES</temporary>
+    <children>
+      <child nodeId="node-0xaee1de0" />
+    </children>
+  </item>
+  <item nodeId="node-0xaee1de0">
+    <command xml:space="preserve">take dust</command>
+    <result xml:space="preserve">You can&apos;t see any such thing.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="132">YES</temporary>
+  </item>
+  <item nodeId="node-0x119a5c20">
+    <command xml:space="preserve">x flare gun</command>
+    <result xml:space="preserve">a gun shaped item. Someone mustve held this before, I may need to chck for fingerprints.
+
+On the flare gun is a squarish fingerprint.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="129">YES</temporary>
+    <children>
+      <child nodeId="node-0x119ae3e0" />
       <child nodeId="node-0x11990e50" />
     </children>
   </item>
@@ -1270,25 +1309,13 @@ On the flare gun is a fingerprint.
     <changed>YES</changed>
     <temporary score="116">YES</temporary>
   </item>
-  <item nodeId="node-0x1be16a0">
-    <command xml:space="preserve"></command>
-    <result xml:space="preserve">I beg your pardon?
+  <item nodeId="node-0x119ae3e0">
+    <command xml:space="preserve">dust gun</command>
+    <result xml:space="preserve">You achieve nothing by this.
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="34">YES</temporary>
-    <children>
-      <child nodeId="node-0x1be1710" />
-    </children>
-  </item>
-  <item nodeId="node-0x1be1710">
-    <command xml:space="preserve"></command>
-    <result xml:space="preserve">I beg your pardon?
-
-&gt;</result>
-    <played>YES</played>
-    <changed>YES</changed>
-    <temporary score="33">YES</temporary>
+    <temporary score="128">YES</temporary>
   </item>
 </Skein>
