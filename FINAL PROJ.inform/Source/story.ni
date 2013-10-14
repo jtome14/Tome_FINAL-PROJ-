@@ -1,24 +1,25 @@
 "FINAL PROJ" by Jordan Tome
 
 The target score is a number variable. The target score is 8.
-The maximum score is 16 
+The maximum score is 10
 
 When play begins: say "There has been a murder in the mansion on Royal boulevard. You are one of Hawaii's most famous detectives. Find out the murder weapon that killed Rich, the mansion owner. This case, if solved, could get you the promotion to  assistant chief. You are successful once you can get the chief the weapon.
 
 You find your way to the Boat to begin the search."
 
+The description of player is "A highly respected police officer with the highest honors."
+
 The Boat is a room. It is outside of the conservatory. The description of the boat is "a magnificant yacht called the USS Shayna in honor of Mr. Rich's late wife. There is a fire extinguisher and a flare gun."
 
 
-The fire extinguisher is scenery. It is inside the boat. The description of the fire extinguisher is "a red tank that suppresses fires." 
+The fire extinguisher is a thing. It is inside the boat. The description of the fire extinguisher is "a red tank that suppresses fires." 
 
 
-The flare gun is a thing. It is inside the boat. The description of the flare gun is "a gun shaped item. Someone mustve held this before, you may need to check for fingerprints." 
+The flare gun is a thing. It is inside the boat. The description of the flare gun is "a gun shaped item used in case of emergency."
+
 	
-
-	
-
 The flashlight is a thing. It is inside the boat. The description of the flashlight is "an object that can be used for lighting places up." 
+After examining the flashlight for the first time: increase score by 1.
 
 
 The Conservatory is a room. It is west of the living room. The description of the conservatory is "greenhouse with plants and a broken telescope. Something about the telescope might help you."
@@ -30,11 +31,11 @@ The dining table is scenery. It is inside the living room. The description is "a
 
 
 The vase is scenery. It is inside the living room. The description is "a circular object that holds flowers. There are many colorful flowers in this vase."
+After examining the vase for the first time: increase score by 1.
 
 
 
-
-The Bathroom is a room. It is north of the living room. The description of the bathroom is "a place to do your business. There is a toothbrush and a toilet." 
+The Bathroom is a room. It is north of the living room. The description of the bathroom is "a place to do your business. There is a toothbrush and a toilet. It looks like there might be a room above you as well." 
 
 The toothbrush is a thing. It is in the bathroom. The description of the toothbrush is "a device to clean your teeth." 
 
@@ -59,8 +60,11 @@ Instead of taking paintings:
 
 The gold key unlocks the gold door. 
 
+The description of gold key is "an ordinary gold key."
+
 
 The telescope is a thing. It is in the conservatory. 
+After examining the telescope for the first time: increase score by 1.
 
 [action]
 
@@ -78,6 +82,8 @@ The Bedroom is a room. It is east of the door. The description of the bedroom is
 After opening the door:
 	move player to the bedroom;
 	say "you are in the bedroom."
+	
+After opening the door for the first time: increase score by 1.
 
 
 The gold door is a door. It is west of the bedroom and east of the kitchen. It is closed and openable door. It is locked and lockable. 
@@ -86,15 +92,18 @@ The gold door is a door. It is west of the bedroom and east of the kitchen. It i
 The safe is a container. It is closed and openable container. It is locked and lockable. 
 The screw key unlocks the safe.
 
+After opening the safe for the first time: increase score by 1.
+
 
 The broken glass is a thing. It is inside the safe. The description of broken glass is "couple pieces of glass with blood stains." 
 
 After examining glass:
 	say "after taking a closer look, you notice that this was the weapon the killer used based on Mr. Rich's wounds."
 	
+After taking the glass for the first time: increase score by 1.
 
 
-The Man cave is a room. It is south of the living room. The description of the man cave is "there is a bar, couches, pool table, 100' tv, and Wilfred, Mr. Rich's best friend." 
+The Man cave is a room. It is south of the living room. The description of the man cave is "there is a bar, couches, pool table, 100' tv, and Wilfred, Mr. Rich's best friend. There is a room underneath you as well." 
 
 The Garage is a room. It is below the man cave. The description of the garage is "There is a car, a workbench, and many tools."
 
@@ -103,6 +112,7 @@ The flashlight is a device. It is in the boat. The flashlight is unlit.
 The flashlight is switched off. 
 
 After switching on the flashlight in the attic: say "Yay! you can finally see something in this dark dark room."; now the flashlight is lit. 
+After turning on flashlight: increase score by 1.
 
 The telescope is a container. The description of the telescope is "a telescope that has been smashed, but some parts are still intact, may be used for something else."
 The finderscope is a thing. it is inside the telescope. 
@@ -153,16 +163,18 @@ Parts List	Results
 scope base is an object. The description of the scope base is "you combined the finderscope with the base to get scope base. It seems that you might be able to add one more part."
 
 screw key is an object. The description of the screw key is "you combined the Scope Base with the screw to get screw key."
-
+After examining the screw key for the first time: increase score by 1.
 
 [NPC]
 
 Talking to is an action applying to one visible thing. Understand "talk to [someone]" or "converse with [someone]" as talking to.
 
 Bob is a man inside the Living room. He is undescribed. The description is "Bob is the butler of Mr. Rich's mansion. He is here everyday and helps out in any way that he can." 
+After talking to bob for the first time: increase score by 1.
 
 
 Wilfred is a man inside the Man cave. He is undescribed. The description is "Wilfred is Mr. Rich's best friend. He use to be homeless, but Mr. Rich decided to let him sleep and live in the Man cave. He is very sloppy, but respects Mr. Rich very much and does whatever he can to help around." 
+After talking to wilfred for the first time: increase score by 1.
 
 
 Instead of talking to Bob for the first time:

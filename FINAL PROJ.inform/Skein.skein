@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <Skein rootNode="node-0x1bdee80" xmlns="http://www.logicalshift.org.uk/IF/Skein">
   <generator>Zoom</generator>
-  <activeNode nodeId="node-0x1bdee80" />
+  <activeNode nodeId="node-0x10b842f0" />
   <item nodeId="node-0x1bdee80">
     <command xml:space="preserve">- start -</command>
     <result xml:space="preserve">
 
 
 
-There has been a murder in the mansion on Royal boulevard. You are one of Hawaii&apos;s most famous detectives. Find out who killed Rich, the mansion owner. This case, if solved, could get you the promotion to chief.
+There has been a murder in the mansion on Royal boulevard. You are one of Hawaii&apos;s most famous detectives. Find out the murder weapon that killed Rich, the mansion owner. This case, if solved, could get you the promotion to  assistant chief. You are successful once you can get the chief the weapon.
 
 You find your way to the Boat to begin the search.
 
 FINAL PROJ
 An Interactive Fiction by Jordan Tome
-Release 1 / Serial number 131012 / Inform 7 build 6G60 (I6/v6.32 lib 6/12N) SD
+Release 1 / Serial number 131013 / Inform 7 build 6G60 (I6/v6.32 lib 6/12N) SD
 
 Boat
 a magnificant yacht called the USS Shayna in honor of Mr. Rich&apos;s late wife. There is a fire extinguisher and a flare gun.
@@ -24,14 +24,16 @@ You can see a flare gun and a flashlight here.
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="137">NO</temporary>
+    <temporary score="139">NO</temporary>
     <children>
       <child nodeId="node-0x119a5c20" />
       <child nodeId="node-0x11932280" />
       <child nodeId="node-0xee1f8e0" />
       <child nodeId="node-0x1be09f0" />
       <child nodeId="node-0x10b5aee0" />
+      <child nodeId="node-0xb70d5f0" />
       <child nodeId="node-0x1bdf9c0" />
+      <child nodeId="node-0x10b842f0" />
       <child nodeId="node-0x1be0e50" />
     </children>
   </item>
@@ -621,6 +623,15 @@ Many paintings, books, and treasure which belongs to the Rich family.
     <changed>YES</changed>
     <temporary score="54">YES</temporary>
   </item>
+  <item nodeId="node-0x10b842f0">
+    <command xml:space="preserve">take fire extinguisher</command>
+    <result xml:space="preserve">That&apos;s hardly portable.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="138">YES</temporary>
+  </item>
   <item nodeId="node-0x1bdf9c0">
     <command xml:space="preserve">go inside</command>
     <result xml:space="preserve">
@@ -749,6 +760,19 @@ It is pitch dark, and you can&apos;t see a thing.
     <played>YES</played>
     <changed>YES</changed>
     <temporary score="45">YES</temporary>
+  </item>
+  <item nodeId="node-0xb70d5f0">
+    <command xml:space="preserve">x flashlight</command>
+    <result xml:space="preserve">an object that can be used for lighting places up.
+
+The flashlight is currently switched off.
+
+[Your score has just gone up by one point.]
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="137">YES</temporary>
   </item>
   <item nodeId="node-0x10b5aee0">
     <command xml:space="preserve">match</command>
