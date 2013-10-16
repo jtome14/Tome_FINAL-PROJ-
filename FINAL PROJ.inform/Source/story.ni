@@ -9,7 +9,7 @@ You find your way to the Boat to begin the search."
 
 The description of player is "A highly respected police officer with the highest honors."
 
-The Boat is a room. It is outside of the conservatory. The description of the boat is "a magnificant yacht called the USS Shayna in honor of Mr. Rich's late wife. There is a fire extinguisher and a flare gun."
+The Boat is a room. It is outside of the conservatory. The description of the boat is "a magnificant yacht called the USS Shayna in honor of Mr. Rich's late wife. There is a fire extinguisher and a flare gun. There may be more clues inside the house."
 
 
 The fire extinguisher is a thing. It is inside the boat. The description of the fire extinguisher is "a red tank that suppresses fires." 
@@ -44,9 +44,10 @@ The toilet is scenery. It is in the bathroom. The description of the toilet is "
 
 The Attic is a dark room. It is above the bathroom. The description of the attic is "Many paintings and books."
 
-The paintings is a thing. It is in the attic. 
+The paintings is a thing. It is in the attic. The description of the paintings is "Artwork from Mr. Rich's childhood days. You may want to take them and give it to the family."
 
-The books is a thing. It is in the attic.
+The books is a thing. It is in the attic. The description of the books is "A lot of big fantasy reading books, but also a lot of politics and money management." 
+
 
 Hiding it under is an action applying to one carried thing and one thing. Understand "put [something preferably held] under [something]" as hiding it under. Understand "hide [something preferably held] under [something]" as hiding it under.
 
@@ -61,6 +62,7 @@ Instead of taking paintings:
 The gold key unlocks the gold door. 
 
 The description of gold key is "an ordinary gold key."
+After taking paintings for the first time: increase score by 1.
 
 
 The telescope is a thing. It is in the conservatory. 
@@ -73,10 +75,27 @@ Turning on is an action applying to one thing.
 
 Understand "use [something]" as turning on.
  
-The kitchen is a room. It is east of the living room. The description of the kitchen is "a place for cooking with a knife, TV, and a spatula." 
+The kitchen is a room. It is east of the living room. The description of the kitchen is "a place for cooking with a knife, and a TV."
 
-The Bedroom is a room. It is east of the door. The description of the bedroom is "a place for sleeping. There is a bed, a clock, drawer, and a safe." 
+The knife is a thing. It is in the kitchen. The description is "a sharp miracle blade." 
 
+The tv is a device. It is in the kitchen. The description is "a large tv meant to watch cooking shows for ideas." 
+
+The tv is switched off. 
+
+After switching on the tv in the kitchen: say "there is no time for watching cooking shows. Get back to solving the murder." 
+
+The Bedroom is a room. It is east of the door. The description of the bedroom is "a place for sleeping. There is a bed, a clock, and a safe." 
+
+Understand "enter" as entering. 
+
+The bed is an enterable supporter. It is in the bedroom. The description is "A place for sleeping." 
+
+After entering the bed, say "no time for sleeping, get back on the case!"
+
+The clock is a thing. It is in the bedroom. The description is "an annoying device that is dead and can't be turned on." 
+
+The safe is a thing. It is in the bedroom. The description is "a big safe for certain items." 
 
 
 After opening the door:
@@ -94,6 +113,7 @@ The screw key unlocks the safe.
 
 After opening the safe for the first time: increase score by 1.
 
+After opening the safe: say "there is a piece of broken glass in here." 
 
 The broken glass is a thing. It is inside the safe. The description of broken glass is "couple pieces of glass with blood stains." 
 
@@ -105,7 +125,24 @@ After taking the glass for the first time: increase score by 1.
 
 The Man cave is a room. It is south of the living room. The description of the man cave is "there is a bar, couches, pool table, 100' tv, and Wilfred, Mr. Rich's best friend. There is a room underneath you as well." 
 
+The bar is scenery. It is in the man cave. The description is "a place where specialty drinks and maitai's are made."
+
+The couches are scenery. It is in the man cave. The description is "very comfortable as if sitting on a cloud." 
+
+After entering the couches, say "no time for sitting, get back on the case!" 
+
+The pool table is scenery. It is in the man cave. The description is "a fun game where you have to shoot the balls into the pockets." 
+
+The 100' tv is a thing. It is in the man cave. The description is "a huge tv made for watching movies and football." 
+
 The Garage is a room. It is below the man cave. The description of the garage is "There is a car, a workbench, and many tools."
+
+The car is a thing. It is in the garage. The description is "a silky smooth black bentley, but it seems to be locked." 
+
+The workbench is a thing. It is in the garage. The description is "There are many different tools on this workbench." 
+
+The tools is a thing. It is in the garage. The description is "screwdrivers, hammers, and nails, everything you need to fix a problem."
+
 
 The flashlight is a device. It is in the boat. The flashlight is unlit.
 
@@ -180,6 +217,8 @@ After talking to wilfred for the first time: increase score by 1.
 Instead of talking to Bob for the first time:
 	say "Hello Officer, I may be able to assist you. Before Mr. Rich got murdered, he gave me a box and said to never let this out of sight, but I could never find the key for it. So, if you can find the key, we can open it and see what is inside. The only clue he gave me was that the key is somewhere up high."
 	
+After talking to Bob for the first time: 
+	say "there is nothing more I can do to help."
 	
 	
 
@@ -187,6 +226,8 @@ Instead of talking to Wilfred for the first time:
 	say "Sup Officer, I didn't do anything. I've been in this Man Cave ever since I got here and I am also Mr. Rich's best friend. There is no way I would have committed a murder. Please tell me who killed my best friend when you find out. Thank you." 
 
 
+After talking to Wilfred for the first time: 
+	say "there is nothing more I can do to help."
 
 
 The chief is a man. he is undescribed. 
