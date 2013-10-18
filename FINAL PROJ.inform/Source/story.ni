@@ -1,4 +1,4 @@
-"FINAL PROJ" by Jordan Tome
+"Who Did It?" by Jordan Tome
 
 The target score is a number variable. The target score is 8.
 The maximum score is 10
@@ -91,9 +91,10 @@ Turning on is an action applying to one thing.
 
 Understand "use [flashlight]" as turning on.
  
-The kitchen is a room. It is east of the living room. The description of the kitchen is "a place for cooking with a knife, and a TV."
+The kitchen is a room. It is east of the pool door. The description of the kitchen is "a place for cooking with a knife, and a TV."
 
 The knife is a thing. It is in the kitchen. The description is "a sharp miracle blade." 
+
 
 The tv is a device. It is in the kitchen. The description is "a large tv meant to watch cooking shows for ideas." 
 
@@ -139,7 +140,7 @@ After examining glass:
 After taking the glass for the first time: increase score by 1.
 
 
-The Man cave is a room. It is south of the living room. The description of the man cave is "there is a bar, couches, pool table, 100' tv, and Wilfred, Mr. Rich's best friend. There is a room underneath you as well." 
+The Man cave is a room. It is south of the living room. The description of the man cave is "there is a bar, couches, pool table, 100' tv, and Wilfred, Mr. Rich's best friend and a pool stick. There is a room underneath you as well." 
 
 The bar is fixed in place. It is in the man cave. The description is "a place where specialty drinks and maitai's are made."
 
@@ -148,6 +149,16 @@ The couches are an enterable supporter. It is in the man cave. The description i
 After entering the couches, say "no time for sitting, get back on the case!" 
 
 The pool table is fixed in place. It is in the man cave. The description is "a fun game where you have to shoot the balls into the pockets." 
+
+The pool stick is a thing. It is in the man cave. The description is "a custom made stick that has special meaning to it." 
+
+The pool stick unlocks the pool door.
+
+The pool door is a door. It is east of the living room and west of the kitchen. It is closed and openable door. It is locked and lockable. 
+
+The description of the pool door is "a special door that seems to be locked. There may be a special pool stick that will open it." 
+
+
 
 The 100' tv is fixed in place. It is in the man cave. The description is "a huge tv made for watching movies and football." 
 
