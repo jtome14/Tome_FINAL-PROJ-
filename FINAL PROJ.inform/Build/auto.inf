@@ -29,7 +29,7 @@ Array UUID_ARRAY string "UUID://CE578BBB-1961-44CC-816D-664111BE98D8//";
 Constant Story "FINAL PROJ";
 Constant Headline "An Interactive Fiction";
 Constant Story_Author SC_2;
-Serial "131015";
+Serial "131017";
 
 Default Story 0;
 Default Headline 0;
@@ -4293,7 +4293,7 @@ Global lightflag = false;
 ];
 
 
-Constant REQUISITION_STACK_SIZE = 3*55;
+Constant REQUISITION_STACK_SIZE = 3*56;
 Array requisition_stack --> REQUISITION_STACK_SIZE;
 Global requisition_stack_pointer = 0;
 
@@ -9291,13 +9291,13 @@ Array KindHierarchy --> K0_kind (0) K1_room (0) K2_thing (0) K3_direction (0) K4
 Constant IK1_First = I88_boat;
 Constant IK2_First = selfobj;
 Constant IK3_First = I46_north;
-Constant IK4_First = I103_gold_door;
-Constant IK5_First = I104_telescope;
-Constant IK6_First = I110_bed;
+Constant IK4_First = I104_gold_door;
+Constant IK5_First = I105_telescope;
+Constant IK6_First = I111_bed;
 Constant IK7_First = nothing;
 Constant IK8_First = selfobj;
 Constant IK9_First = nothing;
-Constant IK10_First = I127_bob;
+Constant IK10_First = I128_bob;
 Constant IK11_First = nothing;
 Constant IK12_First = nothing;
 Constant IK13_First = I92_flashlight;
@@ -9320,13 +9320,13 @@ Constant DirectionObject_11 = out_obj;
 Array Map_Storage -->
  0 0 0 0 0 0 0 0 0 0 I89_conservatory 0 ! Exits from: I88_boat
  0 0 0 0 0 0 I93_living_room 0 0 0 0 I88_boat ! Exits from: I89_conservatory
- I96_bathroom 0 0 I115_man_cave 0 0 I105_kitchen I89_conservatory 0 0 0 0 ! Exits from: I93_living_room
- 0 0 0 I93_living_room 0 0 0 0 I99_attic 0 0 0 ! Exits from: I96_bathroom
- 0 0 0 0 0 0 0 0 0 I96_bathroom 0 0 ! Exits from: I99_attic
- 0 0 0 0 0 0 I103_gold_door I93_living_room 0 0 0 0 ! Exits from: I105_kitchen
- 0 0 0 0 0 0 0 I103_gold_door 0 0 0 0 ! Exits from: I108_bedroom
- I93_living_room 0 0 0 0 0 0 0 0 I120_garage 0 0 ! Exits from: I115_man_cave
- 0 0 0 0 0 0 0 0 I115_man_cave 0 0 0 ! Exits from: I120_garage
+ I97_bathroom 0 0 I116_man_cave 0 0 I106_kitchen I89_conservatory 0 0 0 0 ! Exits from: I93_living_room
+ 0 0 0 I93_living_room 0 0 0 0 I100_attic 0 0 0 ! Exits from: I97_bathroom
+ 0 0 0 0 0 0 0 0 0 I97_bathroom 0 0 ! Exits from: I100_attic
+ 0 0 0 0 0 0 I104_gold_door I93_living_room 0 0 0 0 ! Exits from: I106_kitchen
+ 0 0 0 0 0 0 0 I104_gold_door 0 0 0 0 ! Exits from: I109_bedroom
+ I93_living_room 0 0 0 0 0 0 0 0 I121_garage 0 0 ! Exits from: I116_man_cave
+ 0 0 0 0 0 0 0 0 I116_man_cave 0 0 0 ! Exits from: I121_garage
 ;
 
 Class VPH_Class;
@@ -9691,7 +9691,7 @@ Object selfobj ""
     with IK2_Count 0
     with IK2_Link I90_fire_extinguisher
     with IK8_Count 0
-    with IK8_Link I127_bob
+    with IK8_Link I128_bob
     with KD_Count 8
     with name 'yourself' 
     with action_bitmap 0 0 0 0 0 0 
@@ -9749,9 +9749,9 @@ Object -> I92_flashlight ""
     with list_together 0
     has mark_as_thing
     with IK2_Count 3
-    with IK2_Link I104_telescope
+    with IK2_Link I105_telescope
     with IK13_Count 0
-    with IK13_Link I107_tv
+    with IK13_Link I108_tv
     with KD_Count 13
     with name 'flashlight' 
     with action_bitmap 0 0 0 0 0 0 
@@ -9771,56 +9771,57 @@ Object I89_conservatory ""
     with name 'conservatory' 
 ;
 
-Object -> I104_telescope ""
+Object -> I105_telescope ""
     class K5_container
     with short_name "telescope"
     with description SC_10
+    has static
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 12
-    with IK2_Link I113_screw_key
-    with IK5_Count 0
-    with IK5_Link I112_safe
+    with IK2_Count 13
+    with IK2_Link I114_screw_key
+    with IK5_Count 1
+    with IK5_Link I95_vase
     with KD_Count 5
     with name 'telescope' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> -> I113_screw_key ""
+Object -> -> I114_screw_key ""
     class K2_thing
     with short_name "screw key"
     with description SC_11
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 19
-    with IK2_Link I124_finderscope
+    with IK2_Count 20
+    with IK2_Link I125_finderscope
     with KD_Count 2
     with name 'screw' 'key' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> -> I124_finderscope ""
+Object -> -> I125_finderscope ""
     class K2_thing
     with short_name "finderscope"
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 28
-    with IK2_Link I125_base
+    with IK2_Count 29
+    with IK2_Link I126_base
     with KD_Count 2
     with name 'finderscope' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> -> I125_base ""
+Object -> -> I126_base ""
     class K2_thing
     with short_name "base"
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 29
+    with IK2_Count 30
     with IK2_Link I94_dining_table
     with KD_Count 2
     with name 'base' 
@@ -9836,7 +9837,7 @@ Object I93_living_room ""
     with list_together 0
     has mark_as_room
     with IK1_Count 2
-    with IK1_Link I96_bathroom
+    with IK1_Link I97_bathroom
     with KD_Count 1
     with name 'living' 'room' 
 ;
@@ -9858,7 +9859,7 @@ Object -> I94_dining_table ""
 ;
 
 Object -> I95_vase ""
-    class K2_thing
+    class K5_container
     with short_name "vase"
     with description SC_14
     has static
@@ -9867,138 +9868,154 @@ Object -> I95_vase ""
     with list_together 0
     has mark_as_thing
     with IK2_Count 5
-    with IK2_Link I127_bob
-    with KD_Count 2
+    with IK2_Link I96_flowers
+    with IK5_Count 0
+    with IK5_Link I113_safe
+    with KD_Count 5
     with name 'vase' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I127_bob ""
+Object -> -> I96_flowers ""
+    class K2_thing
+    with short_name "flowers"
+    with description SC_15
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 6
+    with IK2_Link I128_bob
+    with KD_Count 2
+    with name 'flowers' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object -> I128_bob ""
     class K10_man
     with short_name "Bob"
-    with description SC_15
+    with description SC_16
     has proper
     has concealed
     with vector 0
     with list_together 0
     with cap_short_name "Bob"
     has mark_as_thing
-    with IK2_Count 31
-    with IK2_Link I97_toothbrush
+    with IK2_Count 32
+    with IK2_Link I98_toothbrush
     with IK8_Count 1
-    with IK8_Link I128_wilfred
+    with IK8_Link I129_wilfred
     with IK10_Count 0
-    with IK10_Link I128_wilfred
+    with IK10_Link I129_wilfred
     with KD_Count 10
     with name 'bob' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I96_bathroom ""
+Object I97_bathroom ""
     class K1_room
     with short_name "Bathroom"
-    with description SC_16
+    with description SC_17
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 3
-    with IK1_Link I99_attic
+    with IK1_Link I100_attic
     with KD_Count 1
     with name 'bathroom' 
 ;
 
-Object -> I97_toothbrush ""
+Object -> I98_toothbrush ""
     class K2_thing
     with short_name "toothbrush"
-    with description SC_17
+    with description SC_18
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 6
-    with IK2_Link I98_toilet
+    with IK2_Count 7
+    with IK2_Link I99_toilet
     with KD_Count 2
     with name 'toothbrush' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I98_toilet ""
+Object -> I99_toilet ""
     class K2_thing
     with short_name "toilet"
-    with description SC_18
+    with description SC_19
     has static
     has scenery
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 7
-    with IK2_Link I100_paintings
+    with IK2_Count 8
+    with IK2_Link I101_paintings
     with KD_Count 2
     with name 'toilet' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I99_attic ""
+Object I100_attic ""
     class K1_room
     with short_name "Attic"
-    with description SC_19
+    with description SC_20
     has ~light
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 4
-    with IK1_Link I105_kitchen
+    with IK1_Link I106_kitchen
     with KD_Count 1
     with name 'attic' 
 ;
 
-Object -> I100_paintings ""
+Object -> I101_paintings ""
     class K2_thing
     with short_name "paintings"
-    with description SC_20
-    with vector 0
-    with list_together 0
-    has mark_as_thing
-    with IK2_Count 8
-    with IK2_Link I101_books
-    with KD_Count 2
-    with name 'paintings' 
-    with action_bitmap 0 0 0 0 0 0 
-;
-
-Object -> I101_books ""
-    class K2_thing
-    with short_name "books"
     with description SC_21
     with vector 0
     with list_together 0
     has mark_as_thing
     with IK2_Count 9
-    with IK2_Link I102_gold_key
+    with IK2_Link I102_books
     with KD_Count 2
-    with name 'books' 
+    with name 'paintings' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I102_gold_key ""
+Object -> I102_books ""
     class K2_thing
-    with short_name "gold key"
+    with short_name "books"
     with description SC_22
     with vector 0
     with list_together 0
     has mark_as_thing
     with IK2_Count 10
-    with IK2_Link I103_gold_door
+    with IK2_Link I103_gold_key
+    with KD_Count 2
+    with name 'books' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object I103_gold_key ""
+    class K2_thing
+    with short_name "gold key"
+    with description SC_23
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 11
+    with IK2_Link I104_gold_door
     with KD_Count 2
     with name 'gold' 'key' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I103_gold_door ""
+Object I104_gold_door ""
     class K4_door
     with short_name "gold door"
-    with with_key I102_gold_key
+    with with_key I103_gold_key
     has ~open
     has openable
     has lockable
@@ -10006,60 +10023,60 @@ Object I103_gold_door ""
     with vector 0
     with door_dir [ loc; loc = location;
             if (loc == thedark) loc = real_location;
-            if (loc == I108_bedroom) return I53_west; return I52_east; ],
+            if (loc == I109_bedroom) return I53_west; return I52_east; ],
     with door_to [ loc; loc = location;
             if (loc == thedark) loc = real_location;
-            if (loc == I108_bedroom) return I105_kitchen; return I108_bedroom; ],
-    with found_in I108_bedroom I105_kitchen
+            if (loc == I109_bedroom) return I106_kitchen; return I109_bedroom; ],
+    with found_in I109_bedroom I106_kitchen
     with list_together 0
     has mark_as_thing
-    with IK2_Count 11
-    with IK2_Link I106_knife
+    with IK2_Count 12
+    with IK2_Link I107_knife
     with IK4_Count 0
-    with IK4_Link X109
+    with IK4_Link X110
     with KD_Count 4
     with name 'gold' 'door' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I105_kitchen ""
+Object I106_kitchen ""
     class K1_room
     with short_name "kitchen"
-    with description SC_23
+    with description SC_24
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 5
-    with IK1_Link I108_bedroom
+    with IK1_Link I109_bedroom
     with KD_Count 1
     with name 'kitchen' 
 ;
 
-Object -> I106_knife ""
+Object -> I107_knife ""
     class K2_thing
     with short_name "knife"
-    with description SC_24
+    with description SC_25
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 13
-    with IK2_Link I107_tv
+    with IK2_Count 14
+    with IK2_Link I108_tv
     with KD_Count 2
     with name 'knife' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I107_tv ""
+Object -> I108_tv ""
     class K13_device
     with short_name "tv"
-    with description SC_25
+    with description SC_26
     has ~on
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 14
-    with IK2_Link X109
+    with IK2_Count 15
+    with IK2_Link X110
     with IK13_Count 1
     with IK13_Link nothing
     with KD_Count 13
@@ -10067,29 +10084,29 @@ Object -> I107_tv ""
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I108_bedroom ""
+Object I109_bedroom ""
     class K1_room
     with short_name "Bedroom"
-    with description SC_26
+    with description SC_27
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 6
-    with IK1_Link I115_man_cave
+    with IK1_Link I116_man_cave
     with KD_Count 1
     with name 'bedroom' 
 ;
 
-Object -> X109 ""
+Object -> X110 ""
     class K4_door
     with short_name "door"
     with vector 0
     with door_dir I53_west
     with list_together 0
     has mark_as_thing
-    with IK2_Count 15
-    with IK2_Link I110_bed
+    with IK2_Count 16
+    with IK2_Link I111_bed
     with IK4_Count 1
     with IK4_Link nothing
     with KD_Count 4
@@ -10097,42 +10114,43 @@ Object -> X109 ""
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I110_bed ""
+Object -> I111_bed ""
     class K6_supporter
     with short_name "bed"
-    with description SC_27
+    with description SC_28
     has enterable
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 16
-    with IK2_Link I111_clock
+    with IK2_Count 17
+    with IK2_Link I112_clock
     with IK6_Count 0
-    with IK6_Link nothing
+    with IK6_Link I118_couches
     with KD_Count 6
     with name 'bed' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I111_clock ""
+Object -> I112_clock ""
     class K2_thing
     with short_name "clock"
-    with description SC_28
+    with description SC_29
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 17
-    with IK2_Link I112_safe
+    with IK2_Count 18
+    with IK2_Link I113_safe
     with KD_Count 2
     with name 'clock' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I112_safe ""
+Object -> I113_safe ""
     class K5_container
     with short_name "safe"
-    with description SC_29
-    with with_key I113_screw_key
+    with description SC_30
+    with with_key I114_screw_key
+    has static
     has ~open
     has openable
     has lockable
@@ -10140,130 +10158,130 @@ Object -> I112_safe ""
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 18
-    with IK2_Link I114_broken_glass
-    with IK5_Count 1
+    with IK2_Count 19
+    with IK2_Link I115_broken_glass
+    with IK5_Count 2
     with IK5_Link nothing
     with KD_Count 5
     with name 'safe' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> -> I114_broken_glass ""
+Object -> -> I115_broken_glass ""
     class K2_thing
     with short_name "broken glass"
-    with description SC_30
+    with description SC_31
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 20
-    with IK2_Link I116_bar
+    with IK2_Count 21
+    with IK2_Link I117_bar
     with KD_Count 2
     with name 'broken' 'glass' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I115_man_cave ""
+Object I116_man_cave ""
     class K1_room
     with short_name "Man cave"
-    with description SC_31
+    with description SC_32
     with vector 0
     with room_index -1
     with list_together 0
     has mark_as_room
     with IK1_Count 7
-    with IK1_Link I120_garage
+    with IK1_Link I121_garage
     with KD_Count 1
     with name 'man' 'cave' 
 ;
 
-Object -> I116_bar ""
+Object -> I117_bar ""
     class K2_thing
     with short_name "bar"
-    with description SC_32
+    with description SC_33
     has static
-    has scenery
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 21
-    with IK2_Link I117_couches
+    with IK2_Count 22
+    with IK2_Link I118_couches
     with KD_Count 2
     with name 'bar' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I117_couches ""
-    class K2_thing
+Object -> I118_couches ""
+    class K6_supporter
     with short_name "couches"
-    with description SC_33
-    has static
-    has scenery
-    with vector 0
-    with list_together 0
-    has mark_as_thing
-    with IK2_Count 22
-    with IK2_Link I118_pool_table
-    with KD_Count 2
-    with name 'couches' 
-    with action_bitmap 0 0 0 0 0 0 
-;
-
-Object -> I118_pool_table ""
-    class K2_thing
-    with short_name "pool table"
     with description SC_34
-    has static
-    has scenery
+    has enterable
     with vector 0
     with list_together 0
     has mark_as_thing
     with IK2_Count 23
-    with IK2_Link I119_100__tv
+    with IK2_Link I119_pool_table
+    with IK6_Count 1
+    with IK6_Link I122_car
+    with KD_Count 6
+    with name 'couches' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object -> I119_pool_table ""
+    class K2_thing
+    with short_name "pool table"
+    with description SC_35
+    has static
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 24
+    with IK2_Link I120_100__tv
     with KD_Count 2
     with name 'pool' 'table' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I119_100__tv ""
+Object -> I120_100__tv ""
     class K2_thing
     with short_name "100' tv"
-    with description SC_35
+    with description SC_36
+    has static
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 24
-    with IK2_Link I128_wilfred
+    with IK2_Count 25
+    with IK2_Link I129_wilfred
     with KD_Count 2
     with name '100^' 'tv' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I128_wilfred ""
+Object -> I129_wilfred ""
     class K10_man
     with short_name "Wilfred"
-    with description SC_36
+    with description SC_37
     has proper
     has concealed
     with vector 0
     with list_together 0
     with cap_short_name "Wilfred"
     has mark_as_thing
-    with IK2_Count 32
-    with IK2_Link I121_car
+    with IK2_Count 33
+    with IK2_Link I122_car
     with IK8_Count 2
-    with IK8_Link I129_chief
+    with IK8_Link I130_chief
     with IK10_Count 1
-    with IK10_Link I129_chief
+    with IK10_Link I130_chief
     with KD_Count 10
     with name 'wilfred' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I120_garage ""
+Object I121_garage ""
     class K1_room
     with short_name "Garage"
-    with description SC_37
+    with description SC_38
     with vector 0
     with room_index -1
     with list_together 0
@@ -10274,72 +10292,74 @@ Object I120_garage ""
     with name 'garage' 
 ;
 
-Object -> I121_car ""
-    class K2_thing
+Object -> I122_car ""
+    class K6_supporter
     with short_name "car"
-    with description SC_38
-    with vector 0
-    with list_together 0
-    has mark_as_thing
-    with IK2_Count 25
-    with IK2_Link I122_workbench
-    with KD_Count 2
-    with name 'car' 
-    with action_bitmap 0 0 0 0 0 0 
-;
-
-Object -> I122_workbench ""
-    class K2_thing
-    with short_name "workbench"
     with description SC_39
+    has enterable
     with vector 0
     with list_together 0
     has mark_as_thing
     with IK2_Count 26
-    with IK2_Link I123_tools
+    with IK2_Link I123_workbench
+    with IK6_Count 2
+    with IK6_Link nothing
+    with KD_Count 6
+    with name 'car' 
+    with action_bitmap 0 0 0 0 0 0 
+;
+
+Object -> I123_workbench ""
+    class K2_thing
+    with short_name "workbench"
+    with description SC_40
+    has static
+    with vector 0
+    with list_together 0
+    has mark_as_thing
+    with IK2_Count 27
+    with IK2_Link I124_tools
     with KD_Count 2
     with name 'workbench' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object -> I123_tools ""
+Object -> I124_tools ""
     class K2_thing
     with short_name "tools"
-    with description SC_40
+    with description SC_41
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 27
-    with IK2_Link I126_scope_base
+    with IK2_Count 28
+    with IK2_Link I127_scope_base
     with KD_Count 2
     with name 'tools' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I126_scope_base ""
+Object I127_scope_base ""
     class K2_thing
     with short_name "scope base"
-    with description SC_41
-    has proper
+    with description SC_42
     with vector 0
     with list_together 0
-    with cap_short_name "Scope base"
     has mark_as_thing
-    with IK2_Count 30
-    with IK2_Link I129_chief
+    with IK2_Count 31
+    with IK2_Link I130_chief
     with KD_Count 2
     with name 'scope' 'base' 
     with action_bitmap 0 0 0 0 0 0 
 ;
 
-Object I129_chief ""
+Object I130_chief ""
     class K10_man
     with short_name "chief"
     has concealed
     with vector 0
     with list_together 0
     has mark_as_thing
-    with IK2_Count 33
+    with IK2_Count 34
     with IK2_Link nothing
     with IK8_Count 3
     with IK8_Link nothing
@@ -10374,7 +10394,7 @@ Constant I86_referred_to_a_determinat = 19;
 Constant I87_i_beg_your_pardon_error = 20;
 Array Global_Vars -->
   (false) ! 7
-  (SC_42) ! 24
+  (SC_43) ! 24
   (SC_2) ! 29
   (EMPTY_TEXT_VALUE) ! 30
   (EMPTY_TEXT_VALUE) ! 31
@@ -10388,17 +10408,17 @@ Array Global_Vars -->
 
 
 Array T0_final_question_options table  tab_0_0 tab_0_1 tab_0_2 tab_0_3 tab_0_4;
-Array tab_0_0 table $0064 0  (SC_43)  (SC_44)  (SC_45)  (SC_46)  (SC_47) ;
+Array tab_0_0 table $0064 0  (SC_44)  (SC_45)  (SC_46)  (SC_47)  (SC_48) ;
 Array tab_0_1 table $0465 1  (0)  (0)  (1)  (0)  (0) ;
 Array tab_0_2 table $2066 2  (Consult_Grammar_100)  (Consult_Grammar_101)  (Consult_Grammar_102)  (Consult_Grammar_103)  (Consult_Grammar_104) ;
 Array tab_0_3 table $0067 3  (IMMEDIATELY_RESTART_VM_R)  (IMMEDIATELY_RESTORE_SAVED_R)  TABLE_NOVALUE (IMMEDIATELY_QUIT_R)  (IMMEDIATELY_UNDO_R) ;
 Array tab_0_4 table $0068 4  TABLE_NOVALUE TABLE_NOVALUE (V26_amusing_a_victorious_pla)  TABLE_NOVALUE TABLE_NOVALUE;
 Array T1_locale_priorities table  tab_1_0 tab_1_1;
-Array tab_1_0 table $0869 NULL  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
-Array tab_1_1 table $446a 5  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
+Array tab_1_0 table $0869 NULL  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
+Array tab_1_1 table $446a 5  TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE TABLE_NOVALUE;
 Array T2_arm_parts table  tab_2_0 tab_2_1;
-Array tab_2_0 table $066b 10  (LIST_CONST_1272)  (LIST_CONST_1279) ;
-Array tab_2_1 table $086c NULL  (I126_scope_base)  (I113_screw_key) ;
+Array tab_2_0 table $066b 10  (LIST_CONST_1365)  (LIST_CONST_1372) ;
+Array tab_2_1 table $086c NULL  (I127_scope_base)  (I114_screw_key) ;
 Array TB_Blanks -> 
   ! For table T0_final_question_options
   $00  ! Column 0
@@ -10408,7 +10428,7 @@ Array TB_Blanks ->
   $1b  ! Column 4
   
   ! For table T1_locale_priorities
-  $ff $ff $ff $ff $07  ! Column 1
+  $ff $ff $ff $ff $0f  ! Column 1
   
   ! For table T2_arm_parts
   $00  ! Column 0
@@ -10963,14 +10983,27 @@ Array ActionHappened --> 0 0 0 0 0 0;
 ! ----------------------------------------------------------------------------------------------------
 ! Rules in rulebook: When play begins (B5_when_play_begins)
 ! ----------------------------------------------------------------------------------------------------
-! Rule 1/1 ! When play begins:
+! Rule 1/2 ! When play begins:
+!   === which is equally specific with ===
+! Rule 2/2 ! When play begins:
 ! ----------------------------------------------------------------------------------------------------
 ! No specific request
 ! When play begins:
 [ R_740 ;
       ! phrase 1
+      ! [1: now left hand status line is ~Exits: [exit list]~]
+       left_hand_status_line = text_routine_0; 
+      ! phrase 2
+      ! [2: now right hand status line is ~[location]~]
+       right_hand_status_line = text_routine_1; 
+   rfalse;
+];
+! No specific request
+! When play begins:
+[ R_742 ;
+      ! phrase 1
       ! [1: say ~There has been a murder in the mansion on Royal boulevard. You are one of Hawaii's most famous detectives. Find out the murder weapon that killed Rich, the mansion owner. This case, if solved, could get you the promotion to  assistant chief. You are successful once you can get the chief the weapon.^^You find your way to the Boat to begin the search.~]
-      say__p=1;ParaContent();  print (PrintText) SC_48;  new_line; .L_Say1; .L_SayX1;
+      say__p=1;ParaContent();  print (PrintText) SC_49;  new_line; .L_Say1; .L_SayX1;
    rfalse;
 ];
 ! ----------------------------------------------------------------------------------------------------
@@ -11028,7 +11061,7 @@ Array ActionHappened --> 0 0 0 0 0 0;
 [ R_20 ;
       ! phrase 1
       ! [1: if the current item from the multiple object list is not nothing , say ~[current item from the multiple object list]: [run paragraph on]~]
-       if (((~~((multiple_object_item == nothing))))) { say__p=1;ParaContent();  print (PrintShortName) multiple_object_item; ParaContent();  print (PrintText) SC_49; ParaContent();  RunParagraphOn();  .L_Say3; .L_SayX3;  }
+       if (((~~((multiple_object_item == nothing))))) { say__p=1;ParaContent();  print (PrintShortName) multiple_object_item; ParaContent();  print (PrintText) SC_50; ParaContent();  RunParagraphOn();  .L_Say3; .L_SayX3;  }
    rfalse;
 ];
 ! No specific request
@@ -11082,7 +11115,7 @@ Array ActionHappened --> 0 0 0 0 0 0;
 ! ----------------------------------------------------------------------------------------------------
 ! No specific request
 ! Setting action variables for combining something with something:
-[ R_757 ;blockv_stack-->(blockv_sp+1) = BlkValueCreate(LIST_OF_TY,0,KD3_list_of_things);
+[ R_759 ;blockv_stack-->(blockv_sp+1) = BlkValueCreate(LIST_OF_TY,0,KD3_list_of_things);
     blockv_stack-->(blockv_sp+0) = BlkValueCreate(LIST_OF_TY,0,KD4_list_of_objects);
     blockv_sp = blockv_sp + 2;
     blockv_stack-->(blockv_sp++) = R_SHELL_0(blockv_sp-2);
@@ -11100,7 +11133,7 @@ Array ActionHappened --> 0 0 0 0 0 0;
     ;
    if ((action ==##A82_combining_it_with) && ((noun ofclass K2_thing)) && ((second ofclass K2_thing))) { ! Runs only when pattern matches
 self = noun;
-   if (debug_rules) DB_Rule(R_757, 757);
+   if (debug_rules) DB_Rule(R_759, 759);
       ! phrase 1
       ! [1: let x be a list of objects]
        t_0 = (blockv_stack-->(I7BASPL+0)); 
@@ -11142,7 +11175,7 @@ self = noun;
 @pull ct_1; @pull ct_0;
         if (debug_rules>1) print "  [11: end repeat]^";
    } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_757, 757, true);
+   else if (debug_rules > 1) DB_Rule(R_759, 759, true);
    rfalse;
 ];
 ! No specific request
@@ -11429,67 +11462,67 @@ self = noun;
 ! ----------------------------------------------------------------------------------------------------
 ! No specific request
 ! Instead of talking to Bob for the first time:
-[ R_764 ;
-   if ((PAPR_0() && (((TimesActionHasHappened-->0) == 1) && (ActionCurrentlyHappeningFlag->0)))) { ! Runs only when pattern matches
-self = noun;
-   if (debug_rules) DB_Rule(R_764, 764);
-      ! phrase 1
-      ! [1: say ~Hello Officer, I may be able to assist you. Before Mr. Rich got murdered, he gave me a box and said to never let this out of sight, but I could never find the key for it. So, if you can find the key, we can open it and see what is inside. The only clue he gave me was that the key is somewhere up high.~]
-      say__p=1;ParaContent();  print (PrintText) SC_50;  new_line; .L_Say4; .L_SayX4;
-      RulebookFails(); rtrue;
-   } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_764, 764, true);
-   rfalse;
-];
-! No specific request
-! Instead of talking to Wilfred for the first time:
 [ R_766 ;
-   if ((PAPR_1() && (((TimesActionHasHappened-->1) == 1) && (ActionCurrentlyHappeningFlag->1)))) { ! Runs only when pattern matches
+   if ((PAPR_0() && (((TimesActionHasHappened-->0) == 1) && (ActionCurrentlyHappeningFlag->0)))) { ! Runs only when pattern matches
 self = noun;
    if (debug_rules) DB_Rule(R_766, 766);
       ! phrase 1
-      ! [1: say ~Sup Officer, I didn't do anything. I've been in this Man Cave ever since I got here and I am also Mr. Rich's best friend. There is no way I would have committed a murder. Please tell me who killed my best friend when you find out. Thank you.~]
-      say__p=1;ParaContent();  print (PrintText) SC_51;  new_line; .L_Say5; .L_SayX5;
+      ! [1: say ~Hello Officer, I may be able to assist you. Before Mr. Rich got murdered, he gave me a hint to opening his safe because he had a feeling that his death was imminent. He said that there are many objects and you may have to combine things to open it. I just didn't know what items combined with each other. If you can figure it out, you can open it.~]
+      say__p=1;ParaContent();  print (PrintText) SC_51;  new_line; .L_Say4; .L_SayX4;
       RulebookFails(); rtrue;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_766, 766, true);
    rfalse;
 ];
 ! No specific request
-! Instead of taking paintings:
-[ R_743 ;
-   if ((action ==##Take) &&  (actor==player) && ((noun == I100_paintings) && (true))) { ! Runs only when pattern matches
+! Instead of talking to Wilfred for the first time:
+[ R_768 ;
+   if ((PAPR_1() && (((TimesActionHasHappened-->1) == 1) && (ActionCurrentlyHappeningFlag->1)))) { ! Runs only when pattern matches
 self = noun;
-   if (debug_rules) DB_Rule(R_743, 743);
+   if (debug_rules) DB_Rule(R_768, 768);
       ! phrase 1
-      ! [1: move gold key to attic]
-       MoveObject(I102_gold_key, I99_attic, 0, false); 
-      ! phrase 2
-      ! [2: move paintings to player]
-       MoveObject(I100_paintings, player, 0, false); 
-      ! phrase 3
-      ! [3: say ~a gold key appears from underneath the paintings.~]
-      say__p=1;ParaContent();  print (PrintText) SC_52;  new_line; .L_Say6; .L_SayX6;
+      ! [1: say ~Sup Officer, I didn't do anything. I've been in this Man Cave ever since I got here and I am also Mr. Rich's best friend. There is no way I would have committed a murder. Please tell me who killed my best friend when you find out. Thank you.~]
+      say__p=1;ParaContent();  print (PrintText) SC_52;  new_line; .L_Say5; .L_SayX5;
       RulebookFails(); rtrue;
    } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_743, 743, true);
+   else if (debug_rules > 1) DB_Rule(R_768, 768, true);
+   rfalse;
+];
+! No specific request
+! Instead of taking paintings:
+[ R_745 ;
+   if ((action ==##Take) &&  (actor==player) && ((noun == I101_paintings) && (true))) { ! Runs only when pattern matches
+self = noun;
+   if (debug_rules) DB_Rule(R_745, 745);
+      ! phrase 1
+      ! [1: move gold key to attic]
+       MoveObject(I103_gold_key, I100_attic, 0, false); 
+      ! phrase 2
+      ! [2: move paintings to player]
+       MoveObject(I101_paintings, player, 0, false); 
+      ! phrase 3
+      ! [3: say ~a gold key appears from underneath the paintings.~]
+      say__p=1;ParaContent();  print (PrintText) SC_53;  new_line; .L_Say6; .L_SayX6;
+      RulebookFails(); rtrue;
+   } ! Runs only when pattern matches
+   else if (debug_rules > 1) DB_Rule(R_745, 745, true);
    rfalse;
 ];
 ! No specific request
 ! Instead of taking broken glass:
-[ R_768 ;
-   if ((action ==##Take) &&  (actor==player) && ((noun == I114_broken_glass) && (true))) { ! Runs only when pattern matches
+[ R_770 ;
+   if ((action ==##Take) &&  (actor==player) && ((noun == I115_broken_glass) && (true))) { ! Runs only when pattern matches
 self = noun;
-   if (debug_rules) DB_Rule(R_768, 768);
+   if (debug_rules) DB_Rule(R_770, 770);
       ! phrase 1
       ! [1: move chief to bedroom]
-       MoveObject(I129_chief, I108_bedroom, 0, false); 
+       MoveObject(I130_chief, I109_bedroom, 0, false); 
       ! phrase 2
       ! [2: move broken glass to player]
-       MoveObject(I114_broken_glass, player, 0, false); 
+       MoveObject(I115_broken_glass, player, 0, false); 
       RulebookFails(); rtrue;
    } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_768, 768, true);
+   else if (debug_rules > 1) DB_Rule(R_770, 770, true);
    rfalse;
 ];
 ! ----------------------------------------------------------------------------------------------------
@@ -11513,95 +11546,81 @@ self = noun;
 !   === which is equally specific with ===
 ! Rule 8/21 ! After taking the glass for the first time:
 !   === which is equally specific with ===
-! Rule 9/21 ! After examining the screw key for the first time:
+! Rule 9/21 ! After turning on the flashlight for the first time:
 !   === which is equally specific with ===
-! Rule 10/21 ! After talking to bob for the first time:
+! Rule 10/21 ! After examining the screw key for the first time:
 !   === which is equally specific with ===
-! Rule 11/21 ! After talking to wilfred for the first time:
+! Rule 11/21 ! After talking to bob for the first time:
 !   === which is equally specific with ===
-! Rule 12/21 ! After talking to Bob for the first time:
+! Rule 12/21 ! After talking to wilfred for the first time:
 !   === which is equally specific with ===
-! Rule 13/21 ! After talking to Wilfred for the first time:
+! Rule 13/21 ! After talking to Bob for the first time:
+!   === which is equally specific with ===
+! Rule 14/21 ! After talking to Wilfred for the first time:
 !   >>> III.3.2 - Action/What/Thing Acted On >>>
-! Rule 14/21 ! After opening the door for the first time:
+! Rule 15/21 ! After opening the door for the first time:
 !   >>> I - Number of aspects constrained >>>
-! Rule 15/21 ! After giving the broken glass to chief:
+! Rule 16/21 ! After giving the broken glass to chief:
 !   >>> III.3.1 - Action/What/Second Thing Acted On >>>
-! Rule 16/21 ! After entering the bed:
+! Rule 17/21 ! After entering the bed:
 !   === which is equally specific with ===
-! Rule 17/21 ! After opening the safe:
+! Rule 18/21 ! After opening the safe:
 !   === which is equally specific with ===
-! Rule 18/21 ! After examining glass:
+! Rule 19/21 ! After examining glass:
 !   === which is equally specific with ===
-! Rule 19/21 ! After entering the couches:
-!   === which is equally specific with ===
-! Rule 20/21 ! After turning on flashlight:
+! Rule 20/21 ! After entering the couches:
 !   >>> III.3.2 - Action/What/Thing Acted On >>>
 ! Rule 21/21 ! After opening the door:
 ! ----------------------------------------------------------------------------------------------------
 ! No specific request
 ! After switching on the tv in the kitchen:
-[ R_746 ;
-   if ((action ==##SwitchOn) &&  (actor==player) && ((noun == I107_tv) && (true)) && ((real_location == I105_kitchen) && (true))) { ! Runs only when pattern matches
+[ R_748 ;
+   if ((action ==##SwitchOn) &&  (actor==player) && ((noun == I108_tv) && (true)) && ((real_location == I106_kitchen) && (true))) { ! Runs only when pattern matches
 self = noun;
-   if (debug_rules) DB_Rule(R_746, 746);
+   if (debug_rules) DB_Rule(R_748, 748);
       ! phrase 1
       ! [1: say ~there is no time for watching cooking shows. Get back to solving the murder.~]
-      say__p=1;ParaContent();  print (PrintText) SC_53;  new_line; .L_Say7; .L_SayX7;
+      say__p=1;ParaContent();  print (PrintText) SC_54;  new_line; .L_Say7; .L_SayX7;
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_746, 746, true);
+   else if (debug_rules > 1) DB_Rule(R_748, 748, true);
    rfalse;
 ];
 ! No specific request
 ! After switching on the flashlight in the attic:
-[ R_755 ;
-   if ((action ==##SwitchOn) &&  (actor==player) && ((noun == I92_flashlight) && (true)) && ((real_location == I99_attic) && (true))) { ! Runs only when pattern matches
+[ R_757 ;
+   if ((action ==##SwitchOn) &&  (actor==player) && ((noun == I92_flashlight) && (true)) && ((real_location == I100_attic) && (true))) { ! Runs only when pattern matches
 self = noun;
-   if (debug_rules) DB_Rule(R_755, 755);
+   if (debug_rules) DB_Rule(R_757, 757);
       ! phrase 1
       ! [1: say ~Yay! you can finally see something in this dark dark room.~]
-      say__p=1;ParaContent();  print (PrintText) SC_54;  new_line; .L_Say8; .L_SayX8;
+      say__p=1;ParaContent();  print (PrintText) SC_55;  new_line; .L_Say8; .L_SayX8;
       ! phrase 2
       ! [2: now the flashlight is lit]
        (Adj_41_t2_v9(I92_flashlight)); 
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_755, 755, true);
+   else if (debug_rules > 1) DB_Rule(R_757, 757, true);
    rfalse;
 ];
 ! No specific request
 ! After examining the flashlight for the first time:
-[ R_741 ;
+[ R_743 ;
    if ((PAPR_2() && (((TimesActionHasHappened-->2) == 1) && (ActionCurrentlyHappeningFlag->2)))) { ! Runs only when pattern matches
 self = noun;
-   if (debug_rules) DB_Rule(R_741, 741);
+   if (debug_rules) DB_Rule(R_743, 743);
       ! phrase 1
       ! [1: increase score by 1]
        score = score + 1; 
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_741, 741, true);
+   else if (debug_rules > 1) DB_Rule(R_743, 743, true);
    rfalse;
 ];
 ! No specific request
 ! After examining the vase for the first time:
-[ R_742 ;
-   if ((PAPR_3() && (((TimesActionHasHappened-->3) == 1) && (ActionCurrentlyHappeningFlag->3)))) { ! Runs only when pattern matches
-self = noun;
-   if (debug_rules) DB_Rule(R_742, 742);
-      ! phrase 1
-      ! [1: increase score by 1]
-       score = score + 1; 
-      RulebookSucceeds(); rtrue;
-   } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_742, 742, true);
-   rfalse;
-];
-! No specific request
-! After taking paintings for the first time:
 [ R_744 ;
-   if ((PAPR_4() && (((TimesActionHasHappened-->4) == 1) && (ActionCurrentlyHappeningFlag->4)))) { ! Runs only when pattern matches
+   if ((PAPR_3() && (((TimesActionHasHappened-->3) == 1) && (ActionCurrentlyHappeningFlag->3)))) { ! Runs only when pattern matches
 self = noun;
    if (debug_rules) DB_Rule(R_744, 744);
       ! phrase 1
@@ -11613,79 +11632,79 @@ self = noun;
    rfalse;
 ];
 ! No specific request
-! After examining the telescope for the first time:
-[ R_745 ;
-   if ((PAPR_5() && (((TimesActionHasHappened-->5) == 1) && (ActionCurrentlyHappeningFlag->5)))) { ! Runs only when pattern matches
+! After taking paintings for the first time:
+[ R_746 ;
+   if ((PAPR_4() && (((TimesActionHasHappened-->4) == 1) && (ActionCurrentlyHappeningFlag->4)))) { ! Runs only when pattern matches
 self = noun;
-   if (debug_rules) DB_Rule(R_745, 745);
+   if (debug_rules) DB_Rule(R_746, 746);
       ! phrase 1
       ! [1: increase score by 1]
        score = score + 1; 
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_745, 745, true);
+   else if (debug_rules > 1) DB_Rule(R_746, 746, true);
+   rfalse;
+];
+! No specific request
+! After examining the telescope for the first time:
+[ R_747 ;
+   if ((PAPR_5() && (((TimesActionHasHappened-->5) == 1) && (ActionCurrentlyHappeningFlag->5)))) { ! Runs only when pattern matches
+self = noun;
+   if (debug_rules) DB_Rule(R_747, 747);
+      ! phrase 1
+      ! [1: increase score by 1]
+       score = score + 1; 
+      RulebookSucceeds(); rtrue;
+   } ! Runs only when pattern matches
+   else if (debug_rules > 1) DB_Rule(R_747, 747, true);
    rfalse;
 ];
 ! No specific request
 ! After opening the safe for the first time:
-[ R_750 ;
+[ R_752 ;
    if ((PAPR_6() && (((TimesActionHasHappened-->6) == 1) && (ActionCurrentlyHappeningFlag->6)))) { ! Runs only when pattern matches
 self = noun;
-   if (debug_rules) DB_Rule(R_750, 750);
+   if (debug_rules) DB_Rule(R_752, 752);
       ! phrase 1
       ! [1: increase score by 1]
        score = score + 1; 
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_750, 750, true);
+   else if (debug_rules > 1) DB_Rule(R_752, 752, true);
    rfalse;
 ];
 ! No specific request
 ! After taking the glass for the first time:
-[ R_753 ;
+[ R_755 ;
    if ((PAPR_7() && (((TimesActionHasHappened-->7) == 1) && (ActionCurrentlyHappeningFlag->7)))) { ! Runs only when pattern matches
 self = noun;
-   if (debug_rules) DB_Rule(R_753, 753);
+   if (debug_rules) DB_Rule(R_755, 755);
       ! phrase 1
       ! [1: increase score by 1]
        score = score + 1; 
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_753, 753, true);
+   else if (debug_rules > 1) DB_Rule(R_755, 755, true);
+   rfalse;
+];
+! No specific request
+! After turning on the flashlight for the first time:
+[ R_758 ;
+   if ((PAPR_8() && (((TimesActionHasHappened-->8) == 1) && (ActionCurrentlyHappeningFlag->8)))) { ! Runs only when pattern matches
+self = noun;
+   if (debug_rules) DB_Rule(R_758, 758);
+      ! phrase 1
+      ! [1: increase score by 1]
+       score = score + 1; 
+      RulebookSucceeds(); rtrue;
+   } ! Runs only when pattern matches
+   else if (debug_rules > 1) DB_Rule(R_758, 758, true);
    rfalse;
 ];
 ! No specific request
 ! After examining the screw key for the first time:
-[ R_761 ;
-   if ((PAPR_8() && (((TimesActionHasHappened-->8) == 1) && (ActionCurrentlyHappeningFlag->8)))) { ! Runs only when pattern matches
-self = noun;
-   if (debug_rules) DB_Rule(R_761, 761);
-      ! phrase 1
-      ! [1: increase score by 1]
-       score = score + 1; 
-      RulebookSucceeds(); rtrue;
-   } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_761, 761, true);
-   rfalse;
-];
-! No specific request
-! After talking to bob for the first time:
-[ R_762 ;
-   if ((PAPR_9() && (((TimesActionHasHappened-->9) == 1) && (ActionCurrentlyHappeningFlag->9)))) { ! Runs only when pattern matches
-self = noun;
-   if (debug_rules) DB_Rule(R_762, 762);
-      ! phrase 1
-      ! [1: increase score by 1]
-       score = score + 1; 
-      RulebookSucceeds(); rtrue;
-   } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_762, 762, true);
-   rfalse;
-];
-! No specific request
-! After talking to wilfred for the first time:
 [ R_763 ;
-   if ((PAPR_10() && (((TimesActionHasHappened-->10) == 1) && (ActionCurrentlyHappeningFlag->10)))) { ! Runs only when pattern matches
+   if ((PAPR_9() && (((TimesActionHasHappened-->9) == 1) && (ActionCurrentlyHappeningFlag->9)))) { ! Runs only when pattern matches
 self = noun;
    if (debug_rules) DB_Rule(R_763, 763);
       ! phrase 1
@@ -11697,129 +11716,143 @@ self = noun;
    rfalse;
 ];
 ! No specific request
-! After talking to Bob for the first time:
+! After talking to bob for the first time:
+[ R_764 ;
+   if ((PAPR_10() && (((TimesActionHasHappened-->10) == 1) && (ActionCurrentlyHappeningFlag->10)))) { ! Runs only when pattern matches
+self = noun;
+   if (debug_rules) DB_Rule(R_764, 764);
+      ! phrase 1
+      ! [1: increase score by 1]
+       score = score + 1; 
+      RulebookSucceeds(); rtrue;
+   } ! Runs only when pattern matches
+   else if (debug_rules > 1) DB_Rule(R_764, 764, true);
+   rfalse;
+];
+! No specific request
+! After talking to wilfred for the first time:
 [ R_765 ;
    if ((PAPR_11() && (((TimesActionHasHappened-->11) == 1) && (ActionCurrentlyHappeningFlag->11)))) { ! Runs only when pattern matches
 self = noun;
    if (debug_rules) DB_Rule(R_765, 765);
       ! phrase 1
-      ! [1: say ~there is nothing more I can do to help.~]
-      say__p=1;ParaContent();  print (PrintText) SC_55;  new_line; .L_Say9; .L_SayX9;
+      ! [1: increase score by 1]
+       score = score + 1; 
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_765, 765, true);
    rfalse;
 ];
 ! No specific request
-! After talking to Wilfred for the first time:
+! After talking to Bob for the first time:
 [ R_767 ;
    if ((PAPR_12() && (((TimesActionHasHappened-->12) == 1) && (ActionCurrentlyHappeningFlag->12)))) { ! Runs only when pattern matches
 self = noun;
    if (debug_rules) DB_Rule(R_767, 767);
       ! phrase 1
       ! [1: say ~there is nothing more I can do to help.~]
-      say__p=1;ParaContent();  print (PrintText) SC_55;  new_line; .L_Say10; .L_SayX10;
+      say__p=1;ParaContent();  print (PrintText) SC_56;  new_line; .L_Say9; .L_SayX9;
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_767, 767, true);
    rfalse;
 ];
 ! No specific request
-! After opening the door for the first time:
-[ R_749 ;
-   if ((PAPR_13() && (((TimesActionHasHappened-->13) == 1) && (ActionCurrentlyHappeningFlag->13)))) { ! Runs only when pattern matches
-self = noun;
-   if (debug_rules) DB_Rule(R_749, 749);
-      ! phrase 1
-      ! [1: increase score by 1]
-       score = score + 1; 
-      RulebookSucceeds(); rtrue;
-   } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_749, 749, true);
-   rfalse;
-];
-! No specific request
-! After giving the broken glass to chief:
+! After talking to Wilfred for the first time:
 [ R_769 ;
-   if ((action ==##Give) &&  (actor==player) && ((noun == I114_broken_glass) && (true)) && ((second == I129_chief) && (true))) { ! Runs only when pattern matches
+   if ((PAPR_13() && (((TimesActionHasHappened-->13) == 1) && (ActionCurrentlyHappeningFlag->13)))) { ! Runs only when pattern matches
 self = noun;
    if (debug_rules) DB_Rule(R_769, 769);
       ! phrase 1
-      ! [1: say ~You gave the murder weapon to the chief and he will now take it to forensics. The chief is grateful for your work and has promoted you to assistant chief.~]
-      say__p=1;ParaContent();  print (PrintText) SC_56;  new_line; .L_Say11; .L_SayX11;
-      ! phrase 2
-      ! [2: end the game in victory]
-       deadflag=2; story_complete=true; 
+      ! [1: say ~there is nothing more I can do to help.~]
+      say__p=1;ParaContent();  print (PrintText) SC_56;  new_line; .L_Say10; .L_SayX10;
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_769, 769, true);
    rfalse;
 ];
 ! No specific request
-! After entering the bed:
-[ R_747 ;
-   if ((action ==##Enter) &&  (actor==player) && ((noun == I110_bed) && (true))) { ! Runs only when pattern matches
-self = noun;
-   if (debug_rules) DB_Rule(R_747, 747);
-      ! phrase 1
-      ! [1: say ~no time for sleeping, get back on the case!~]
-      say__p=1;ParaContent();  print (PrintText) SC_57;  new_line; .L_Say12; .L_SayX12;
-      RulebookSucceeds(); rtrue;
-   } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_747, 747, true);
-   rfalse;
-];
-! No specific request
-! After opening the safe:
+! After opening the door for the first time:
 [ R_751 ;
-   if ((action ==##Open) &&  (actor==player) && ((noun == I112_safe) && (true))) { ! Runs only when pattern matches
+   if ((PAPR_14() && (((TimesActionHasHappened-->14) == 1) && (ActionCurrentlyHappeningFlag->14)))) { ! Runs only when pattern matches
 self = noun;
    if (debug_rules) DB_Rule(R_751, 751);
       ! phrase 1
-      ! [1: say ~there is a piece of broken glass in here.~]
-      say__p=1;ParaContent();  print (PrintText) SC_58;  new_line; .L_Say13; .L_SayX13;
+      ! [1: increase score by 1]
+       score = score + 1; 
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_751, 751, true);
    rfalse;
 ];
 ! No specific request
-! After examining glass:
-[ R_752 ;
-   if ((action ==##Examine) &&  (actor==player) && ((noun == I114_broken_glass) && (true))) { ! Runs only when pattern matches
+! After giving the broken glass to chief:
+[ R_771 ;
+   if ((action ==##Give) &&  (actor==player) && ((noun == I115_broken_glass) && (true)) && ((second == I130_chief) && (true))) { ! Runs only when pattern matches
 self = noun;
-   if (debug_rules) DB_Rule(R_752, 752);
+   if (debug_rules) DB_Rule(R_771, 771);
       ! phrase 1
-      ! [1: say ~after taking a closer look, you notice that this was the weapon the killer used based on Mr. Rich's wounds.~]
-      say__p=1;ParaContent();  print (PrintText) SC_59;  new_line; .L_Say14; .L_SayX14;
+      ! [1: say ~You gave the murder weapon to the chief and he will now take it to forensics. The chief is grateful for your work and has promoted you to assistant chief.~]
+      say__p=1;ParaContent();  print (PrintText) SC_57;  new_line; .L_Say11; .L_SayX11;
+      ! phrase 2
+      ! [2: end the game in victory]
+       deadflag=2; story_complete=true; 
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_752, 752, true);
+   else if (debug_rules > 1) DB_Rule(R_771, 771, true);
    rfalse;
 ];
 ! No specific request
-! After entering the couches:
+! After entering the bed:
+[ R_749 ;
+   if ((action ==##Enter) &&  (actor==player) && ((noun == I111_bed) && (true))) { ! Runs only when pattern matches
+self = noun;
+   if (debug_rules) DB_Rule(R_749, 749);
+      ! phrase 1
+      ! [1: say ~no time for sleeping, get back on the case!~]
+      say__p=1;ParaContent();  print (PrintText) SC_58;  new_line; .L_Say12; .L_SayX12;
+      RulebookSucceeds(); rtrue;
+   } ! Runs only when pattern matches
+   else if (debug_rules > 1) DB_Rule(R_749, 749, true);
+   rfalse;
+];
+! No specific request
+! After opening the safe:
+[ R_753 ;
+   if ((action ==##Open) &&  (actor==player) && ((noun == I113_safe) && (true))) { ! Runs only when pattern matches
+self = noun;
+   if (debug_rules) DB_Rule(R_753, 753);
+      ! phrase 1
+      ! [1: say ~there is a piece of broken glass in here.~]
+      say__p=1;ParaContent();  print (PrintText) SC_59;  new_line; .L_Say13; .L_SayX13;
+      RulebookSucceeds(); rtrue;
+   } ! Runs only when pattern matches
+   else if (debug_rules > 1) DB_Rule(R_753, 753, true);
+   rfalse;
+];
+! No specific request
+! After examining glass:
 [ R_754 ;
-   if ((action ==##Enter) &&  (actor==player) && ((noun == I117_couches) && (true))) { ! Runs only when pattern matches
+   if ((action ==##Examine) &&  (actor==player) && ((noun == I115_broken_glass) && (true))) { ! Runs only when pattern matches
 self = noun;
    if (debug_rules) DB_Rule(R_754, 754);
       ! phrase 1
-      ! [1: say ~no time for sitting, get back on the case!~]
-      say__p=1;ParaContent();  print (PrintText) SC_60;  new_line; .L_Say15; .L_SayX15;
+      ! [1: say ~after taking a closer look, you notice that this was the weapon the killer used based on Mr. Rich's wounds.~]
+      say__p=1;ParaContent();  print (PrintText) SC_60;  new_line; .L_Say14; .L_SayX14;
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_754, 754, true);
    rfalse;
 ];
 ! No specific request
-! After turning on flashlight:
+! After entering the couches:
 [ R_756 ;
-   if ((action ==##A81_turning_on) &&  (actor==player) && ((noun == I92_flashlight) && (true))) { ! Runs only when pattern matches
+   if ((action ==##Enter) &&  (actor==player) && ((noun == I118_couches) && (true))) { ! Runs only when pattern matches
 self = noun;
    if (debug_rules) DB_Rule(R_756, 756);
       ! phrase 1
-      ! [1: increase score by 1]
-       score = score + 1; 
+      ! [1: say ~no time for sitting, get back on the case!~]
+      say__p=1;ParaContent();  print (PrintText) SC_61;  new_line; .L_Say15; .L_SayX15;
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
    else if (debug_rules > 1) DB_Rule(R_756, 756, true);
@@ -11827,19 +11860,19 @@ self = noun;
 ];
 ! No specific request
 ! After opening the door:
-[ R_748 ;
+[ R_750 ;
    if ((action ==##Open) &&  (actor==player) && ((noun ofclass K4_door))) { ! Runs only when pattern matches
 self = noun;
-   if (debug_rules) DB_Rule(R_748, 748);
+   if (debug_rules) DB_Rule(R_750, 750);
       ! phrase 1
       ! [1: move player to the bedroom]
-       MoveObject(player, I108_bedroom, 0, false); 
+       MoveObject(player, I109_bedroom, 0, false); 
       ! phrase 2
       ! [2: say ~you are in the bedroom.~]
-      say__p=1;ParaContent();  print (PrintText) SC_61;  new_line; .L_Say16; .L_SayX16;
+      say__p=1;ParaContent();  print (PrintText) SC_62;  new_line; .L_Say16; .L_SayX16;
       RulebookSucceeds(); rtrue;
    } ! Runs only when pattern matches
-   else if (debug_rules > 1) DB_Rule(R_748, 748, true);
+   else if (debug_rules > 1) DB_Rule(R_750, 750, true);
    rfalse;
 ];
 ! ----------------------------------------------------------------------------------------------------
@@ -11926,7 +11959,7 @@ self = noun;
    if (debug_rules) DB_Rule(R_60, 60);
       ! phrase 1
       ! [1: say ~[listing group size in words] ~]
-      say__p=1;ParaContent();  print (number) say__n=(listing_size); ParaContent();  print (PrintText) SC_62;  .L_Say18; .L_SayX18;
+      say__p=1;ParaContent();  print (number) say__n=(listing_size); ParaContent();  print (PrintText) SC_63;  .L_Say18; .L_SayX18;
       ! phrase 2
       ! [2: carry out the printing the plural name activity with the item]
        CarryOutActivity(V1_printing_the_plural_name_, t_0); 
@@ -11956,11 +11989,13 @@ self = noun;
 ! ----------------------------------------------------------------------------------------------------
 ! Rules in rulebook: for Deciding whether all includes (B84_for_deciding_whether_all)
 ! ----------------------------------------------------------------------------------------------------
-! Rule 1/3 ! Rule for deciding whether all includes scenery while taking ( this is the exclude scenery from take all rule ):
+! Rule 1/4 ! Rule for deciding whether all includes scenery while taking ( this is the exclude scenery from take all rule ):
 !   === which is equally specific with ===
-! Rule 2/3 ! Rule for deciding whether all includes fixed in place things while taking ( this is the exclude fixed in place things from take all rule ):
+! Rule 2/4 ! Rule for deciding whether all includes fixed in place things while taking ( this is the exclude fixed in place things from take all rule ):
 !   >>> III.1 - Object To Which Rule Applies >>>
-! Rule 3/3 ! Rule for deciding whether all includes people while taking ( this is the exclude people from take all rule ):
+! Rule 3/4 ! Rule for deciding whether all includes people while taking ( this is the exclude people from take all rule ):
+!   >>> I - Number of aspects constrained >>>
+! Rule 4/4 ! Rule for deciding whether all includes something:
 ! ----------------------------------------------------------------------------------------------------
 ! No specific request
 ! From the Standard Rules
@@ -12008,6 +12043,39 @@ self = noun;
    } ! Runs only when pattern matches
    } ! Runs only while condition holds
    else if (debug_rules > 1) DB_Rule(R_63, 63, true);
+   rfalse;
+];
+! No specific request
+! Rule for deciding whether all includes something:
+[ R_772 ;
+   if (((parameter_object ofclass K2_thing))) { ! Runs only when pattern matches
+   if (debug_rules) DB_Rule(R_772, 772);
+      ! phrase 1
+      ! [1: stop]
+       return; 
+      RulebookSucceeds(); rtrue;
+   } ! Runs only when pattern matches
+   else if (debug_rules > 1) DB_Rule(R_772, 772, true);
+   rfalse;
+];
+! ----------------------------------------------------------------------------------------------------
+
+! ----------------------------------------------------------------------------------------------------
+! Rules in rulebook: for Printing a parser error (B93_for_printing_a_parser_er)
+! ----------------------------------------------------------------------------------------------------
+! Rule 1/1 ! Rule for printing a parser error when the latest parser error is the nothing to do error:
+! ----------------------------------------------------------------------------------------------------
+! No specific request
+! Rule for printing a parser error when the latest parser error is the nothing to do error:
+[ R_773 ;
+   if ((((((etype == I84_nothing_to_do_error)))))) { ! Runs only while condition holds
+   if (debug_rules) DB_Rule(R_773, 773);
+      ! phrase 1
+      ! [1: say ~You don't have enough hands to take all these items at once.~ instead]
+      say__p=1;ParaContent();  print (PrintText) SC_64;  new_line; rtrue; .L_Say19; .L_SayX19; rtrue;
+      RulebookSucceeds(); rtrue;
+   } ! Runs only while condition holds
+   else if (debug_rules > 1) DB_Rule(R_773, 773, true);
    rfalse;
 ];
 ! ----------------------------------------------------------------------------------------------------
@@ -12139,7 +12207,7 @@ self = noun;
        if (((t_0 < 1))) {  if (ProcessRulebook(IMMEDIATELY_QUIT_R)) rtrue;   }
       ! phrase 10
       ! [10: say ~Would you like to ~]
-      say__p=1;ParaContent();  print (PrintText) SC_63;  .L_Say19; .L_SayX19;
+      say__p=1;ParaContent();  print (PrintText) SC_65;  .L_Say20; .L_SayX20;
       ! phrase 11
       ! [11: repeat through the table of final question options begin]
        @push ct_0; @push ct_1;
@@ -12157,7 +12225,7 @@ self = noun;
                 if (( (ExistsTableLookUpEntry(ct_0,100,ct_1)) ))  {
                   ! phrase 15
                   ! [15: say final question wording entry]
-                  say__p=1;ParaContent();  print (PrintText) TableLookUpEntry(ct_0,100,ct_1);  .L_Say20; .L_SayX20;
+                  say__p=1;ParaContent();  print (PrintText) TableLookUpEntry(ct_0,100,ct_1);  .L_Say21; .L_SayX21;
                   ! phrase 16
                   ! [16: decrease named options count by 1]
                    t_0 = t_0 - 1; 
@@ -12166,23 +12234,23 @@ self = noun;
                    if (((t_0 == 0)))  {
                      ! phrase 18
                      ! [18: say ~?[line break]~]
-                     say__p=1;ParaContent();  print (PrintText) SC_64; ParaContent();  new_line;  .L_Say21; .L_SayX21;
+                     say__p=1;ParaContent();  print (PrintText) SC_66; ParaContent();  new_line;  .L_Say22; .L_SayX22;
                      ! phrase 19
                      ! [19: otherwise if the named options count is 1]
                       } else if (((t_0 == 1))) { 
                      ! phrase 20
                      ! [20: if the serial comma option is active , say ~,~]
-                      if ((((Adj_22_t1_v15(5))))) { say__p=1;ParaContent();  print (PrintText) SC_65;  .L_Say22; .L_SayX22;  }
+                      if ((((Adj_22_t1_v15(5))))) { say__p=1;ParaContent();  print (PrintText) SC_67;  .L_Say23; .L_SayX23;  }
                      ! phrase 21
                      ! [21: say ~ or ~]
-                     say__p=1;ParaContent();  print (PrintText) SC_66;  .L_Say23; .L_SayX23;
+                     say__p=1;ParaContent();  print (PrintText) SC_68;  .L_Say24; .L_SayX24;
                      ! phrase 22
                      ! [22: otherwise]
                      } else {
 
                      ! phrase 23
                      ! [23: say ~, ~]
-                     say__p=1;ParaContent();  print (PrintText) SC_67;  .L_Say24; .L_SayX24;
+                     say__p=1;ParaContent();  print (PrintText) SC_69;  .L_Say25; .L_SayX25;
                      ! phrase 24
                      ! [24: end if]
                      }
@@ -12211,7 +12279,7 @@ self = noun;
 [ R_68 ;
       ! phrase 1
       ! [1: say ~> [run paragraph on]~]
-      say__p=1;ParaContent();  print (PrintText) SC_68; ParaContent();  RunParagraphOn();  .L_Say25; .L_SayX25;
+      say__p=1;ParaContent();  print (PrintText) SC_70; ParaContent();  RunParagraphOn();  .L_Say26; .L_SayX26;
    rfalse;
 ];
 ! ----------------------------------------------------------------------------------------------------
@@ -12464,40 +12532,40 @@ self = noun;
                 if (((t_0 ofclass K1_room)))  {
                   ! phrase 22
                   ! [22: if the domain is the location , say ~You ~]
-                   if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_69;  .L_Say26; .L_SayX26;  }
+                   if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_71;  .L_Say27; .L_SayX27;  }
                   ! phrase 23
                   ! [23: otherwise say ~In [the domain] you ~]
-                   else { say__p=1;ParaContent();  print (PrintText) SC_70; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_71;  .L_Say27; .L_SayX27;  }
+                   else { say__p=1;ParaContent();  print (PrintText) SC_72; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_73;  .L_Say28; .L_SayX28;  }
                   ! phrase 24
                   ! [24: otherwise if the domain is a supporter]
                    } else if (((t_0 ofclass K6_supporter))) { 
                   ! phrase 25
                   ! [25: say ~On [the domain] you ~]
-                  say__p=1;ParaContent();  print (PrintText) SC_72; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_71;  .L_Say28; .L_SayX28;
+                  say__p=1;ParaContent();  print (PrintText) SC_74; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_73;  .L_Say29; .L_SayX29;
                   ! phrase 26
                   ! [26: otherwise if the domain is an animal]
                    } else if (((t_0 ofclass K12_animal))) { 
                   ! phrase 27
                   ! [27: say ~On [the domain] you ~]
-                  say__p=1;ParaContent();  print (PrintText) SC_72; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_71;  .L_Say29; .L_SayX29;
+                  say__p=1;ParaContent();  print (PrintText) SC_74; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_73;  .L_Say30; .L_SayX30;
                   ! phrase 28
                   ! [28: otherwise]
                   } else {
 
                   ! phrase 29
                   ! [29: say ~In [the domain] you ~]
-                  say__p=1;ParaContent();  print (PrintText) SC_70; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_71;  .L_Say30; .L_SayX30;
+                  say__p=1;ParaContent();  print (PrintText) SC_72; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_73;  .L_Say31; .L_SayX31;
                   ! phrase 30
                   ! [30: end if]
                   }
 
                ! phrase 31
                ! [31: say ~can [if the locale paragraph count is greater than 0]also [end if]see ~]
-               say__p=1;ParaContent();  print (PrintText) SC_73; 
-	if (~~(((((Global_Vars-->8) > 0))))) jump L_Say31;
-		ParaContent();  print (PrintText) SC_74; 
-	.L_Say31; .L_SayX31;
-		ParaContent();  print (PrintText) SC_75;  .L_Say32; .L_SayX32;
+               say__p=1;ParaContent();  print (PrintText) SC_75; 
+	if (~~(((((Global_Vars-->8) > 0))))) jump L_Say32;
+		ParaContent();  print (PrintText) SC_76; 
+	.L_Say32; .L_SayX32;
+		ParaContent();  print (PrintText) SC_77;  .L_Say33; .L_SayX33;
                ! phrase 32
                ! [32: let the common holder be nothing]
                 t_2 = nothing; 
@@ -12540,13 +12608,13 @@ self = noun;
 		give subst__v workflag2; else give subst__v ~workflag2;
 		WriteListOfMarkedObjects(ENGLISH_BIT+RECURSE_BIT+PARTINV_BIT+
 			TERSE_BIT+CONCEAL_BIT);
-		@pull subst__v;  .L_Say33; .L_SayX33;  }
+		@pull subst__v;  .L_Say34; .L_SayX34;  }
                ! phrase 44
                ! [44: if the domain is the location , say ~ here~]
-                if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_76;  .L_Say34; .L_SayX34;  }
+                if (((t_0 == real_location))) { say__p=1;ParaContent();  print (PrintText) SC_78;  .L_Say35; .L_SayX35;  }
                ! phrase 45
                ! [45: say ~.[paragraph break]~]
-               say__p=1;ParaContent();  print (PrintText) SC_77; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say35; .L_SayX35;
+               say__p=1;ParaContent();  print (PrintText) SC_79; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say36; .L_SayX36;
                ! phrase 46
                ! [46: unfilter list recursion]
                 list_filter_routine = 0; 
@@ -12725,7 +12793,7 @@ self = noun;
        if (((~~(((Adj_55_t1_v9(t_0)))))))  {
          ! phrase 2
          ! [2: if a paragraph break is pending , say ~[conditional paragraph break]~]
-          if (( (say__p) )) { say__p=1;ParaContent();  DivideParagraphPoint();  .L_Say36; .L_SayX36;  }
+          if (( (say__p) )) { say__p=1;ParaContent();  DivideParagraphPoint();  .L_Say37; .L_SayX37;  }
          ! phrase 3
          ! [3: carry out the writing a paragraph about activity with the item]
           CarryOutActivity(V6_writing_a_paragraph_about, t_0); 
@@ -12740,7 +12808,7 @@ self = noun;
              (Adj_55_t2_v9(t_0)); 
             ! phrase 7
             ! [7: say ~[command clarification break]~]
-            say__p=1;ParaContent();  CommandClarificationBreak();  .L_Say37; .L_SayX37;
+            say__p=1;ParaContent();  CommandClarificationBreak();  .L_Say38; .L_SayX38;
             ! phrase 8
             ! [8: end if]
             }
@@ -12778,10 +12846,10 @@ self = noun;
              (Global_Vars-->8) = (Global_Vars-->8) + 1; 
             ! phrase 4
             ! [4: say ~[initial appearance of the item]~]
-            say__p=1;ParaContent(); @push self;  print (PrintText) GProperty(9, self=t_0,initial); @pull self;  .L_Say38; .L_SayX38;
+            say__p=1;ParaContent(); @push self;  print (PrintText) GProperty(9, self=t_0,initial); @pull self;  .L_Say39; .L_SayX39;
             ! phrase 5
             ! [5: say ~[paragraph break]~]
-            say__p=1;ParaContent();  DivideParagraphPoint(); new_line;  .L_Say39; .L_SayX39;
+            say__p=1;ParaContent();  DivideParagraphPoint(); new_line;  .L_Say40; .L_SayX40;
             ! phrase 6
             ! [6: if a locale-supportable thing is on the item begin]
              if ((Prop_7(,t_0)))  {
@@ -12807,13 +12875,13 @@ self = noun;
 
                ! phrase 13
                ! [13: say ~On [the item] ~]
-               say__p=1;ParaContent();  print (PrintText) SC_72; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_62;  .L_Say40; .L_SayX40;
+               say__p=1;ParaContent();  print (PrintText) SC_74; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_63;  .L_Say41; .L_SayX41;
                ! phrase 14
                ! [14: list the contents of the item , as a sentence , including contents , giving brief inventory information , tersely , not listing concealed items , prefacing with is/are , listing marked items only]
                 WriteListFrom(child(t_0), 3800); 
                ! phrase 15
                ! [15: say ~.[paragraph break]~]
-               say__p=1;ParaContent();  print (PrintText) SC_77; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say41; .L_SayX41;
+               say__p=1;ParaContent();  print (PrintText) SC_79; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say42; .L_SayX42;
                ! phrase 16
                ! [16: end if]
                }
@@ -12881,13 +12949,13 @@ self = noun;
              (Global_Vars-->8) = (Global_Vars-->8) + 1; 
             ! phrase 11
             ! [11: say ~On [the item] ~]
-            say__p=1;ParaContent();  print (PrintText) SC_72; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_62;  .L_Say42; .L_SayX42;
+            say__p=1;ParaContent();  print (PrintText) SC_74; ParaContent();  print (the) t_0; ParaContent();  print (PrintText) SC_63;  .L_Say43; .L_SayX43;
             ! phrase 12
             ! [12: list the contents of the item , as a sentence , including contents , giving brief inventory information , tersely , not listing concealed items , prefacing with is/are , listing marked items only]
              WriteListFrom(child(t_0), 3800); 
             ! phrase 13
             ! [13: say ~.[paragraph break]~]
-            say__p=1;ParaContent();  print (PrintText) SC_77; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say43; .L_SayX43;
+            say__p=1;ParaContent();  print (PrintText) SC_79; ParaContent();  DivideParagraphPoint(); new_line;  .L_Say44; .L_SayX44;
             ! phrase 14
             ! [14: end if]
             }
@@ -12937,7 +13005,7 @@ self = noun;
        GL__M(##Inv,2,noun); 
       ! phrase 2
       ! [2: say ~:[line break]~]
-      say__p=1;ParaContent();  print (PrintText) SC_78; ParaContent();  new_line;  .L_Say44; .L_SayX44;
+      say__p=1;ParaContent();  print (PrintText) SC_80; ParaContent();  new_line;  .L_Say45; .L_SayX45;
       ! phrase 3
       ! [3: list the contents of the player , with newlines , indented , including contents , giving inventory information , with extra indentation]
        WriteListFrom(child(player), 8215); 
@@ -14533,7 +14601,7 @@ self = noun;
           if (((~~(((MStack-->MstVO(20007,3)) == nothing)))))  {
             ! phrase 49
             ! [49: say ~ ~]
-            say__p=1;ParaContent();  print (PrintText) SC_62;  .L_Say45; .L_SayX45;
+            say__p=1;ParaContent();  print (PrintText) SC_63;  .L_Say46; .L_SayX46;
             ! phrase 50
             ! [50: if the vehicle gone by is a supporter , issue actor-based library message going action number 20 for the vehicle gone by]
              if ((((MStack-->MstVO(20007,3)) ofclass K6_supporter))) {  AGL__M(##Go,20,(MStack-->MstVO(20007,3)));   }
@@ -14588,7 +14656,7 @@ self = noun;
              AGL__M(##Go,26,noun); 
             ! phrase 66
             ! [66: say ~.~]
-            say__p=1;ParaContent();  print (PrintText) SC_77;  new_line; .L_Say46; .L_SayX46;
+            say__p=1;ParaContent();  print (PrintText) SC_79;  new_line; .L_Say47; .L_SayX47;
             ! phrase 67
             ! [67: try looking]
              TryAction(0, player, ##Look, 0, 0);; 
@@ -14601,7 +14669,7 @@ self = noun;
 
          ! phrase 70
          ! [70: say ~.~]
-         say__p=1;ParaContent();  print (PrintText) SC_77;  new_line; .L_Say47; .L_SayX47;
+         say__p=1;ParaContent();  print (PrintText) SC_79;  new_line; .L_Say48; .L_SayX48;
          ! phrase 71
          ! [71: end if]
          }
@@ -15188,7 +15256,7 @@ self = noun;
    if (debug_rules) DB_Rule(R_172, 172);
       ! phrase 1
       ! [1: say bold type]
-      say__p=1;ParaContent();  style bold;  .L_Say48; .L_SayX48;
+      say__p=1;ParaContent();  style bold;  .L_Say49; .L_SayX49;
       ! phrase 2
       ! [2: if the visibility level count is 0 begin]
        if ((((MStack-->MstVO(20011,2)) == 0)))  {
@@ -15206,21 +15274,21 @@ self = noun;
           } else if ((((MStack-->MstVO(20011,3)) == real_location))) { 
          ! phrase 7
          ! [7: say ~[visibility ceiling]~]
-         say__p=1;ParaContent();  print (PrintShortName) (MStack-->MstVO(20011,3));  .L_Say49; .L_SayX49;
+         say__p=1;ParaContent();  print (PrintShortName) (MStack-->MstVO(20011,3));  .L_Say50; .L_SayX50;
          ! phrase 8
          ! [8: otherwise]
          } else {
 
          ! phrase 9
          ! [9: say ~[The visibility ceiling]~]
-         say__p=1;ParaContent();  print (The) (MStack-->MstVO(20011,3));  .L_Say50; .L_SayX50;
+         say__p=1;ParaContent();  print (The) (MStack-->MstVO(20011,3));  .L_Say51; .L_SayX51;
          ! phrase 10
          ! [10: end if]
          }
 
       ! phrase 11
       ! [11: say roman type]
-      say__p=1;ParaContent();  style roman;  .L_Say51; .L_SayX51;
+      say__p=1;ParaContent();  style roman;  .L_Say52; .L_SayX52;
       ! phrase 12
       ! [12: let intermediate level be the visibility-holder of the actor]
        t_0 =  VisibilityParent(actor) ; 
@@ -15239,10 +15307,10 @@ self = noun;
 
       ! phrase 17
       ! [17: say line break]
-      say__p=1;ParaContent();  new_line;  .L_Say52; .L_SayX52;
+      say__p=1;ParaContent();  new_line;  .L_Say53; .L_SayX53;
       ! phrase 18
       ! [18: say run paragraph on with special look spacing]
-      say__p=1;ParaContent();  SpecialLookSpacingBreak();  .L_Say53; .L_SayX53;
+      say__p=1;ParaContent();  SpecialLookSpacingBreak();  .L_Say54; .L_SayX54;
    } ! Runs only when actor is the player
    else if (debug_rules > 1) DB_Rule(R_172, 172, true);
    rfalse;
@@ -15448,7 +15516,7 @@ self = noun;
        if ((((WhetherProvides(noun, false, description)))) && (((~~((GProperty(OBJECT_TY, noun,description) == EMPTY_TEXT_VALUE))))))  {
          ! phrase 2
          ! [2: say ~[the description of the noun][line break]~]
-         say__p=1;ParaContent(); @push self;  print (PrintText) GProperty(OBJECT_TY, self=noun,description); @pull self; ParaContent();  new_line;  .L_Say54; .L_SayX54;
+         say__p=1;ParaContent(); @push self;  print (PrintText) GProperty(OBJECT_TY, self=noun,description); @pull self; ParaContent();  new_line;  .L_Say55; .L_SayX55;
          ! phrase 3
          ! [3: now examine text printed is true]
           (MStack-->MstVO(20012,0)) = 1; 
@@ -18111,15 +18179,15 @@ self = noun;
 ! ----------------------------------------------------------------------------------------------------
 ! No specific request
 ! Check combining it with:
-[ R_758 ;
+[ R_760 ;
    if (actor == player) {
-   if (debug_rules) DB_Rule(R_758, 758);
+   if (debug_rules) DB_Rule(R_760, 760);
       ! phrase 1
       ! [1: if contraption is nothing begin]
        if ((((MStack-->MstVO(20082,0)) == nothing)))  {
          ! phrase 2
          ! [2: say ~You can't combine [the noun] and [the second noun] into anything useful.[line break]Try another combination of things.~]
-         say__p=1;ParaContent();  print (PrintText) SC_79; ParaContent();  print (the) noun; ParaContent();  print (PrintText) SC_80; ParaContent();  print (the) second; ParaContent();  print (PrintText) SC_81; ParaContent();  new_line; ParaContent();  print (PrintText) SC_82;  new_line; .L_Say55; .L_SayX55;
+         say__p=1;ParaContent();  print (PrintText) SC_81; ParaContent();  print (the) noun; ParaContent();  print (PrintText) SC_82; ParaContent();  print (the) second; ParaContent();  print (PrintText) SC_83; ParaContent();  new_line; ParaContent();  print (PrintText) SC_84;  new_line; .L_Say56; .L_SayX56;
          ! phrase 3
          ! [3: stop the action]
           rtrue; 
@@ -18128,7 +18196,7 @@ self = noun;
          }
 
    } ! Runs only when actor is the player
-   else if (debug_rules > 1) DB_Rule(R_758, 758, true);
+   else if (debug_rules > 1) DB_Rule(R_760, 760, true);
    rfalse;
 ];
 ! ----------------------------------------------------------------------------------------------------
@@ -18140,12 +18208,12 @@ self = noun;
 ! ----------------------------------------------------------------------------------------------------
 ! No specific request
 ! Carry out combining it with:
-[ R_759 ;
+[ R_761 ;
    if (actor == player) {
-   if (debug_rules) DB_Rule(R_759, 759);
+   if (debug_rules) DB_Rule(R_761, 761);
       ! phrase 1
       ! [1: say ~You fuse together [the noun] and [the second noun].~]
-      say__p=1;ParaContent();  print (PrintText) SC_83; ParaContent();  print (the) noun; ParaContent();  print (PrintText) SC_80; ParaContent();  print (the) second; ParaContent();  print (PrintText) SC_77;  new_line; .L_Say56; .L_SayX56;
+      say__p=1;ParaContent();  print (PrintText) SC_85; ParaContent();  print (the) noun; ParaContent();  print (PrintText) SC_82; ParaContent();  print (the) second; ParaContent();  print (PrintText) SC_79;  new_line; .L_Say57; .L_SayX57;
       ! phrase 2
       ! [2: remove the noun from play]
        RemoveFromPlay(noun); 
@@ -18156,7 +18224,7 @@ self = noun;
       ! [4: move the contraption to the player]
        MoveObject((MStack-->MstVO(20082,0)), player, 0, false); 
    } ! Runs only when actor is the player
-   else if (debug_rules > 1) DB_Rule(R_759, 759, true);
+   else if (debug_rules > 1) DB_Rule(R_761, 761, true);
    rfalse;
 ];
 ! ----------------------------------------------------------------------------------------------------
@@ -18168,14 +18236,14 @@ self = noun;
 ! ----------------------------------------------------------------------------------------------------
 ! No specific request
 ! Report combining it with:
-[ R_760 ;
+[ R_762 ;
    if (actor == player) {
-   if (debug_rules) DB_Rule(R_760, 760);
+   if (debug_rules) DB_Rule(R_762, 762);
       ! phrase 1
       ! [1: say ~You now have a [a Contraption].~]
-      say__p=1;ParaContent();  print (PrintText) SC_84; ParaContent();  print (a) (MStack-->MstVO(20082,0)); ParaContent();  print (PrintText) SC_77;  new_line; .L_Say57; .L_SayX57;
+      say__p=1;ParaContent();  print (PrintText) SC_86; ParaContent();  print (a) (MStack-->MstVO(20082,0)); ParaContent();  print (PrintText) SC_79;  new_line; .L_Say58; .L_SayX58;
    } ! Runs only when actor is the player
-   else if (debug_rules > 1) DB_Rule(R_760, 760, true);
+   else if (debug_rules > 1) DB_Rule(R_762, 762, true);
    rfalse;
 ];
 ! ----------------------------------------------------------------------------------------------------
@@ -20038,13 +20106,13 @@ Array B1_startup --> INITIALISE_MEMORY_R VIRTUAL_MACHINE_STARTUP_R SEED_RANDOM_N
 Array B2_turn_sequence --> PARSE_COMMAND_R GENERATE_ACTION_R R_14 R_13 TIMED_EVENTS_R ADVANCE_TIME_R UPDATE_CHRONOLOGICAL_RECORDS_R R_15 ADJUST_LIGHT_R NOTE_OBJECT_ACQUISITIONS_R R_16 NULL; ! 11 rule(s)
 Array B3_shutdown --> R_17 RESURRECT_PLAYER_IF_ASKED_R R_18 ASK_FINAL_QUESTION_R NULL; ! 4 rule(s)
 Array B4_scene_changing --> DetectSceneChange NULL; ! 1 rule(s)
-Array B5_when_play_begins --> R_740 NULL; ! 1 rule(s)
+Array B5_when_play_begins --> R_740 R_742 NULL; ! 2 rule(s)
 Constant B6_when_play_ends = EMPTY_RULEBOOK;
 Array B7_when_scene_begins --> R_57 NULL; ! 1 rule(s)
 Constant B8_when_scene_ends = EMPTY_RULEBOOK;
 Constant B9_every_turn = EMPTY_RULEBOOK;
 Array B10_action_processing --> R_20 R_19 R_21 BASIC_VISIBILITY_R BASIC_ACCESSIBILITY_R CARRYING_REQUIREMENTS_R R_22 REQUESTED_ACTIONS_REQUIRE_R CARRY_OUT_REQUESTED_ACTIONS_R DESCEND_TO_SPECIFIC_ACTION_R R_23 NULL; ! 11 rule(s)
-Array B11_setting_action_variables --> R_757 R_137 R_171 R_159 NULL; ! 4 rule(s)
+Array B11_setting_action_variables --> R_759 R_137 R_171 R_159 NULL; ! 4 rule(s)
 Array B12_specific_action_processi --> WORK_OUT_DETAILS_OF_SPECIFIC_R R_24 R_25 R_26 R_27 R_28 R_29 R_30 NULL; ! 8 rule(s)
 Array B13_player_s_action_awarenes --> R_31 R_32 R_33 R_34 NULL; ! 4 rule(s)
 Array B14_accessibility --> ACCESS_THROUGH_BARRIERS_R NULL; ! 1 rule(s)
@@ -20054,10 +20122,10 @@ Array B17_visibility --> R_35 NULL; ! 1 rule(s)
 Constant B18_persuasion = EMPTY_RULEBOOK;
 Constant B19_unsuccessful_attempt_by = EMPTY_RULEBOOK;
 Constant B20_before = EMPTY_RULEBOOK;
-Array B21_instead --> R_764 R_766 R_743 R_768 NULL; ! 4 rule(s)
+Array B21_instead --> R_766 R_768 R_745 R_770 NULL; ! 4 rule(s)
 Constant B22_check = EMPTY_RULEBOOK;
 Constant B23_carry_out = EMPTY_RULEBOOK;
-Array B24_after --> (-2) ##SwitchOn 2 R_746 R_755 ##Examine 2 R_741 R_742 ##Take R_744 ##Examine R_745 ##Open R_750 ##Take R_753 ##Examine R_761 ##A83_talking_to 4 R_762 R_763 R_765 R_767 ##Open R_749 ##Give R_769 ##Enter R_747 ##Open R_751 ##Examine R_752 ##Enter R_754 ##A81_turning_on R_756 ##Open R_748 NULL; ! 21 rule(s)
+Array B24_after --> (-2) ##SwitchOn 2 R_748 R_757 ##Examine 2 R_743 R_744 ##Take R_746 ##Examine R_747 ##Open R_752 ##Take R_755 ##A81_turning_on R_758 ##Examine R_763 ##A83_talking_to 4 R_764 R_765 R_767 R_769 ##Open R_751 ##Give R_771 ##Enter R_749 ##Open R_753 ##Examine R_754 ##Enter R_756 ##Open R_750 NULL; ! 21 rule(s)
 Constant B25_report = EMPTY_RULEBOOK;
 Array B26_does_the_player_mean --> R_36 NULL; ! 1 rule(s)
 Constant B27_when_entire_game_begins = EMPTY_RULEBOOK;
@@ -20117,7 +20185,7 @@ Constant B80_before_deciding_the_conc = EMPTY_RULEBOOK;
 Constant B81_for_deciding_the_conceal = EMPTY_RULEBOOK;
 Constant B82_after_deciding_the_conce = EMPTY_RULEBOOK;
 Constant B83_before_deciding_whether_ = EMPTY_RULEBOOK;
-Array B84_for_deciding_whether_all --> R_62 R_64 R_63 NULL; ! 3 rule(s)
+Array B84_for_deciding_whether_all --> R_62 R_64 R_63 R_772 NULL; ! 4 rule(s)
 Constant B85_after_deciding_whether_a = EMPTY_RULEBOOK;
 Constant B86_before_clarifying_the_pa = EMPTY_RULEBOOK;
 Constant B87_for_clarifying_the_parse = EMPTY_RULEBOOK;
@@ -20126,7 +20194,7 @@ Constant B89_before_asking_which_do_y = EMPTY_RULEBOOK;
 Constant B90_for_asking_which_do_you_ = EMPTY_RULEBOOK;
 Constant B91_after_asking_which_do_yo = EMPTY_RULEBOOK;
 Constant B92_before_printing_a_parser = EMPTY_RULEBOOK;
-Constant B93_for_printing_a_parser_er = EMPTY_RULEBOOK;
+Array B93_for_printing_a_parser_er --> R_773 NULL; ! 1 rule(s)
 Constant B94_after_printing_a_parser_ = EMPTY_RULEBOOK;
 Constant B95_before_supplying_a_missi = EMPTY_RULEBOOK;
 Array B96_for_supplying_a_missing_ --> R_65 R_66 R_67 R_148 NULL; ! 4 rule(s)
@@ -20404,9 +20472,9 @@ Constant B367_report_hiding_it_under = EMPTY_RULEBOOK;
 Constant B368_check_turning_on = EMPTY_RULEBOOK;
 Constant B369_carry_out_turning_on = EMPTY_RULEBOOK;
 Constant B370_report_turning_on = EMPTY_RULEBOOK;
-Array B371_check_combining_it_with --> R_758 NULL; ! 1 rule(s)
-Array B372_carry_out_combining_it_ --> R_759 NULL; ! 1 rule(s)
-Array B373_report_combining_it_wit --> R_760 NULL; ! 1 rule(s)
+Array B371_check_combining_it_with --> R_760 NULL; ! 1 rule(s)
+Array B372_carry_out_combining_it_ --> R_761 NULL; ! 1 rule(s)
+Array B373_report_combining_it_wit --> R_762 NULL; ! 1 rule(s)
 Constant B374_check_talking_to = EMPTY_RULEBOOK;
 Constant B375_carry_out_talking_to = EMPTY_RULEBOOK;
 Constant B376_report_talking_to = EMPTY_RULEBOOK;
@@ -20679,28 +20747,28 @@ Constant BR_261 = R_296;
 Constant BR_262 = R_297;
 Constant BR_263 = R_298;
 Constant BR_264 = R_299;
-Constant BR_736 = R_8;
-Constant BR_742 = R_9;
-Constant BR_743 = R_10;
-Constant BR_744 = R_11;
-Constant BR_745 = R_12;
-Constant BR_753 = R_16;
-Constant BR_754 = R_17;
-Constant BR_756 = R_18;
-Constant BR_759 = R_21;
-Constant BR_760 = R_19;
-Constant BR_761 = R_20;
-Constant BR_765 = R_22;
-Constant BR_769 = R_23;
-Constant BR_775 = R_35;
-Constant BR_777 = R_59;
-Constant BR_778 = R_60;
-Constant BR_780 = R_61;
-Constant BR_785 = R_69;
-Constant BR_786 = R_68;
-Constant BR_788 = R_70;
-Constant BR_789 = R_91;
-Constant BR_790 = R_148;
+Constant BR_739 = R_8;
+Constant BR_745 = R_9;
+Constant BR_746 = R_10;
+Constant BR_747 = R_11;
+Constant BR_748 = R_12;
+Constant BR_756 = R_16;
+Constant BR_757 = R_17;
+Constant BR_759 = R_18;
+Constant BR_762 = R_21;
+Constant BR_763 = R_19;
+Constant BR_764 = R_20;
+Constant BR_768 = R_22;
+Constant BR_772 = R_23;
+Constant BR_778 = R_35;
+Constant BR_780 = R_59;
+Constant BR_781 = R_60;
+Constant BR_783 = R_61;
+Constant BR_788 = R_69;
+Constant BR_789 = R_68;
+Constant BR_791 = R_70;
+Constant BR_792 = R_91;
+Constant BR_793 = R_148;
 
 
 
@@ -23123,7 +23191,7 @@ Array FWMatrix --> NUM_ROOMS*NUM_ROOMS;
 ];
 #ENDIF;
 
-Constant MAX_ROUTE_LENGTH = 55 + 32;
+Constant MAX_ROUTE_LENGTH = 56 + 32;
 
 [ RelationRouteTo relation from to count  handler;
 	if (count) {
@@ -24616,110 +24684,113 @@ Array RulebookNames -->
 		if (R == R_30) { print "last specific action-processing rule"; return; } ! 704, case 2
 		if (R == R_159) { print "Setting action variables for exiting"; return; } ! 705, case 2
 		if (R == R_740) { print "When play begins"; return; } ! 706, case 2
-		if (R == R_741) { print "After examining the flashlight for the first time"; return; } ! 707, case 2
-		if (R == R_742) { print "After examining the vase for the first time"; return; } ! 708, case 2
-		if (R == R_743) { print "Instead of taking paintings"; return; } ! 709, case 2
-		if (R == R_744) { print "After taking paintings for the first time"; return; } ! 710, case 2
-		if (R == R_745) { print "After examining the telescope for the first time"; return; } ! 711, case 2
-		if (R == R_746) { print "After switching on the tv in the kitchen"; return; } ! 712, case 2
-		if (R == R_747) { print "After entering the bed"; return; } ! 713, case 2
-		if (R == R_748) { print "After opening the door"; return; } ! 714, case 2
-		if (R == R_749) { print "After opening the door for the first time"; return; } ! 715, case 2
-		if (R == R_750) { print "After opening the safe for the first time"; return; } ! 716, case 2
-		if (R == R_751) { print "After opening the safe"; return; } ! 717, case 2
-		if (R == R_752) { print "After examining glass"; return; } ! 718, case 2
-		if (R == R_753) { print "After taking the glass for the first time"; return; } ! 719, case 2
-		if (R == R_754) { print "After entering the couches"; return; } ! 720, case 2
-		if (R == R_755) { print "After switching on the flashlight in the attic"; return; } ! 721, case 2
-		if (R == R_756) { print "After turning on flashlight"; return; } ! 722, case 2
-		if (R == R_757) { print "Setting action variables for combining something with something"; return; } ! 723, case 2
-		if (R == R_758) { print "Check combining it with"; return; } ! 724, case 2
-		if (R == R_759) { print "Carry out combining it with"; return; } ! 725, case 2
-		if (R == R_760) { print "Report combining it with"; return; } ! 726, case 2
-		if (R == R_761) { print "After examining the screw key for the first time"; return; } ! 727, case 2
-		if (R == R_762) { print "After talking to bob for the first time"; return; } ! 728, case 2
-		if (R == R_763) { print "After talking to wilfred for the first time"; return; } ! 729, case 2
-		if (R == R_764) { print "Instead of talking to Bob for the first time"; return; } ! 730, case 2
-		if (R == R_765) { print "After talking to Bob for the first time"; return; } ! 731, case 2
-		if (R == R_766) { print "Instead of talking to Wilfred for the first time"; return; } ! 732, case 2
-		if (R == R_767) { print "After talking to Wilfred for the first time"; return; } ! 733, case 2
-		if (R == R_768) { print "Instead of taking broken glass"; return; } ! 734, case 2
-		if (R == R_769) { print "After giving the broken glass to chief"; return; } ! 735, case 2
-		if (R == R_8) { print "start in the correct scenes rule"; return; } ! 736, case 1
-		if (R == POSITION_PLAYER_IN_MODEL_R) { print "position player in model world rule"; return; } ! 737, case 1
-		if (R == UPDATE_CHRONOLOGICAL_RECORDS_R) { print "update chronological records rule"; return; } ! 738, case 1
-		if (R == SEED_RANDOM_NUMBER_GENERATOR_R) { print "seed random number generator rule"; return; } ! 739, case 1
-		if (R == VIRTUAL_MACHINE_STARTUP_R) { print "virtual machine startup rule"; return; } ! 740, case 1
-		if (R == INITIALISE_MEMORY_R) { print "initialise memory rule"; return; } ! 741, case 1
-		if (R == R_9) { print "when play begins stage rule"; return; } ! 742, case 1
-		if (R == R_10) { print "fix baseline scoring rule"; return; } ! 743, case 1
-		if (R == R_11) { print "display banner rule"; return; } ! 744, case 1
-		if (R == R_12) { print "initial room description rule"; return; } ! 745, case 1
-		if (R == GENERATE_ACTION_R) { print "generate action rule"; return; } ! 746, case 1
-		if (R == PARSE_COMMAND_R) { print "parse command rule"; return; } ! 747, case 1
-		if (R == TIMED_EVENTS_R) { print "timed events rule"; return; } ! 748, case 1
-		if (R == ADVANCE_TIME_R) { print "advance time rule"; return; } ! 749, case 1
-		if (R == UPDATE_CHRONOLOGICAL_RECORDS_R) { print "update chronological records rule"; return; } ! 750, case 1
-		if (R == ADJUST_LIGHT_R) { print "adjust light rule"; return; } ! 751, case 1
-		if (R == NOTE_OBJECT_ACQUISITIONS_R) { print "note object acquisitions rule"; return; } ! 752, case 1
-		if (R == R_16) { print "notify score changes rule"; return; } ! 753, case 1
-		if (R == R_17) { print "when play ends stage rule"; return; } ! 754, case 1
-		if (R == RESURRECT_PLAYER_IF_ASKED_R) { print "resurrect player if asked rule"; return; } ! 755, case 1
-		if (R == R_18) { print "print player's obituary rule"; return; } ! 756, case 1
-		if (R == ASK_FINAL_QUESTION_R) { print "ask the final question rule"; return; } ! 757, case 1
-		if (R == DetectSceneChange) { print "scene change machinery rule"; return; } ! 758, case 1
-		if (R == R_21) { print "before stage rule"; return; } ! 759, case 1
-		if (R == R_19) { print "set pronouns from items from multiple object lists rule"; return; } ! 760, case 1
-		if (R == R_20) { print "announce items from multiple object lists rule"; return; } ! 761, case 1
-		if (R == BASIC_VISIBILITY_R) { print "basic visibility rule"; return; } ! 762, case 1
-		if (R == BASIC_ACCESSIBILITY_R) { print "basic accessibility rule"; return; } ! 763, case 1
-		if (R == CARRYING_REQUIREMENTS_R) { print "carrying requirements rule"; return; } ! 764, case 1
-		if (R == R_22) { print "instead stage rule"; return; } ! 765, case 1
-		if (R == REQUESTED_ACTIONS_REQUIRE_R) { print "requested actions require persuasion rule"; return; } ! 766, case 1
-		if (R == CARRY_OUT_REQUESTED_ACTIONS_R) { print "carry out requested actions rule"; return; } ! 767, case 1
-		if (R == DESCEND_TO_SPECIFIC_ACTION_R) { print "descend to specific action-processing rule"; return; } ! 768, case 1
-		if (R == R_23) { print "end action-processing in success rule"; return; } ! 769, case 1
-		if (R == WORK_OUT_DETAILS_OF_SPECIFIC_R) { print "work out details of specific action rule"; return; } ! 770, case 1
-		if (R == ACCESS_THROUGH_BARRIERS_R) { print "access through barriers rule"; return; } ! 771, case 1
-		if (R == CANT_REACH_INSIDE_ROOMS_R) { print "can't reach inside rooms rule"; return; } ! 772, case 1
-		if (R == CANT_REACH_INSIDE_CLOSED_R) { print "can't reach inside closed containers rule"; return; } ! 773, case 1
-		if (R == CANT_REACH_OUTSIDE_CLOSED_R) { print "can't reach outside closed containers rule"; return; } ! 774, case 1
-		if (R == R_35) { print "can't act in the dark rule"; return; } ! 775, case 1
-		if (R == STANDARD_NAME_PRINTING_R) { print "standard name printing rule"; return; } ! 776, case 1
-		if (R == R_59) { print "standard printing the plural name rule"; return; } ! 777, case 1
-		if (R == R_60) { print "standard printing a number of something rule"; return; } ! 778, case 1
-		if (R == STANDARD_CONTENTS_LISTING_R) { print "standard contents listing rule"; return; } ! 779, case 1
-		if (R == R_61) { print "look around once light available rule"; return; } ! 780, case 1
-		if (R == ENABLE_GLULX_ACCEL_R) { print "enable Glulx acceleration rule"; return; } ! 781, case 1
-		if (R == PRINT_OBITUARY_HEADLINE_R) { print "print obituary headline rule"; return; } ! 782, case 1
-		if (R == PRINT_FINAL_SCORE_R) { print "print final score rule"; return; } ! 783, case 1
-		if (R == DISPLAY_FINAL_STATUS_LINE_R) { print "display final status line rule"; return; } ! 784, case 1
-		if (R == R_69) { print "print the final question rule"; return; } ! 785, case 1
-		if (R == R_68) { print "print the final prompt rule"; return; } ! 786, case 1
-		if (R == READ_FINAL_ANSWER_R) { print "read the final answer rule"; return; } ! 787, case 1
-		if (R == R_70) { print "standard respond to final question rule"; return; } ! 788, case 1
-		if (R == R_91) { print "can't take component parts rule"; return; } ! 789, case 1
-		if (R == R_148) { print "find what to enter rule"; return; } ! 790, case 1
-		if (R == QUIT_THE_GAME_R) { print "quit the game rule"; return; } ! 791, case 1
-		if (R == SAVE_THE_GAME_R) { print "save the game rule"; return; } ! 792, case 1
-		if (R == RESTORE_THE_GAME_R) { print "restore the game rule"; return; } ! 793, case 1
-		if (R == RESTART_THE_GAME_R) { print "restart the game rule"; return; } ! 794, case 1
-		if (R == VERIFY_THE_STORY_FILE_R) { print "verify the story file rule"; return; } ! 795, case 1
-		if (R == SWITCH_TRANSCRIPT_ON_R) { print "switch the story transcript on rule"; return; } ! 796, case 1
-		if (R == SWITCH_TRANSCRIPT_OFF_R) { print "switch the story transcript off rule"; return; } ! 797, case 1
-		if (R == ANNOUNCE_STORY_FILE_VERSION_R) { print "announce the story file version rule"; return; } ! 798, case 1
-		if (R == ANNOUNCE_SCORE_R) { print "announce the score rule"; return; } ! 799, case 1
-		if (R == PREFER_ABBREVIATED_R) { print "prefer abbreviated room descriptions rule"; return; } ! 800, case 1
-		if (R == REP_PREFER_ABBREVIATED_R) { print "standard report preferring abbreviated room descriptions rule"; return; } ! 801, case 1
-		if (R == PREFER_UNABBREVIATED_R) { print "prefer unabbreviated room descriptions rule"; return; } ! 802, case 1
-		if (R == REP_PREFER_UNABBREVIATED_R) { print "standard report preferring unabbreviated room descriptions rule"; return; } ! 803, case 1
-		if (R == PREFER_SOMETIMES_ABBREVIATED_R) { print "prefer sometimes abbreviated room descriptions rule"; return; } ! 804, case 1
-		if (R == REP_PREFER_SOMETIMES_ABBR_R) { print "standard report preferring sometimes abbreviated room descriptions rule"; return; } ! 805, case 1
-		if (R == SWITCH_SCORE_NOTIFY_ON_R) { print "switch score notification on rule"; return; } ! 806, case 1
-		if (R == REP_SWITCH_NOTIFY_ON_R) { print "standard report switching score notification on rule"; return; } ! 807, case 1
-		if (R == SWITCH_SCORE_NOTIFY_OFF_R) { print "switch score notification off rule"; return; } ! 808, case 1
-		if (R == REP_SWITCH_NOTIFY_OFF_R) { print "standard report switching score notification off rule"; return; } ! 809, case 1
-		if (R == ANNOUNCE_PRONOUN_MEANINGS_R) { print "announce the pronoun meanings rule"; return; } ! 810, case 1
+		if (R == R_742) { print "When play begins"; return; } ! 707, case 2
+		if (R == R_743) { print "After examining the flashlight for the first time"; return; } ! 708, case 2
+		if (R == R_744) { print "After examining the vase for the first time"; return; } ! 709, case 2
+		if (R == R_745) { print "Instead of taking paintings"; return; } ! 710, case 2
+		if (R == R_746) { print "After taking paintings for the first time"; return; } ! 711, case 2
+		if (R == R_747) { print "After examining the telescope for the first time"; return; } ! 712, case 2
+		if (R == R_748) { print "After switching on the tv in the kitchen"; return; } ! 713, case 2
+		if (R == R_749) { print "After entering the bed"; return; } ! 714, case 2
+		if (R == R_750) { print "After opening the door"; return; } ! 715, case 2
+		if (R == R_751) { print "After opening the door for the first time"; return; } ! 716, case 2
+		if (R == R_752) { print "After opening the safe for the first time"; return; } ! 717, case 2
+		if (R == R_753) { print "After opening the safe"; return; } ! 718, case 2
+		if (R == R_754) { print "After examining glass"; return; } ! 719, case 2
+		if (R == R_755) { print "After taking the glass for the first time"; return; } ! 720, case 2
+		if (R == R_756) { print "After entering the couches"; return; } ! 721, case 2
+		if (R == R_757) { print "After switching on the flashlight in the attic"; return; } ! 722, case 2
+		if (R == R_758) { print "After turning on the flashlight for the first time"; return; } ! 723, case 2
+		if (R == R_759) { print "Setting action variables for combining something with something"; return; } ! 724, case 2
+		if (R == R_760) { print "Check combining it with"; return; } ! 725, case 2
+		if (R == R_761) { print "Carry out combining it with"; return; } ! 726, case 2
+		if (R == R_762) { print "Report combining it with"; return; } ! 727, case 2
+		if (R == R_763) { print "After examining the screw key for the first time"; return; } ! 728, case 2
+		if (R == R_764) { print "After talking to bob for the first time"; return; } ! 729, case 2
+		if (R == R_765) { print "After talking to wilfred for the first time"; return; } ! 730, case 2
+		if (R == R_766) { print "Instead of talking to Bob for the first time"; return; } ! 731, case 2
+		if (R == R_767) { print "After talking to Bob for the first time"; return; } ! 732, case 2
+		if (R == R_768) { print "Instead of talking to Wilfred for the first time"; return; } ! 733, case 2
+		if (R == R_769) { print "After talking to Wilfred for the first time"; return; } ! 734, case 2
+		if (R == R_770) { print "Instead of taking broken glass"; return; } ! 735, case 2
+		if (R == R_771) { print "After giving the broken glass to chief"; return; } ! 736, case 2
+		if (R == R_772) { print "Rule for deciding whether all includes something"; return; } ! 737, case 2
+		if (R == R_773) { print "Rule for printing a parser error when the latest parser error is the nothing to do error"; return; } ! 738, case 2
+		if (R == R_8) { print "start in the correct scenes rule"; return; } ! 739, case 1
+		if (R == POSITION_PLAYER_IN_MODEL_R) { print "position player in model world rule"; return; } ! 740, case 1
+		if (R == UPDATE_CHRONOLOGICAL_RECORDS_R) { print "update chronological records rule"; return; } ! 741, case 1
+		if (R == SEED_RANDOM_NUMBER_GENERATOR_R) { print "seed random number generator rule"; return; } ! 742, case 1
+		if (R == VIRTUAL_MACHINE_STARTUP_R) { print "virtual machine startup rule"; return; } ! 743, case 1
+		if (R == INITIALISE_MEMORY_R) { print "initialise memory rule"; return; } ! 744, case 1
+		if (R == R_9) { print "when play begins stage rule"; return; } ! 745, case 1
+		if (R == R_10) { print "fix baseline scoring rule"; return; } ! 746, case 1
+		if (R == R_11) { print "display banner rule"; return; } ! 747, case 1
+		if (R == R_12) { print "initial room description rule"; return; } ! 748, case 1
+		if (R == GENERATE_ACTION_R) { print "generate action rule"; return; } ! 749, case 1
+		if (R == PARSE_COMMAND_R) { print "parse command rule"; return; } ! 750, case 1
+		if (R == TIMED_EVENTS_R) { print "timed events rule"; return; } ! 751, case 1
+		if (R == ADVANCE_TIME_R) { print "advance time rule"; return; } ! 752, case 1
+		if (R == UPDATE_CHRONOLOGICAL_RECORDS_R) { print "update chronological records rule"; return; } ! 753, case 1
+		if (R == ADJUST_LIGHT_R) { print "adjust light rule"; return; } ! 754, case 1
+		if (R == NOTE_OBJECT_ACQUISITIONS_R) { print "note object acquisitions rule"; return; } ! 755, case 1
+		if (R == R_16) { print "notify score changes rule"; return; } ! 756, case 1
+		if (R == R_17) { print "when play ends stage rule"; return; } ! 757, case 1
+		if (R == RESURRECT_PLAYER_IF_ASKED_R) { print "resurrect player if asked rule"; return; } ! 758, case 1
+		if (R == R_18) { print "print player's obituary rule"; return; } ! 759, case 1
+		if (R == ASK_FINAL_QUESTION_R) { print "ask the final question rule"; return; } ! 760, case 1
+		if (R == DetectSceneChange) { print "scene change machinery rule"; return; } ! 761, case 1
+		if (R == R_21) { print "before stage rule"; return; } ! 762, case 1
+		if (R == R_19) { print "set pronouns from items from multiple object lists rule"; return; } ! 763, case 1
+		if (R == R_20) { print "announce items from multiple object lists rule"; return; } ! 764, case 1
+		if (R == BASIC_VISIBILITY_R) { print "basic visibility rule"; return; } ! 765, case 1
+		if (R == BASIC_ACCESSIBILITY_R) { print "basic accessibility rule"; return; } ! 766, case 1
+		if (R == CARRYING_REQUIREMENTS_R) { print "carrying requirements rule"; return; } ! 767, case 1
+		if (R == R_22) { print "instead stage rule"; return; } ! 768, case 1
+		if (R == REQUESTED_ACTIONS_REQUIRE_R) { print "requested actions require persuasion rule"; return; } ! 769, case 1
+		if (R == CARRY_OUT_REQUESTED_ACTIONS_R) { print "carry out requested actions rule"; return; } ! 770, case 1
+		if (R == DESCEND_TO_SPECIFIC_ACTION_R) { print "descend to specific action-processing rule"; return; } ! 771, case 1
+		if (R == R_23) { print "end action-processing in success rule"; return; } ! 772, case 1
+		if (R == WORK_OUT_DETAILS_OF_SPECIFIC_R) { print "work out details of specific action rule"; return; } ! 773, case 1
+		if (R == ACCESS_THROUGH_BARRIERS_R) { print "access through barriers rule"; return; } ! 774, case 1
+		if (R == CANT_REACH_INSIDE_ROOMS_R) { print "can't reach inside rooms rule"; return; } ! 775, case 1
+		if (R == CANT_REACH_INSIDE_CLOSED_R) { print "can't reach inside closed containers rule"; return; } ! 776, case 1
+		if (R == CANT_REACH_OUTSIDE_CLOSED_R) { print "can't reach outside closed containers rule"; return; } ! 777, case 1
+		if (R == R_35) { print "can't act in the dark rule"; return; } ! 778, case 1
+		if (R == STANDARD_NAME_PRINTING_R) { print "standard name printing rule"; return; } ! 779, case 1
+		if (R == R_59) { print "standard printing the plural name rule"; return; } ! 780, case 1
+		if (R == R_60) { print "standard printing a number of something rule"; return; } ! 781, case 1
+		if (R == STANDARD_CONTENTS_LISTING_R) { print "standard contents listing rule"; return; } ! 782, case 1
+		if (R == R_61) { print "look around once light available rule"; return; } ! 783, case 1
+		if (R == ENABLE_GLULX_ACCEL_R) { print "enable Glulx acceleration rule"; return; } ! 784, case 1
+		if (R == PRINT_OBITUARY_HEADLINE_R) { print "print obituary headline rule"; return; } ! 785, case 1
+		if (R == PRINT_FINAL_SCORE_R) { print "print final score rule"; return; } ! 786, case 1
+		if (R == DISPLAY_FINAL_STATUS_LINE_R) { print "display final status line rule"; return; } ! 787, case 1
+		if (R == R_69) { print "print the final question rule"; return; } ! 788, case 1
+		if (R == R_68) { print "print the final prompt rule"; return; } ! 789, case 1
+		if (R == READ_FINAL_ANSWER_R) { print "read the final answer rule"; return; } ! 790, case 1
+		if (R == R_70) { print "standard respond to final question rule"; return; } ! 791, case 1
+		if (R == R_91) { print "can't take component parts rule"; return; } ! 792, case 1
+		if (R == R_148) { print "find what to enter rule"; return; } ! 793, case 1
+		if (R == QUIT_THE_GAME_R) { print "quit the game rule"; return; } ! 794, case 1
+		if (R == SAVE_THE_GAME_R) { print "save the game rule"; return; } ! 795, case 1
+		if (R == RESTORE_THE_GAME_R) { print "restore the game rule"; return; } ! 796, case 1
+		if (R == RESTART_THE_GAME_R) { print "restart the game rule"; return; } ! 797, case 1
+		if (R == VERIFY_THE_STORY_FILE_R) { print "verify the story file rule"; return; } ! 798, case 1
+		if (R == SWITCH_TRANSCRIPT_ON_R) { print "switch the story transcript on rule"; return; } ! 799, case 1
+		if (R == SWITCH_TRANSCRIPT_OFF_R) { print "switch the story transcript off rule"; return; } ! 800, case 1
+		if (R == ANNOUNCE_STORY_FILE_VERSION_R) { print "announce the story file version rule"; return; } ! 801, case 1
+		if (R == ANNOUNCE_SCORE_R) { print "announce the score rule"; return; } ! 802, case 1
+		if (R == PREFER_ABBREVIATED_R) { print "prefer abbreviated room descriptions rule"; return; } ! 803, case 1
+		if (R == REP_PREFER_ABBREVIATED_R) { print "standard report preferring abbreviated room descriptions rule"; return; } ! 804, case 1
+		if (R == PREFER_UNABBREVIATED_R) { print "prefer unabbreviated room descriptions rule"; return; } ! 805, case 1
+		if (R == REP_PREFER_UNABBREVIATED_R) { print "standard report preferring unabbreviated room descriptions rule"; return; } ! 806, case 1
+		if (R == PREFER_SOMETIMES_ABBREVIATED_R) { print "prefer sometimes abbreviated room descriptions rule"; return; } ! 807, case 1
+		if (R == REP_PREFER_SOMETIMES_ABBR_R) { print "standard report preferring sometimes abbreviated room descriptions rule"; return; } ! 808, case 1
+		if (R == SWITCH_SCORE_NOTIFY_ON_R) { print "switch score notification on rule"; return; } ! 809, case 1
+		if (R == REP_SWITCH_NOTIFY_ON_R) { print "standard report switching score notification on rule"; return; } ! 810, case 1
+		if (R == SWITCH_SCORE_NOTIFY_OFF_R) { print "switch score notification off rule"; return; } ! 811, case 1
+		if (R == REP_SWITCH_NOTIFY_OFF_R) { print "standard report switching score notification off rule"; return; } ! 812, case 1
+		if (R == ANNOUNCE_PRONOUN_MEANINGS_R) { print "announce the pronoun meanings rule"; return; } ! 813, case 1
 
 		print "(nameless rule at address ", R, ")";
 	}
@@ -26275,6 +26346,10 @@ Array CheckTableEntryIsNonBlank_LU
     x=noun;
     return ((noun ofclass K2_thing) && ((Adj_70_t1_v9(noun))));
 ];
+[ Noun_Filter_5 x;
+    x=noun;
+    return ((noun == I92_flashlight));
+];
 
 
 #IFDEF DEBUG;
@@ -26811,8 +26886,8 @@ Verb meta 'tree'
 
 [ LITTLE_USED_DO_NOTHING_R; rfalse; ];
 
-Array LIST_CONST_1272 --> 0 9 2 (I125_base) (I124_finderscope) ;
-Array LIST_CONST_1279 --> 0 9 2 (I126_scope_base) (I113_screw_key) ;
+Array LIST_CONST_1365 --> 0 9 2 (I126_base) (I125_finderscope) ;
+Array LIST_CONST_1372 --> 0 9 2 (I127_scope_base) (I114_screw_key) ;
 
 
 
@@ -26941,6 +27016,43 @@ Array LIST_CONST_1279 --> 0 9 2 (I126_scope_base) (I113_screw_key) ;
        WriteListFrom(child(t_0), 264); 
    rfalse;
 ];
+! Request 8: phrase nothing -> nothing
+! To say exit list:
+[ PHR_741_r8 
+    t_0 ! Local variable e.g. 'place' = object
+    t_1 ! Local variable e.g. '?-1,-1?' = direction
+    t_2 ! Local variable e.g. '?-1,-1?' = direction
+    ;
+      ! phrase 1
+      ! [1: let place be location]
+       t_0 = real_location; 
+      ! phrase 2
+      ! [2: repeat with way running through directions begin]
+       for (t_1=Prop_25(0), t_2=Prop_25(t_1): t_1: t_1=t_2, t_2=Prop_25(t_2))  {
+           if (debug_rules>1) print "  [repetition with way set to ", (PrintShortName) t_1, "]^";
+         ! phrase 3
+         ! [3: let place be the room way from the location]
+          t_0 = (Resolver_5(t_1,real_location,"source", 14)); 
+         ! phrase 4
+         ! [4: if place is a room , say ~ [way]~]
+          if (((t_0 ofclass K1_room))) { say__p=1;ParaContent();  print (PrintText) SC_63; ParaContent();  print (PrintShortName) t_1;  .L_Say59; .L_SayX59;  }
+         ! phrase 5
+         ! [5: end repeat]
+         }
+
+        if (debug_rules>1) print "  [5: end repeat]^";
+   rfalse;
+];
+[ text_routine_0;
+say__p=1;ParaContent();  print (PrintText) SC_87; ParaContent(); (PHR_741_r8 ()); .L_Say60; .L_SayX60;
+    rtrue;
+];
+
+[ text_routine_1;
+say__p=1;ParaContent();  print (PrintShortName) real_location;  .L_Say61; .L_SayX61;
+    rtrue;
+];
+
 
 
 
@@ -26961,11 +27073,11 @@ Array LIST_CONST_1279 --> 0 9 2 (I126_scope_base) (I113_screw_key) ;
 ];
 
 [ PAPR_0 ;
-if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I127_bob) && (true))) rtrue;
+if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I128_bob) && (true))) rtrue;
     rfalse;
 ];
 [ PAPR_1 ;
-if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I128_wilfred) && (true))) rtrue;
+if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I129_wilfred) && (true))) rtrue;
     rfalse;
 ];
 [ PAPR_2 ;
@@ -26977,49 +27089,53 @@ if ((action ==##Examine) &&  (actor==player) && ((noun == I95_vase) && (true))) 
     rfalse;
 ];
 [ PAPR_4 ;
-if ((action ==##Take) &&  (actor==player) && ((noun == I100_paintings) && (true))) rtrue;
+if ((action ==##Take) &&  (actor==player) && ((noun == I101_paintings) && (true))) rtrue;
     rfalse;
 ];
 [ PAPR_5 ;
-if ((action ==##Examine) &&  (actor==player) && ((noun == I104_telescope) && (true))) rtrue;
+if ((action ==##Examine) &&  (actor==player) && ((noun == I105_telescope) && (true))) rtrue;
     rfalse;
 ];
 [ PAPR_6 ;
-if ((action ==##Open) &&  (actor==player) && ((noun == I112_safe) && (true))) rtrue;
+if ((action ==##Open) &&  (actor==player) && ((noun == I113_safe) && (true))) rtrue;
     rfalse;
 ];
 [ PAPR_7 ;
-if ((action ==##Take) &&  (actor==player) && ((noun == I114_broken_glass) && (true))) rtrue;
+if ((action ==##Take) &&  (actor==player) && ((noun == I115_broken_glass) && (true))) rtrue;
     rfalse;
 ];
 [ PAPR_8 ;
-if ((action ==##Examine) &&  (actor==player) && ((noun == I113_screw_key) && (true))) rtrue;
+if ((action ==##A81_turning_on) &&  (actor==player) && ((noun == I92_flashlight) && (true))) rtrue;
     rfalse;
 ];
 [ PAPR_9 ;
-if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I127_bob) && (true))) rtrue;
+if ((action ==##Examine) &&  (actor==player) && ((noun == I114_screw_key) && (true))) rtrue;
     rfalse;
 ];
 [ PAPR_10 ;
-if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I128_wilfred) && (true))) rtrue;
+if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I128_bob) && (true))) rtrue;
     rfalse;
 ];
 [ PAPR_11 ;
-if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I127_bob) && (true))) rtrue;
+if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I129_wilfred) && (true))) rtrue;
     rfalse;
 ];
 [ PAPR_12 ;
-if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I128_wilfred) && (true))) rtrue;
+if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I128_bob) && (true))) rtrue;
     rfalse;
 ];
 [ PAPR_13 ;
+if ((action ==##A83_talking_to) &&  (actor==player) && ((noun == I129_wilfred) && (true))) rtrue;
+    rfalse;
+];
+[ PAPR_14 ;
 if ((action ==##Open) &&  (actor==player) && ((noun ofclass K4_door))) rtrue;
     rfalse;
 ];
-Array PastActionsI6Routines --> PAPR_0 PAPR_1 PAPR_2 PAPR_3 PAPR_4 PAPR_5 PAPR_6 PAPR_7 PAPR_8 PAPR_9 PAPR_10 PAPR_11 PAPR_12 PAPR_13 0 0;
+Array PastActionsI6Routines --> PAPR_0 PAPR_1 PAPR_2 PAPR_3 PAPR_4 PAPR_5 PAPR_6 PAPR_7 PAPR_8 PAPR_9 PAPR_10 PAPR_11 PAPR_12 PAPR_13 PAPR_14 0 0;
 
 Constant NO_PAST_TENSE_CONDS 0;
-Constant NO_PAST_TENSE_ACTIONS 14;
+Constant NO_PAST_TENSE_ACTIONS 15;
 
 [ TestSinglePastState past_flag pt turn_end wanted
 	old new trips consecutives ct_0 ct_1 I7BASPL;
@@ -27414,7 +27530,7 @@ Verb 'hide'
     * held 'under' noun  -> A80_hiding_it_under
 ;
 Verb 'use'
-    * noun  -> A81_turning_on
+    * noun=Noun_Filter_5  -> A81_turning_on
 ;
 Verb 'combine'
     * noun 'with' noun  -> A82_combining_it_with
@@ -28665,6 +28781,21 @@ Array Rel_Record_65 -->
     rfalse;
 ];
 
+! Find next x satisfying:
+! [ direction(x) ]
+[ Prop_25  x x_ix ;
+    if (x_ix > 0) {
+        x_ix--;
+        jump NextOuterLoop_4;
+    }
+    if (x) jump NextOuterLoop_4;
+    for (x=IK3_First: x: x=x.IK3_Link){
+        return x;
+        .NextOuterLoop_4;
+    }
+    return nothing;
+];
+
 
 
 
@@ -28688,95 +28819,102 @@ ArgumentTypeFailed(filename, line);
 if ((((t_1 ofclass K1_room)))) { return  RoomOrDoorFrom(t_1,t_0) ; }
 ArgumentTypeFailed(filename, line);
   rfalse; ];
+[ Resolver_5 t_0 t_1 filename line;
+if ((((t_1 ofclass K1_room)))) { return  MapConnection(t_1,t_0) ; }
+ArgumentTypeFailed(filename, line);
+  rfalse; ];
 
 
 
 Array ConstantListPointers --> 
-LIST_CONST_1272 LIST_CONST_1279  0 0;
+LIST_CONST_1365 LIST_CONST_1372  0 0;
 
-Constant SC_62 = " ";
-Constant SC_80 = " and ";
-Constant SC_76 = " here";
-Constant SC_81 = " into anything useful.";
-Constant SC_66 = " or ";
-Constant SC_71 = " you ";
-Constant SC_67 = ", ";
-Constant SC_65 = ",";
-Constant SC_77 = ".";
-Constant SC_49 = ": ";
-Constant SC_78 = ":";
-Constant SC_68 = "> ";
-Constant SC_42 = ">";
-Constant SC_64 = "?";
+Constant SC_63 = " ";
+Constant SC_20 = " A room full of memories such as paintings and books. This was Mr. Rich's secret room that not many people knew about because it was above the bathroom.";
+Constant SC_82 = " and ";
+Constant SC_78 = " here";
+Constant SC_83 = " into anything useful.";
+Constant SC_68 = " or ";
+Constant SC_73 = " you ";
+Constant SC_69 = ", ";
+Constant SC_67 = ",";
+Constant SC_79 = ".";
+Constant SC_50 = ": ";
+Constant SC_80 = ":";
+Constant SC_70 = "> ";
+Constant SC_43 = ">";
+Constant SC_66 = "?";
 Constant SC_4 = "A highly respected police officer with the highest honors.";
-Constant SC_21 = "A lot of big fantasy reading books, but also a lot of politics and money management.";
-Constant SC_27 = "A place for sleeping.";
-Constant SC_20 = "Artwork from Mr. Rich's childhood days. You may want to take them and give it to the family.";
-Constant SC_15 = "Bob is the butler of Mr. Rich's mansion. He is here everyday and helps out in any way that he can.";
-Constant SC_50 = "Hello Officer, I may be able to assist you. Before Mr. Rich got murdered, he gave me a box and said to never let this out of sight, but I could never find the key for it. So, if you can find the key, we can open it and see what is inside. The only clue he gave me was that the key is somewhere up high.";
-Constant SC_70 = "In ";
+Constant SC_22 = "A lot of big fantasy reading books, but also a lot of politics and money management.";
+Constant SC_28 = "A place for sleeping.";
+Constant SC_21 = "Artwork from Mr. Rich's childhood days. Taking the paintings for the family will be very appreciated.";
+Constant SC_16 = "Bob is the butler of Mr. Rich's mansion. He is here everyday and helps out in any way that he can.";
+Constant SC_87 = "Exits: ";
+Constant SC_51 = "Hello Officer, I may be able to assist you. Before Mr. Rich got murdered, he gave me a hint to opening his safe because he had a feeling that his death was imminent. He said that there are many objects and you may have to combine things to open it. I just didn't know what items combined with each other. If you can figure it out, you can open it.";
+Constant SC_72 = "In ";
 Constant SC_2 = "Jordan Tome";
-Constant SC_19 = "Many paintings and books.";
-Constant SC_72 = "On ";
-Constant SC_46 = "QUIT";
-Constant SC_43 = "RESTART";
-Constant SC_44 = "RESTORE a saved game";
-Constant SC_51 = "Sup Officer, I didn't do anything. I've been in this Man Cave ever since I got here and I am also Mr. Rich's best friend. There is no way I would have committed a murder. Please tell me who killed my best friend when you find out. Thank you.";
-Constant SC_39 = "There are many different tools on this workbench.";
-Constant SC_48 = "There has been a murder in the mansion on Royal boulevard. You are one of Hawaii's most famous detectives. Find out the murder weapon that killed Rich, the mansion owner. This case, if solved, could get you the promotion to  assistant chief. You are successful once you can get the chief the weapon.^^You find your way to the Boat to begin the search.";
-Constant SC_37 = "There is a car, a workbench, and many tools.";
-Constant SC_82 = "Try another combination of things.";
-Constant SC_47 = "UNDO the last command";
-Constant SC_36 = "Wilfred is Mr. Rich's best friend. He use to be homeless, but Mr. Rich decided to let him sleep and live in the Man cave. He is very sloppy, but respects Mr. Rich very much and does whatever he can to help around.";
-Constant SC_63 = "Would you like to ";
-Constant SC_54 = "Yay! you can finally see something in this dark dark room.";
-Constant SC_69 = "You ";
-Constant SC_79 = "You can't combine ";
-Constant SC_83 = "You fuse together ";
-Constant SC_56 = "You gave the murder weapon to the chief and he will now take it to forensics. The chief is grateful for your work and has promoted you to assistant chief.";
-Constant SC_84 = "You now have a ";
-Constant SC_29 = "a big safe for certain items.";
+Constant SC_74 = "On ";
+Constant SC_47 = "QUIT";
+Constant SC_44 = "RESTART";
+Constant SC_45 = "RESTORE a saved game";
+Constant SC_52 = "Sup Officer, I didn't do anything. I've been in this Man Cave ever since I got here and I am also Mr. Rich's best friend. There is no way I would have committed a murder. Please tell me who killed my best friend when you find out. Thank you.";
+Constant SC_40 = "There are many different tools on this workbench.";
+Constant SC_49 = "There has been a murder in the mansion on Royal boulevard. You are one of Hawaii's most famous detectives. Find out the murder weapon that killed Rich, the mansion owner. This case, if solved, could get you the promotion to  assistant chief. You are successful once you can get the chief the weapon.^^You find your way to the Boat to begin the search.";
+Constant SC_38 = "There is a car, a workbench, and many tools.";
+Constant SC_84 = "Try another combination of things.";
+Constant SC_48 = "UNDO the last command";
+Constant SC_37 = "Wilfred is Mr. Rich's best friend. He use to be homeless, but Mr. Rich decided to let him sleep and live in the Man cave. He is very sloppy, but respects Mr. Rich very much and does whatever he can to help around.";
+Constant SC_65 = "Would you like to ";
+Constant SC_55 = "Yay! you can finally see something in this dark dark room.";
+Constant SC_71 = "You ";
+Constant SC_81 = "You can't combine ";
+Constant SC_64 = "You don't have enough hands to take all these items at once.";
+Constant SC_85 = "You fuse together ";
+Constant SC_57 = "You gave the murder weapon to the chief and he will now take it to forensics. The chief is grateful for your work and has promoted you to assistant chief.";
+Constant SC_86 = "You now have a ";
+Constant SC_30 = "a big safe for certain items.";
 Constant SC_14 = "a circular object that holds flowers. There are many colorful flowers in this vase.";
-Constant SC_17 = "a device to clean your teeth.";
-Constant SC_34 = "a fun game where you have to shoot the balls into the pockets.";
-Constant SC_52 = "a gold key appears from underneath the paintings.";
+Constant SC_18 = "a device to clean your teeth, but the toothbrush is evidence so you can't brush your teeth.";
+Constant SC_35 = "a fun game where you have to shoot the balls into the pockets.";
+Constant SC_53 = "a gold key appears from underneath the paintings.";
 Constant SC_7 = "a gun shaped item used in case of emergency.";
-Constant SC_35 = "a huge tv made for watching movies and football.";
-Constant SC_25 = "a large tv meant to watch cooking shows for ideas.";
+Constant SC_36 = "a huge tv made for watching movies and football.";
+Constant SC_26 = "a large tv meant to watch cooking shows for ideas.";
 Constant SC_13 = "a long table that has nice furnishings. Not many things on this table.";
 Constant SC_5 = "a magnificant yacht called the USS Shayna in honor of Mr. Rich's late wife. There is a fire extinguisher and a flare gun. There may be more clues inside the house.";
-Constant SC_23 = "a place for cooking with a knife, and a TV.";
-Constant SC_26 = "a place for sleeping. There is a bed, a clock, and a safe.";
-Constant SC_16 = "a place to do your business. There is a toothbrush and a toilet. It looks like there might be a room above you as well.";
-Constant SC_32 = "a place where specialty drinks and maitai's are made.";
-Constant SC_12 = "a place where the family came to eat. There is a dining table, a vase with flowers, and a butler named bob.";
-Constant SC_18 = "a porcelain seat with water inside. It is clogged and unusable.";
+Constant SC_24 = "a place for cooking with a knife, and a TV.";
+Constant SC_27 = "a place for sleeping. There is a bed, a clock, and a safe.";
+Constant SC_17 = "a place to do your business. There is a toothbrush and a toilet. It looks like there might be a room above you as well.";
+Constant SC_33 = "a place where specialty drinks and maitai's are made.";
+Constant SC_12 = "a place where the family came to eat. There is a dining table, a vase, and a butler named bob.";
+Constant SC_19 = "a porcelain seat with water inside. It is clogged and unusable.";
 Constant SC_6 = "a red tank that suppresses fires.";
-Constant SC_24 = "a sharp miracle blade.";
-Constant SC_38 = "a silky smooth black bentley, but it seems to be locked.";
+Constant SC_25 = "a sharp miracle blade.";
+Constant SC_39 = "a silky smooth black bentley, but it seems to be locked.";
 Constant SC_10 = "a telescope that has been smashed, but some parts are still intact, may be used for something else.";
-Constant SC_59 = "after taking a closer look, you notice that this was the weapon the killer used based on Mr. Rich's wounds.";
-Constant SC_74 = "also ";
-Constant SC_28 = "an annoying device that is dead and can't be turned on.";
+Constant SC_60 = "after taking a closer look, you notice that this was the weapon the killer used based on Mr. Rich's wounds.";
+Constant SC_76 = "also ";
+Constant SC_29 = "an annoying device that is dead and can't be turned on.";
 Constant SC_8 = "an object that can be used for lighting places up.";
-Constant SC_22 = "an ordinary gold key.";
-Constant SC_73 = "can ";
-Constant SC_30 = "couple pieces of glass with blood stains.";
+Constant SC_23 = "an ordinary gold key.";
+Constant SC_75 = "can ";
+Constant SC_31 = "couple pieces of glass with blood stains.";
 Constant SC_9 = "greenhouse with plants and a broken telescope. Something about the telescope might help you.";
-Constant SC_60 = "no time for sitting, get back on the case!";
-Constant SC_57 = "no time for sleeping, get back on the case!";
-Constant SC_40 = "screwdrivers, hammers, and nails, everything you need to fix a problem.";
-Constant SC_75 = "see ";
-Constant SC_45 = "see some suggestions for AMUSING things to do";
+Constant SC_15 = "many red roses that were for Mrs. Rich.";
+Constant SC_61 = "no time for sitting, get back on the case!";
+Constant SC_58 = "no time for sleeping, get back on the case!";
+Constant SC_41 = "screwdrivers, hammers, and nails, everything you need to fix a problem.";
+Constant SC_77 = "see ";
+Constant SC_46 = "see some suggestions for AMUSING things to do";
 Constant SC_3 = "the";
-Constant SC_31 = "there is a bar, couches, pool table, 100~ tv, and Wilfred, Mr. Rich's best friend. There is a room underneath you as well.";
-Constant SC_58 = "there is a piece of broken glass in here.";
-Constant SC_53 = "there is no time for watching cooking shows. Get back to solving the murder.";
-Constant SC_55 = "there is nothing more I can do to help.";
-Constant SC_33 = "very comfortable as if sitting on a cloud.";
-Constant SC_61 = "you are in the bedroom.";
+Constant SC_32 = "there is a bar, couches, pool table, 100~ tv, and Wilfred, Mr. Rich's best friend. There is a room underneath you as well.";
+Constant SC_59 = "there is a piece of broken glass in here.";
+Constant SC_54 = "there is no time for watching cooking shows. Get back to solving the murder.";
+Constant SC_56 = "there is nothing more I can do to help.";
+Constant SC_34 = "very comfortable as if sitting on a cloud.";
+Constant SC_62 = "you are in the bedroom.";
 Constant SC_11 = "you combined the Scope Base with the screw to get screw key.";
-Constant SC_41 = "you combined the finderscope with the base to get scope base. It seems that you might be able to add one more part.";
+Constant SC_42 = "you combined the finderscope with the base to get scope base. It seems that you might be able to add one more part.";
 
 #ifndef p0_specification; Constant p0_specification = 0; #endif;
 #ifndef p1_indefinite_appearance_tex; Constant p1_indefinite_appearance_tex = 0; #endif;

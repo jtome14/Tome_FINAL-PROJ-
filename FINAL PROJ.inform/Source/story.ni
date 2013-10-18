@@ -3,6 +3,18 @@
 The target score is a number variable. The target score is 8.
 The maximum score is 10
 
+[Map from Get that Cat]
+
+When play begins: 
+    Now left hand status line is "Exits: [exit list]"; 
+    Now right hand status line is "[location]".
+To say exit list: 
+	Let place be location; 
+	Repeat with way running through directions: 
+		Let place be the room way from the location; 
+		If place is a room, say " [way]".
+
+
 When play begins: say "There has been a murder in the mansion on Royal boulevard. You are one of Hawaii's most famous detectives. Find out the murder weapon that killed Rich, the mansion owner. This case, if solved, could get you the promotion to  assistant chief. You are successful once you can get the chief the weapon.
 
 You find your way to the Boat to begin the search."
@@ -25,30 +37,34 @@ After examining the flashlight for the first time: increase score by 1.
 The Conservatory is a room. It is west of the living room. The description of the conservatory is "greenhouse with plants and a broken telescope. Something about the telescope might help you."
 
 
-The Living room is a room. The description of the living room is "a place where the family came to eat. There is a dining table, a vase with flowers, and a butler named bob."
+The Living room is a room. The description of the living room is "a place where the family came to eat. There is a dining table, a vase, and a butler named bob."
 
 The dining table is scenery. It is inside the living room. The description is "a long table that has nice furnishings. Not many things on this table." 
 
 
 The vase is scenery. It is inside the living room. The description is "a circular object that holds flowers. There are many colorful flowers in this vase."
+
+The flowers is a thing. It is in the vase. The description is "many red roses that were for Mrs. Rich." 
+
 After examining the vase for the first time: increase score by 1.
 
 
 
 The Bathroom is a room. It is north of the living room. The description of the bathroom is "a place to do your business. There is a toothbrush and a toilet. It looks like there might be a room above you as well." 
 
-The toothbrush is a thing. It is in the bathroom. The description of the toothbrush is "a device to clean your teeth." 
+The toothbrush is a thing. It is in the bathroom. The description of the toothbrush is "a device to clean your teeth, but the toothbrush is evidence so you can't brush your teeth." 
 
 The toilet is scenery. It is in the bathroom. The description of the toilet is "a porcelain seat with water inside. It is clogged and unusable." 
 
 
-The Attic is a dark room. It is above the bathroom. The description of the attic is "Many paintings and books."
+The Attic is a dark room. It is above the bathroom. The description of the attic is " A room full of memories such as paintings and books. This was Mr. Rich's secret room that not many people knew about because it was above the bathroom."
 
-The paintings is a thing. It is in the attic. The description of the paintings is "Artwork from Mr. Rich's childhood days. You may want to take them and give it to the family."
+The paintings is a thing. It is in the attic. The description of the paintings is "Artwork from Mr. Rich's childhood days. Taking the paintings for the family will be very appreciated."
 
 The books is a thing. It is in the attic. The description of the books is "A lot of big fantasy reading books, but also a lot of politics and money management." 
 
 
+[hiding action, taking from inform 7 handbook]
 Hiding it under is an action applying to one carried thing and one thing. Understand "put [something preferably held] under [something]" as hiding it under. Understand "hide [something preferably held] under [something]" as hiding it under.
 
 The gold key is a thing.
@@ -73,7 +89,7 @@ After examining the telescope for the first time: increase score by 1.
 understand "turn on [something]" as turning on.
 Turning on is an action applying to one thing.
 
-Understand "use [something]" as turning on.
+Understand "use [flashlight]" as turning on.
  
 The kitchen is a room. It is east of the living room. The description of the kitchen is "a place for cooking with a knife, and a TV."
 
@@ -95,7 +111,7 @@ After entering the bed, say "no time for sleeping, get back on the case!"
 
 The clock is a thing. It is in the bedroom. The description is "an annoying device that is dead and can't be turned on." 
 
-The safe is a thing. It is in the bedroom. The description is "a big safe for certain items." 
+The safe is fixed in place. It is in the bedroom. The description is "a big safe for certain items." 
 
 
 After opening the door:
@@ -125,33 +141,34 @@ After taking the glass for the first time: increase score by 1.
 
 The Man cave is a room. It is south of the living room. The description of the man cave is "there is a bar, couches, pool table, 100' tv, and Wilfred, Mr. Rich's best friend. There is a room underneath you as well." 
 
-The bar is scenery. It is in the man cave. The description is "a place where specialty drinks and maitai's are made."
+The bar is fixed in place. It is in the man cave. The description is "a place where specialty drinks and maitai's are made."
 
-The couches are scenery. It is in the man cave. The description is "very comfortable as if sitting on a cloud." 
+The couches are an enterable supporter. It is in the man cave. The description is "very comfortable as if sitting on a cloud." 
 
 After entering the couches, say "no time for sitting, get back on the case!" 
 
-The pool table is scenery. It is in the man cave. The description is "a fun game where you have to shoot the balls into the pockets." 
+The pool table is fixed in place. It is in the man cave. The description is "a fun game where you have to shoot the balls into the pockets." 
 
-The 100' tv is a thing. It is in the man cave. The description is "a huge tv made for watching movies and football." 
+The 100' tv is fixed in place. It is in the man cave. The description is "a huge tv made for watching movies and football." 
 
 The Garage is a room. It is below the man cave. The description of the garage is "There is a car, a workbench, and many tools."
 
-The car is a thing. It is in the garage. The description is "a silky smooth black bentley, but it seems to be locked." 
+The car is an enterable supporter. It is in the garage. The description is "a silky smooth black bentley, but it seems to be locked." 
 
-The workbench is a thing. It is in the garage. The description is "There are many different tools on this workbench." 
+The workbench is fixed in place. It is in the garage. The description is "There are many different tools on this workbench." 
 
 The tools is a thing. It is in the garage. The description is "screwdrivers, hammers, and nails, everything you need to fix a problem."
 
+[flashlight action, taking from inform 7 handbook]
 
 The flashlight is a device. It is in the boat. The flashlight is unlit.
 
 The flashlight is switched off. 
 
 After switching on the flashlight in the attic: say "Yay! you can finally see something in this dark dark room."; now the flashlight is lit. 
-After turning on flashlight: increase score by 1.
+After turning on the flashlight for the first time: increase score by 1.
 
-The telescope is a container. The description of the telescope is "a telescope that has been smashed, but some parts are still intact, may be used for something else."
+The telescope is fixed in place. The description of the telescope is "a telescope that has been smashed, but some parts are still intact, may be used for something else."
 The finderscope is a thing. it is inside the telescope. 
 The screw is a thing. It is inside the telescope.
 The base is a thing. It is inside the telescope.
@@ -197,9 +214,9 @@ Parts List	Results
 {base, finderscope}	Scope Base
 {scope base, screw}  	Screw Key 
 
-scope base is an object. The description of the scope base is "you combined the finderscope with the base to get scope base. It seems that you might be able to add one more part."
+The scope base is an object. The description of the scope base is "you combined the finderscope with the base to get scope base. It seems that you might be able to add one more part."
 
-screw key is an object. The description of the screw key is "you combined the Scope Base with the screw to get screw key."
+The screw key is a thing. The description of the screw key is "you combined the Scope Base with the screw to get screw key."
 After examining the screw key for the first time: increase score by 1.
 
 [NPC]
@@ -215,7 +232,7 @@ After talking to wilfred for the first time: increase score by 1.
 
 
 Instead of talking to Bob for the first time:
-	say "Hello Officer, I may be able to assist you. Before Mr. Rich got murdered, he gave me a box and said to never let this out of sight, but I could never find the key for it. So, if you can find the key, we can open it and see what is inside. The only clue he gave me was that the key is somewhere up high."
+	say "Hello Officer, I may be able to assist you. Before Mr. Rich got murdered, he gave me a hint to opening his safe because he had a feeling that his death was imminent. He said that there are many objects and you may have to combine things to open it. I just didn't know what items combined with each other. If you can figure it out, you can open it." 
 	
 After talking to Bob for the first time: 
 	say "there is nothing more I can do to help."
@@ -244,6 +261,16 @@ Understand "give [thing] to [someone]" as giving it.
 After giving the broken glass to chief:
 	say "You gave the murder weapon to the chief and he will now take it to forensics. The chief is grateful for your work and has promoted you to assistant chief.";
 	End the game in victory.
+	
+
+[Disable take all: From Tonic]
+Rule for deciding whether all includes something: 
+	stop.
+	
+Rule for printing a parser error when the latest parser error is the nothing to do error: 
+	say "You don't have enough hands to take all these items at once." instead.
+
+
 
 
 
