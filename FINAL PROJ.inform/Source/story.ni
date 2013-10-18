@@ -96,7 +96,7 @@ The kitchen is a room. It is east of the pool door. The description of the kitch
 The knife is a thing. It is in the kitchen. The description is "a sharp miracle blade." 
 
 
-The tv is a device. It is in the kitchen. The description is "a large tv meant to watch cooking shows for ideas." 
+The tv is a device. It is fixed in place. It is in the kitchen. The description is "a large tv meant to watch cooking shows for ideas." 
 
 The tv is switched off. 
 
@@ -115,7 +115,7 @@ The clock is a thing. It is in the bedroom. The description is "an annoying devi
 The safe is fixed in place. It is in the bedroom. The description is "a big safe for certain items." 
 
 
-After opening the door:
+After opening the gold door:
 	move player to the bedroom;
 	say "you are in the bedroom."
 	
@@ -128,7 +128,6 @@ The gold door is a door. It is west of the bedroom and east of the kitchen. It i
 The safe is a container. It is closed and openable container. It is locked and lockable. 
 The screw key unlocks the safe.
 
-After opening the safe for the first time: increase score by 1.
 
 After opening the safe: say "there is a piece of broken glass in here." 
 
@@ -158,9 +157,13 @@ The pool door is a door. It is east of the living room and west of the kitchen. 
 
 The description of the pool door is "a special door that seems to be locked. There may be a special pool stick that will open it." 
 
+After opening the pool door:
+	move player to the kitchen;
+	say "you are in the kitchen."
+	
 
 
-The 100' tv is fixed in place. It is in the man cave. The description is "a huge tv made for watching movies and football." 
+The 100' TV is fixed in place. It is in the man cave. The description is "a huge tv made for watching movies and football." 
 
 The Garage is a room. It is below the man cave. The description of the garage is "There is a car, a workbench, and many tools."
 
@@ -258,21 +261,22 @@ After talking to Wilfred for the first time:
 	say "there is nothing more I can do to help."
 
 
-The chief is a man. he is undescribed. 
-Instead of taking broken glass:
-	move chief to bedroom;
-	move broken glass to player.
+The chief is a man. He is undescribed. 
+After taking broken glass for the first time: 
+	move broken glass to chief; 
+	say "thank you for the evidence son."
 	
+	
+
 
 Understand the command "give [thing] to [someone]" as something new.
 Giving it in is an action applying to two things.
 Understand "give [thing] to [someone]" as giving it.
 
 [Winning action]
-After giving the broken glass to chief:
-	say "You gave the murder weapon to the chief and he will now take it to forensics. The chief is grateful for your work and has promoted you to assistant chief.";
-	End the game in victory.
-	
+An every turn rule:
+If player has broken glass,
+end the game in victory.
 
 [Disable take all: From Tonic]
 Rule for deciding whether all includes something: 
