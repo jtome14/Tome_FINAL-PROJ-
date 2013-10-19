@@ -19,6 +19,7 @@ When play begins: say "There has been a murder in the mansion on Royal boulevard
 
 You find your way to the Boat to begin the search."
 
+[player description]
 The description of player is "A highly respected police officer with the highest honors."
 
 The Boat is a room. It is outside of the conservatory. The description of the boat is "a magnificant yacht called the USS Shayna in honor of Mr. Rich's late wife. There is a fire extinguisher and a flare gun. There may be more clues inside the house."
@@ -126,7 +127,7 @@ The gold door is a door. It is west of the bedroom and east of the kitchen. It i
 
 
 The safe is a container. It is closed and openable container. It is locked and lockable. 
-The screw key unlocks the safe.
+The lens key unlocks the safe.
 
 
 After opening the safe: say "there is a piece of broken glass in here." 
@@ -183,9 +184,11 @@ After switching on the flashlight in the attic: say "Yay! you can finally see so
 After turning on the flashlight for the first time: increase score by 1.
 
 The telescope is fixed in place. The description of the telescope is "a telescope that has been smashed, but some parts are still intact, may be used for something else."
-The finderscope is a thing. it is inside the telescope. 
-The screw is a thing. It is inside the telescope.
-The base is a thing. It is inside the telescope.
+The finderscope is a thing. it is in the conservatory.
+The screw is a thing. It is in the conservatory.
+The base is a thing. it is in the conservatory. 
+
+
 
 
 [The combining action]
@@ -226,14 +229,16 @@ Report combining it with:
 Table of Arm Parts
 Parts List	Results
 {base, finderscope}	Scope Base
-{scope base, screw}  	Screw Key 
+{scope base, screw}  	lens Key 
+
+
 
 The scope base is an object. The description of the scope base is "you combined the finderscope with the base to get scope base. It seems that you might be able to add one more part."
 
-The screw key is a thing. The description of the screw key is "you combined the Scope Base with the screw to get screw key."
-After examining the screw key for the first time: increase score by 1.
+The lens key is a thing. The description of the lens key is "you combined the Scope Base with the screw to get lens key."
+After examining the lens key for the first time: increase score by 1.
 
-[NPC]
+[NPCs, Inform handbook]
 
 Talking to is an action applying to one visible thing. Understand "talk to [someone]" or "converse with [someone]" as talking to.
 
@@ -261,24 +266,15 @@ After talking to Wilfred for the first time:
 	say "there is nothing more I can do to help."
 
 
-The chief is a man. He is undescribed. 
-After taking broken glass for the first time: 
-	move broken glass to chief; 
-	say "thank you for the evidence son."
-	
-	
 
-
-Understand the command "give [thing] to [someone]" as something new.
-Giving it in is an action applying to two things.
-Understand "give [thing] to [someone]" as giving it.
 
 [Winning action]
 An every turn rule:
-If player has broken glass,
-end the game in victory.
+	If player has broken glass:
+		say "you have figured out the murder weapon and the Rich family thanks you for that. Now the police can look for DNA matches and catch the killer.";
+		end the game in victory.
 
-[Disable take all: From Tonic]
+[Disable take all: From Tonic by Brianna Hartner]
 Rule for deciding whether all includes something: 
 	stop.
 	
